@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101927">
-<meta name="description" content="A Philippine pop culture museum, 2000–2010. Nine sourced exhibits, nine mini-games.">
+<meta name="description" content="A Philippine pop culture museum, 2000–2010. Nine sourced exhibits, thirteen games.">
 <title>The 2000s Called — A Philippine Pop Culture Museum</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +161,40 @@ body.no-scroll{overflow:hidden}
 #to-top{transition:none}
 }
 
+/* ============ PASS 2: arcade numbers, sukli, modem, ticker, stats, guestbook ============ */
+.arc-count{font-family:'Space Mono',monospace;font-weight:800;font-size:.75rem;letter-spacing:.1em;background:#101927;color:#f4c65b;padding:8px 14px;border-radius:20px;white-space:nowrap}
+.arc-num{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ff835d;color:#101927;font-family:'Space Mono',monospace;font-weight:800;font-size:.82rem;margin-right:9px;vertical-align:2px}
+.arc-card.shake{animation:shake .45s ease}
+.suk-screen{padding:12px 14px;font-size:1rem;word-break:break-all}
+.suk-screen small{display:block;font-size:.72rem;opacity:.75;margin-bottom:6px}
+.suk-screen b{color:#f4c65b}
+.suk-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;max-width:360px}
+.suk-pad button{background:#1c2b3d;border:1.5px solid #46586d;color:#fff;font-weight:800;min-height:58px;font-size:1.05rem}
+.suk-pad button small{display:block;font-family:'Space Mono',monospace;color:#fbdea1;font-size:.68rem;font-weight:400}
+.suk-pad button:active{background:#374fbc}
+.modem-box{margin-top:22px;border:1.5px dashed #46586d;padding:16px 18px;background:#0d1622}
+.modem-box h4{margin:0 0 6px;color:#fff;font-size:1rem;font-weight:800}
+.modem-box>p{margin:0 0 12px;color:#b9c8ca;font-size:.88rem}
+.modem-lights{display:flex;gap:8px;margin-bottom:10px}
+.modem-lights .ml{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.08em;padding:4px 10px;border:1px solid #46586d;color:#5b7085;background:#1c2b3d}
+.modem-lights .ml.on{background:#3fae6b;color:#101927;border-color:#3fae6b;font-weight:800}
+.modem-lights .ml.blink.on{animation:mlblink .5s steps(2) infinite}
+@keyframes mlblink{50%{opacity:.35}}
+.modem-status{font-family:'Space Mono',monospace;color:#fbdea1;font-size:.85rem;min-height:1.6em;margin:0 0 12px}
+.year-ticker{background:#101927;color:#8fa4b5;overflow:hidden;white-space:nowrap;border-top:2px solid #ff835d;font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.year-ticker-inner{display:inline-block;padding:9px 0;animation:mq 42s linear infinite}
+.year-ticker-inner span{padding:0 26px}
+.year-ticker:hover .year-ticker-inner{animation-play-state:paused}
+.stats-strip{background:#f9f8f2;border-bottom:2px solid var(--ink)}
+.stats-row{display:flex;gap:34px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.stats-row>div{display:flex;align-items:baseline;gap:9px}
+.stats-row b{font-family:'Archivo Black',Impact,sans-serif;font-size:1.35rem;color:#374fbc}
+.stats-row span{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.gb-badge{display:inline-block;background:#3fae6b;color:#101927;font-family:'Space Mono',monospace;font-size:.68rem;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:20px;margin:0 0 12px;vertical-align:middle}
+.gb-note{color:#8fa4b5;font-size:.8rem;font-style:italic;margin:0 0 18px;max-width:620px}
+.gb-form input:focus,.gb-form textarea:focus{outline:2px solid var(--orange);outline-offset:1px;border-color:var(--orange)}
+@media(prefers-reduced-motion:reduce){.year-ticker{display:none}.modem-lights .ml.blink.on{animation:none}}
+
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -170,8 +204,8 @@ body.no-scroll{overflow:hidden}
 <a class="skip" href="#choose">Skip to the museum</a>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-inner">
-<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 12 MINI-GAMES ★ COLLECT ALL 9 STAMPS ★</span>
-<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 12 MINI-GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
 </div></div>
 
 <header class="mast"><div class="shell mast-row">
@@ -194,7 +228,7 @@ body.no-scroll{overflow:hidden}
         <p class="eyebrow">A PHILIPPINE POP CULTURE MUSEUM · 2000–2010</p>
         <h1 id="page-title">TEXTS, TV &amp;<br><em>TAMBAYAN.</em></h1>
         <p class="lead">Cost, timing, and place shaped texting, TV, and meetups from 2000 to 2010. Pick a question, follow three sourced stops, and play a mini-game at each exhibit.</p>
-        <div class="hero-ticket"><span>ADMIT ONE</span><strong>03 STOPS · 09 EXHIBITS · 12 GAMES</strong><span>PH · 2000–2010</span></div>
+        <div class="hero-ticket"><span>ADMIT ONE</span><strong>03 STOPS · 09 EXHIBITS · 13 GAMES</strong><span>PH · 2000–2010</span></div>
       </div>
       <div class="cover-art" aria-label="Period images from the museum">
         <figure class="cover-photo main-photo"><img src="phones-2005.jpg" alt="Three mobile handsets photographed in 2005" width="720" height="515"><figcaption>01 / A HANDSET IN THE 2000s <span>2005</span></figcaption></figure>
@@ -212,6 +246,13 @@ body.no-scroll{overflow:hidden}
       </div>
     </fieldset></div>
   </div></section>
+
+  <div class="stats-strip"><div class="shell stats-row" aria-label="Museum at a glance">
+    <div><b>09</b><span>exhibits</span></div>
+    <div><b>13</b><span>games</span></div>
+    <div><b>09</b><span>stamps</span></div>
+    <div><b>03</b><span>guided routes</span></div>
+  </div></div>
 
   <section class="experience" id="route" aria-label="Interactive museum route">
     <article class="stage" id="stage" tabindex="-1">
@@ -241,22 +282,37 @@ body.no-scroll{overflow:hidden}
   </section>
 
   <section class="arcade" id="arcade" aria-labelledby="arc-title">
-    <div class="section-heading"><h2 id="arc-title">The Arcade</h2><p>Three bonus games from the phone in your pocket. Play any time, no stamp needed.</p></div>
+    <div class="section-heading"><h2 id="arc-title">The Arcade</h2><p>Four bonus games from the phone in your pocket. Play any time, no stamp needed.</p><span class="arc-count">4 games</span></div>
     <div class="arc-grid">
-      <article class="arc-card"><div class="mini-head"><h3>🐍 Pasaload Snake</h3><span class="mini-tag">Arrows · WASD · swipe</span></div><div class="arc-body">
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">01</span>🐍 Pasaload Snake</h3><span class="mini-tag">Arrows · WASD · swipe</span></div><div class="arc-body">
         <p>The Nokia classic, with a Philippine twist: every ₱ you eat tops up your load. The line wraps at the edges, so only your own tail can cut you off.</p>
         <canvas id="snk" class="lcd" width="320" height="240" tabindex="0" aria-label="Snake game screen"></canvas>
         <div class="arc-row"><div class="dpad" aria-label="Direction pad"><button type="button" data-k="ArrowUp" aria-label="Up">↑</button><button type="button" data-k="ArrowLeft" aria-label="Left">←</button><button type="button" data-k="ArrowDown" aria-label="Down">↓</button><button type="button" data-k="ArrowRight" aria-label="Right">→</button></div>
         <div><button class="mini-start" id="snk-go" type="button">▶ Start</button><div class="arc-hud mini-hud"><span>Load ₱<b id="snk-score">0</b></span><span>Best ₱<b id="snk-best">0</b></span></div></div></div>
         <p id="snk-msg" style="margin:14px 0 0" aria-live="polite">Press Start, then use the arrows.</p>
       </div></article>
-      <article class="arc-card"><div class="mini-head"><h3>📱 T9 Texter</h3><span class="mini-tag">Multi-tap like it’s 2003</span></div><div class="arc-body">
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">02</span>📱 T9 Texter</h3><span class="mini-tag">Multi-tap like it’s 2003</span></div><div class="arc-body">
         <p>Type each message the old way: tap a key once for its first letter, twice for the second. Need the same key again? Wait a second first, just like a real handset.</p>
         <div class="lcd t9-screen" aria-live="polite"><small id="t9-info">Message 1/3</small>Type: <b id="t9-target"></b><br><span id="t9-out"></span></div>
         <div class="t9-pad" id="t9-pad"></div>
         <div class="t9-ctl"><button type="button" id="t9-del">⌫ Clear letter</button><button type="button" id="t9-reset">↻ Restart</button></div>
       </div></article>
-      <article class="arc-card mem-card"><div class="mini-head"><h3>🃏 Y2K Pairs</h3><span class="mini-tag">Flip · match · remember</span></div><div class="arc-body"><div class="mem-wrap">
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">03</span> 🏪 Sari-Sari Sukli</h3><span class="mini-tag">Exact change · 10 customers</span></div><div class="arc-body">
+        <p>You are the tindera. A customer pays with a big bill — tap coins and bills to build the EXACT change, then hit “Give change”. Ten customers, three mistakes and your shift ends.</p>
+        <div class="lcd suk-screen"><small id="suk-info">Customer 1/10</small><div>Bill total <b id="suk-total">₱0</b> · Paid <b id="suk-paid">₱0</b></div><div>Change due <b id="suk-due">₱0</b> · Your tray <b id="suk-tray">₱0</b></div></div>
+        <div class="suk-pad" id="suk-pad" role="group" aria-label="Denominations">
+          <button type="button" data-v="1">₱1<small>coin</small></button>
+          <button type="button" data-v="5">₱5<small>coin</small></button>
+          <button type="button" data-v="10">₱10<small>coin</small></button>
+          <button type="button" data-v="20">₱20<small>bill</small></button>
+          <button type="button" data-v="50">₱50<small>bill</small></button>
+          <button type="button" data-v="100">₱100<small>bill</small></button>
+        </div>
+        <div class="t9-ctl"><button type="button" id="suk-give">💸 Give change</button><button type="button" id="suk-clear">↺ Clear tray</button><button type="button" id="suk-again" hidden>↻ New shift</button></div>
+        <div class="arc-hud mini-hud"><span>Score <b id="suk-score">0</b></span><span>Mistakes <b id="suk-miss">0</b>/3</span><span>Best <b id="suk-best">–</b></span></div>
+        <p id="suk-msg" style="margin:14px 0 0" aria-live="polite"></p>
+      </div></article>
+      <article class="arc-card mem-card"><div class="mini-head"><h3><span class="arc-num">04</span>🃏 Y2K Pairs</h3><span class="mini-tag">Flip · match · remember</span></div><div class="arc-body"><div class="mem-wrap">
         <div class="mem-grid" id="mem-grid"></div>
         <div class="mem-side"><p>Eight things every 2000s kid knew. Match all the pairs in the fewest moves; each match tells you what it was.</p><div class="mini-hud"><span>Moves <b id="mem-moves">0</b></span><span>Best <b id="mem-best">-</b></span></div><p id="mem-note" aria-live="polite">Flip any card to begin.</p><button class="mini-again" id="mem-reset" type="button">↻ Shuffle</button></div>
       </div></div></article>
@@ -264,10 +320,14 @@ body.no-scroll{overflow:hidden}
     </div>
   </section>
 
+  <div class="break" aria-hidden="true"></div>
+
   <section class="guestbook" id="guestbook" aria-labelledby="gb-title">
     <div class="guestbook-inner">
       <h2 id="gb-title">Sign the guestbook</h2>
-      <p class="gb-intro">Leave a note about your favourite 2000s memory. Entries stay in your browser only.</p>
+      <span class="gb-badge" id="gb-badge" hidden>● Live · shared with all visitors</span>
+      <p class="gb-intro">Leave a note about your favourite 2000s memory.</p>
+      <p class="gb-note" id="gb-note" hidden></p>
       <form class="gb-form" id="gb-form" autocomplete="off">
         <input type="text" id="gb-name" maxlength="32" placeholder="Your name or handle" required>
         <input type="text" id="gb-where" maxlength="40" placeholder="Where are you visiting from? (optional)">
@@ -278,6 +338,8 @@ body.no-scroll{overflow:hidden}
     </div>
   </section>
 </main>
+
+<div class="year-ticker" aria-hidden="true"><div class="year-ticker-inner"><span>2000 · Y2K survived</span><span>2001 · texting capital</span><span>2002 · OFW videophones</span><span>2003 · Meteor Garden</span><span>2004 · camera phones</span><span>2005 · prepaid load</span><span>2006 · piso net boom</span><span>2007 · Friendster era</span><span>2008 · Pacquiao nights</span><span>2009 · social games</span><span>2010 · smartphones arrive</span><span>2000 · Y2K survived</span><span>2001 · texting capital</span><span>2002 · OFW videophones</span><span>2003 · Meteor Garden</span><span>2004 · camera phones</span><span>2005 · prepaid load</span><span>2006 · piso net boom</span><span>2007 · Friendster era</span><span>2008 · Pacquiao nights</span><span>2009 · social games</span><span>2010 · smartphones arrive</span></div></div>
 
 <footer class="foot" id="about"><div class="foot-grid">
   <div>
@@ -325,6 +387,11 @@ const STATE_KEY='museum-state-v1';
 const VOTE_KEY='museum-votes-v1';
 const STAMP_KEY='museum-stamps-v1';
 const GB_KEY='museum-guestbook-v1';
+// To share guestbook entries across ALL visitors, deploy the backend in
+// guestbook-server/ (see DEPLOY.md) and paste its URL here, e.g.
+// 'https://two-thousands-called-guestbook.onrender.com'.
+// Leave it empty to keep the guestbook on this device only.
+const GUESTBOOK_API_URL='';
 
 const $=s=>document.querySelector(s);
 const routeList=$('#route-list'),stage=$('#stage'),content=$('#stage-content'),lensLabel=$('#lens-label'),stepCount=$('#step-count'),progressFill=$('#progress-fill'),stampBar=$('#stamp-bar'),stampBadge=$('#stamp-badge'),stampCount=$('#stamp-count');
@@ -574,6 +641,50 @@ const games={
         row.classList.add('done');row.querySelector('.rt-btn').textContent='✓';
         if(done>=3)win(`Hour well spent. ₱${budget} left over for a merienda.`);
       }));
+      /* --- Dial-up modem experience: synthesized 56k handshake, no audio files --- */
+      el.insertAdjacentHTML('beforeend',`<div class="modem-box">
+        <h4>📞 The dial-up ritual</h4>
+        <p>No broadband yet — the café's backup line is dial-up. Press play to hear a 56k modem connect, synthesized live in your browser.</p>
+        <div class="modem-lights" aria-hidden="true"><span class="ml on">PWR</span><span class="ml" id="mdm-dial">DIAL</span><span class="ml" id="mdm-link">LINK</span></div>
+        <p class="modem-status" id="mdm-status" aria-live="polite">Modem idle.</p>
+        <div class="t9-ctl"><button type="button" id="mdm-play">▶ Hear 56k connect</button><button type="button" id="mdm-stop" disabled>■ Stop</button></div>
+      </div>`);
+      const mdmPlay=el.querySelector('#mdm-play'),mdmStop=el.querySelector('#mdm-stop'),mdmStatus=el.querySelector('#mdm-status'),mdmDial=el.querySelector('#mdm-dial'),mdmLink=el.querySelector('#mdm-link');
+      let AC=null,mdmTimers=[];
+      const mdmLater=(ms,fn)=>mdmTimers.push(setTimeout(fn,ms));
+      function mdmHush(){if(AC){try{AC.close()}catch(e){}AC=null}}
+      function mdmStopAll(silent){
+        mdmTimers.forEach(clearTimeout);mdmTimers=[];mdmHush();
+        mdmPlay.disabled=false;mdmStop.disabled=true;
+        mdmDial.classList.remove('on','blink');mdmLink.classList.remove('on');
+        if(!silent)mdmStatus.textContent='Modem idle.';
+      }
+      setCleanup(()=>mdmStopAll(true));
+      mdmStop.addEventListener('click',()=>mdmStopAll(false));
+      mdmPlay.addEventListener('click',()=>{
+        if(AC)return;
+        const Ctx=window.AudioContext||window.webkitAudioContext;
+        if(!Ctx){mdmStatus.textContent='Audio is not supported in this browser.';return}
+        AC=new Ctx();mdmPlay.disabled=true;mdmStop.disabled=false;
+        const t0=AC.currentTime+0.05;
+        const master=AC.createGain();master.gain.value=0.12;master.connect(AC.destination);
+        const tone=(f,at,dur,type)=>{const o=AC.createOscillator(),g=AC.createGain();o.type=type||'sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,at);g.gain.exponentialRampToValueAtTime(0.9,at+0.02);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);o.connect(g);g.connect(master);o.start(at);o.stop(at+dur+0.05)};
+        const noiseBurst=(at,dur)=>{const len=Math.floor(AC.sampleRate*dur),buf=AC.createBuffer(1,len,AC.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;const s=AC.createBufferSource();s.buffer=buf;const f=AC.createBiquadFilter();f.type='bandpass';f.frequency.value=1800;f.Q.value=0.6;const g=AC.createGain();g.gain.setValueAtTime(0.5,at);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);s.connect(f);f.connect(g);g.connect(master);s.start(at);s.stop(at+dur+0.05)};
+        const sweep=(at,dur,f0,f1)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sawtooth';o.frequency.setValueAtTime(f0,at);o.frequency.exponentialRampToValueAtTime(f1,at+dur);g.gain.setValueAtTime(0.0001,at);g.gain.exponentialRampToValueAtTime(0.35,at+0.05);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);o.connect(g);g.connect(master);o.start(at);o.stop(at+dur+0.05)};
+        tone(350,t0,1.0);tone(440,t0,1.0);
+        mdmStatus.textContent='Dialing…';mdmDial.classList.add('on','blink');
+        const DTMF={'1':[697,1209],'2':[697,1336],'3':[697,1477],'4':[770,1209],'5':[770,1336],'6':[770,1477],'7':[852,1209],'8':[852,1336],'9':[852,1477],'0':[941,1336]};
+        let dt=t0+1.15;
+        '835'.split('').forEach(dg=>{const pr=DTMF[dg];tone(pr[0],dt,0.12);tone(pr[1],dt,0.12);dt+=0.22});
+        noiseBurst(dt+0.1,0.7);
+        mdmLater(2600,()=>{mdmStatus.textContent='Handshaking…'});
+        let ht=dt+0.9;
+        for(let i=0;i<6;i++){tone(i%2?2250:1200,ht,0.12,'square');ht+=0.13}
+        sweep(ht,1.1,400,2400);
+        const ct=ht+1.25;
+        tone(660,ct,0.16);tone(880,ct+0.18,0.3);
+        mdmLater(Math.round((ct-t0+0.6)*1000),()=>{mdmDial.classList.remove('on','blink');mdmLink.classList.add('on');mdmStatus.textContent='Connected at 56 kbps!';mdmPlay.disabled=false;mdmStop.disabled=true;mdmHush()});
+      });
     }
   }}
 };
@@ -768,6 +879,57 @@ $('#t9-del').addEventListener('click',()=>{if(fin)return;txt=txt.slice(0,-1);lk=
 $('#t9-reset').addEventListener('click',reset);reset();
 })();
 
+(()=>{/* Sari-Sari Sukli */
+const pad=$('#suk-pad'),give=$('#suk-give'),clr=$('#suk-clear'),again=$('#suk-again');
+const tEl=$('#suk-total'),pEl=$('#suk-paid'),dEl=$('#suk-due'),rEl=$('#suk-tray'),info=$('#suk-info'),msg=$('#suk-msg');
+const scEl=$('#suk-score'),missEl=$('#suk-miss'),bestEl=$('#suk-best');
+const card=pad.closest('.arc-card');
+let total,paid,due,tray,cust,score,miss,over,best=lsGet('museum-sukli',0);
+if(best)bestEl.textContent=best;
+function update(){
+  tEl.textContent='₱'+total;pEl.textContent='₱'+paid;dEl.textContent='₱'+due;rEl.textContent='₱'+tray;
+  info.textContent=`Customer ${cust+1}/10`;scEl.textContent=score;missEl.textContent=miss;
+}
+function newCustomer(){
+  total=5+Math.floor(Math.random()*91);
+  paid=[20,50,100].find(b=>b>total);
+  due=paid-total;tray=0;update();
+}
+function reset(){
+  cust=0;score=0;miss=0;over=false;again.hidden=true;
+  msg.textContent='Give the EXACT change. Tap coins and bills, then hit “Give change”.';
+  newCustomer();
+}
+function finish(won){
+  over=true;
+  if(score>best){best=score;lsSet('museum-sukli',best);bestEl.textContent=best}
+  msg.textContent=won
+    ?`🎉 Shift complete! You served all 10 customers. Best shift: ${best}.`
+    :`Shift over — 3 mistakes. You served ${score} customer${score===1?'':'s'}. Best: ${best}.`;
+  again.hidden=false;
+}
+pad.addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b||over)return;tray+=Number(b.dataset.v);update()});
+clr.addEventListener('click',()=>{if(over)return;tray=0;update()});
+give.addEventListener('click',()=>{
+  if(over)return;
+  if(tray===due){
+    score++;cust++;update();
+    if(cust>=10){finish(true);return}
+    msg.textContent=`Sakto! Customer ${cust} served — next customer, please.`;
+    setTimeout(()=>{if(!over)newCustomer()},650);
+  }else{
+    miss++;update();
+    card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),500);
+    if(miss>=3){finish(false);return}
+    msg.textContent=tray>due
+      ?`Too much — take back ₱${tray-due} and try again.`
+      :`Kulang pa — short by ₱${due-tray}. Add more.`;
+  }
+});
+again.addEventListener('click',reset);
+reset();
+})();
+
 (()=>{/* Y2K Pairs */
 const I=[['📟','Pager: beeped you a number to call back.'],['💾','Floppy disk: 1.44 MB of homework.'],['📼','VHS: rewind before returning it.'],['💿','CD-R: burned mix, handwritten in marker.'],['🎮','Handheld game: batteries not included.'],['☎️','Payphone: coins or a prepaid card.'],['📷','Digicam: photos waited for a USB cable.'],['💳','Load card: scratch, text the code, wait.']];
 const grid=$('#mem-grid'),mv=$('#mem-moves'),note=$('#mem-note'),bst=$('#mem-best');let deck,up,moves,ok,lock;
@@ -784,26 +946,66 @@ const t=$('#lcd-toggle'),set=on=>{document.documentElement.classList.toggle('nok
 t.addEventListener('click',()=>set(t.getAttribute('aria-pressed')!=='true'));if(lsGet('museum-nokia',false))set(true);
 })();
 
-/* ---------- Guestbook ---------- */
-const gbForm=document.getElementById('gb-form'),gbEntries=document.getElementById('gb-entries');
-function renderGB(){
-  const list=lsGet(GB_KEY,[]);
-  if(!list.length){gbEntries.innerHTML='<p class="gb-empty">📼 The tape is blank.<br>Be the first to sign the guestbook.</p>';return}
-  gbEntries.innerHTML=list.slice().reverse().map(e=>{let ts='';try{ts=e.ts?new Date(e.ts).toLocaleString('en-PH',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'}):''}catch(_){ts=''}return `<div class="gb-entry"><div class="gb-who">${esc(e.who)}${e.where?' · '+esc(e.where):''}${ts?'<span class="gb-ts">'+esc(ts)+'</span>':''}</div><p class="gb-msg">${esc(e.msg)}</p></div>`}).join('');
+/* ---------- Guestbook: shared backend with localStorage fallback ---------- */
+const gbForm=document.getElementById('gb-form'),gbEntries=document.getElementById('gb-entries'),gbBadge=document.getElementById('gb-badge'),gbNote=document.getElementById('gb-note');
+let gbLive=false;
+const gbBase=()=>GUESTBOOK_API_URL.replace(/\/$/,'');
+function gbShowNote(msg){gbNote.textContent=msg;gbNote.hidden=!msg}
+function gbEntryHTML(e){
+  let ts='';try{ts=e.ts?new Date(e.ts).toLocaleString('en-PH',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'}):''}catch(_){ts=''}
+  return `<div class="gb-entry"><div class="gb-who">${esc(e.who)}${e.where?' · '+esc(e.where):''}${ts?'<span class="gb-ts">'+esc(ts)+'</span>':''}</div><p class="gb-msg">${esc(e.msg)}</p></div>`;
 }
-gbForm.addEventListener('submit',e=>{
+function renderGB(list){
+  if(!list.length){gbEntries.innerHTML='<p class="gb-empty">📼 The tape is blank.<br>Be the first to sign the guestbook.</p>';return}
+  gbEntries.innerHTML=list.slice().reverse().map(gbEntryHTML).join('');
+}
+function gbGoLocal(){
+  gbLive=false;gbBadge.hidden=true;
+  gbShowNote('Couldn\'t reach the shared guestbook — showing entries from this device.');
+  renderGB(lsGet(GB_KEY,[]));
+}
+async function gbLoad(){
+  if(!GUESTBOOK_API_URL){gbGoLocal();return}
+  try{
+    const r=await fetch(gbBase()+'/api/entries');
+    if(!r.ok)throw new Error('bad status');
+    const list=await r.json();
+    gbLive=true;gbBadge.hidden=false;gbShowNote('');
+    renderGB(Array.isArray(list)?list:[]);
+  }catch(e){gbGoLocal()}
+}
+gbForm.addEventListener('submit',async e=>{
   e.preventDefault();
   const who=document.getElementById('gb-name').value.trim();
   const where=document.getElementById('gb-where').value.trim();
   const msg=document.getElementById('gb-msg').value.trim();
   if(!who||!msg)return;
-  const list=lsGet(GB_KEY,[]);
-  list.push({who,where,msg,ts:Date.now()});
-  lsSet(GB_KEY,list);
-  gbForm.reset();
-  renderGB();
+  const btn=gbForm.querySelector('button[type="submit"]'),oldLabel=btn.textContent;
+  btn.disabled=true;btn.textContent='Signing…';
+  try{
+    if(gbLive){
+      const r=await fetch(gbBase()+'/api/entries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who,where,msg})});
+      if(!r.ok)throw new Error('post failed');
+      await r.json();
+      await gbLoad();
+    }else{
+      const list=lsGet(GB_KEY,[]);
+      list.push({who,where,msg,ts:Date.now()});
+      lsSet(GB_KEY,list);
+      renderGB(list);
+    }
+    gbForm.reset();
+  }catch(err){
+    const list=lsGet(GB_KEY,[]);
+    list.push({who,where,msg,ts:Date.now()});
+    lsSet(GB_KEY,list);
+    gbGoLocal();
+    gbForm.reset();
+  }finally{
+    btn.disabled=false;btn.textContent=oldLabel;
+  }
 });
-renderGB();
+gbLoad();
 
 /* ---------- Init ---------- */
 updateStampUI();
