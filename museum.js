@@ -79,6 +79,7 @@ function updateStampUI(){
   stampCount.textContent=`${got}/${ids.length}`;passUI(got,ids.length);
   stampBadge.classList.toggle('off',got<ids.length);
   if(stampBar)stampBar.innerHTML=ids.map(id=>`<span class="s ${s[id]?'got':''}" title="${s[id]?'Collected':'Not yet'}">${s[id]?'★':'·'}</span>`).join('');
+  document.querySelectorAll('#archive .card').forEach(cd=>{const cid=cd.id.replace(/^exhibit-/,'');const dot=cd.querySelector('.card-stamp');if(dot)dot.classList.toggle('got',!!s[cid]);});
 }
 function syncURL(push){const url=new URL(location.href);url.searchParams.set('lens',lens);url.searchParams.set('step',String(step));history[push?'pushState':'replaceState']({lens,step},'',url)}
 
@@ -635,7 +636,7 @@ sn=[[5,6],[4,6],[3,6]];f=[10,6];draw();
 if(!document.getElementById('t9-pad'))return;
 const K={2:'abc',3:'def',4:'ghi',5:'jkl',6:'mno',7:'pqrs',8:'tuv',9:'wxyz',0:' '},P=['kumusta','tara na','miss u'],pad=$('#t9-pad');
 let r,txt,lk,lt,t0,pr,fin;
-pad.innerHTML=[2,3,4,5,6,7,8,9,0].map(k=>`<button type="button" data-k="${k}"><b>${k||'␣'}</b><small>${K[k].trim()||'space'}</small></button>`).join('');
+pad.innerHTML=[1,2,3,4,5,6,7,8,9,'*',0,'#'].map(k=>{if(k===1||k==='*'||k==='#')return `<button type="button" disabled aria-label="Key ${k}, not needed for these messages"><b>${k}</b><small>&nbsp;</small></button>`;return `<button type="button" data-k="${k}"><b>${k===0?'␣':k}</b><small>${K[k].trim()||'space'}</small></button>`}).join('');
 function show(){$('#t9-target').textContent=P[Math.min(r,2)];$('#t9-out').textContent=txt+'▮';if(!fin)$('#t9-info').textContent=`Message ${r+1}/3 · ${pr} presses`}
 function reset(){r=0;txt='';lk=null;lt=0;t0=0;pr=0;fin=false;show()}
 pad.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b||fin)return;b.classList.add('tap');setTimeout(()=>b.classList.remove('tap'),170);const k=b.dataset.k,L=K[k],now=Date.now();if(!t0)t0=now;pr++;
