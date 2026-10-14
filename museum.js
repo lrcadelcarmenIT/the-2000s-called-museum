@@ -91,7 +91,7 @@ window.addEventListener('resize',sizeConfetti);sizeConfetti();
 function launchConfetti(opts){
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const count=(opts&&opts.count)||80;
-  const colors=['#ff7952','#77d8d0','#f4c65b','#405ed2','#3fae6b','#fffefa'];
+  const colors=['#2b9fe3','#7cc7ee','#f4c65b','#2f6fd0','#3fae6b','#ffffff'];
   for(let i=0;i<count;i++){
     confettiParts.push({x:Math.random()*confettiCanvas.width,y:-24-Math.random()*confettiCanvas.height*0.25,w:6+Math.random()*8,h:8+Math.random()*10,c:colors[i%colors.length],vy:2+Math.random()*3.4,vx:-1.6+Math.random()*3.2,r:Math.random()*Math.PI,vr:-.12+Math.random()*.24});
   }
