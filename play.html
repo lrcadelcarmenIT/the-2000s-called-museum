@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Arcade & Playground — The 2000s Called</title>
+<meta name="description" content="A Philippine pop culture virtual museum, 2000–2010. Nine exhibits, thirteen games, one decade.">
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+<a class="skip" href="#top">Skip to content</a>
+<div class="marquee" aria-hidden="true"><div class="marquee-inner">
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+</div>
+<header class="mast"><div class="shell mast-row">
+  <a class="mark" href="index.html">THE 2000s <b>CALLED.</b></a>
+  <nav aria-label="Main navigation">
+    <a href="index.html" id="nav-home">Lobby</a>
+    <a href="exhibits.html" id="nav-archive">Exhibit Halls</a>
+    <a href="play.html" id="nav-play">Arcade &amp; Playground</a>
+    <a href="guestbook.html" id="nav-gb">Guestbook</a>
+    <button type="button" class="badge off" id="lcd-toggle" aria-pressed="false" title="Turn the whole museum into a Nokia screen">NOKIA MODE</button>
+    <button type="button" class="badge off" id="lang-toggle" aria-pressed="false" title="Filipino / English">TAGLISH</button>
+    <span class="badge off" id="stamp-badge" aria-live="polite"><span class="dot"></span>STAMPS <b id="stamp-count">0/9</b></span>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="arcade" id="arcade" aria-labelledby="arc-title">
+    <div class="section-heading"><h2 id="arc-title">The Arcade</h2><p id="arc-sub">Four bonus games from the phone in your pocket. Play any time, no stamp needed.</p><span class="arc-count">4 games</span></div>
+    <div class="arc-grid">
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">01</span>🐍 Pasaload Snake</h3><span class="mini-tag">Arrows · WASD · swipe</span></div><div class="arc-body">
+        <p>The Nokia classic, with a Philippine twist: every ₱ you eat tops up your load. The line wraps at the edges, so only your own tail can cut you off.</p>
+        <canvas id="snk" class="lcd" width="320" height="240" tabindex="0" aria-label="Snake game screen"></canvas>
+        <div class="arc-row"><div class="dpad" aria-label="Direction pad"><button type="button" data-k="ArrowUp" aria-label="Up">↑</button><button type="button" data-k="ArrowLeft" aria-label="Left">←</button><button type="button" data-k="ArrowDown" aria-label="Down">↓</button><button type="button" data-k="ArrowRight" aria-label="Right">→</button></div>
+        <div><button class="mini-start" id="snk-go" type="button">▶ Start</button><div class="arc-hud mini-hud"><span>Load ₱<b id="snk-score">0</b></span><span>Best ₱<b id="snk-best">0</b></span></div></div></div>
+        <p id="snk-msg" style="margin:14px 0 0" aria-live="polite">Press Start, then use the arrows.</p>
+      </div></article>
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">02</span>📱 T9 Texter</h3><span class="mini-tag">Multi-tap like it’s 2003</span></div><div class="arc-body">
+        <p>Type each message the old way: tap a key once for its first letter, twice for the second. Need the same key again? Wait a second first, just like a real handset.</p>
+        <div class="lcd t9-screen" aria-live="polite"><small id="t9-info">Message 1/3</small>Type: <b id="t9-target"></b><br><span id="t9-out"></span></div>
+        <div class="t9-pad" id="t9-pad"></div>
+        <div class="t9-ctl"><button type="button" id="t9-del">⌫ Clear letter</button><button type="button" id="t9-reset">↻ Restart</button></div>
+      </div></article>
+      <article class="arc-card"><div class="mini-head"><h3><span class="arc-num">03</span> 🏪 Sari-Sari Sukli</h3><span class="mini-tag">Exact change · 10 customers</span></div><div class="arc-body">
+        <p>You are the tindera. A customer pays with a big bill — tap coins and bills to build the EXACT change, then hit “Give change”. Ten customers, three mistakes and your shift ends.</p>
+        <div class="lcd suk-screen"><small id="suk-info">Customer 1/10</small><div>Bill total <b id="suk-total">₱0</b> · Paid <b id="suk-paid">₱0</b></div><div>Change due <b id="suk-due">₱0</b> · Your tray <b id="suk-tray">₱0</b></div></div>
+        <div class="suk-pad" id="suk-pad" role="group" aria-label="Denominations">
+          <button type="button" data-v="1">₱1<small>coin</small></button>
+          <button type="button" data-v="5">₱5<small>coin</small></button>
+          <button type="button" data-v="10">₱10<small>coin</small></button>
+          <button type="button" data-v="20">₱20<small>bill</small></button>
+          <button type="button" data-v="50">₱50<small>bill</small></button>
+          <button type="button" data-v="100">₱100<small>bill</small></button>
+        </div>
+        <div class="t9-ctl"><button type="button" id="suk-give">💸 Give change</button><button type="button" id="suk-clear">↺ Clear tray</button><button type="button" id="suk-again" hidden>↻ New shift</button></div>
+        <div class="arc-hud mini-hud"><span>Score <b id="suk-score">0</b></span><span>Mistakes <b id="suk-miss">0</b>/3</span><span>Best <b id="suk-best">–</b></span></div>
+        <p id="suk-msg" style="margin:14px 0 0" aria-live="polite"></p>
+      </div></article>
+      <article class="arc-card mem-card"><div class="mini-head"><h3><span class="arc-num">04</span>🃏 Y2K Pairs</h3><span class="mini-tag">Flip · match · remember</span></div><div class="arc-body"><div class="mem-wrap">
+        <div class="mem-grid" id="mem-grid"></div>
+        <div class="mem-side"><p>Eight things every 2000s kid knew. Match all the pairs in the fewest moves; each match tells you what it was.</p><div class="mini-hud"><span>Moves <b id="mem-moves">0</b></span><span>Best <b id="mem-best">-</b></span></div><p id="mem-note" aria-live="polite">Flip any card to begin.</p><button class="mini-again" id="mem-reset" type="button">↻ Shuffle</button></div>
+      </div></div></article>
+      <article class="arc-card pass-card" id="pass-card"><strong id="pass-n">0/9</strong><p id="pass-msg"></p><button class="action" id="pass-copy" type="button" hidden>Copy my result</button></article>
+    </div>
+  </section>
+<section class="quizsec" id="quiz" aria-labelledby="quiz-title">
+    <div class="section-heading">
+      <h2 id="quiz-title">Which 2000s icon are you?</h2>
+      <p id="quiz-sub">Answer 5 quick questions. We will match you to the exhibit that raised you — then generate a shareable ID card.</p>
+    </div>
+    <div class="quizbox" id="pquiz">
+      <h3 id="pq-q"></h3>
+      <div class="pq-opts" id="pq-opts"></div>
+      <p class="pq-progress" id="pq-progress"></p>
+    </div>
+    <div class="pq-result" id="pq-result" hidden>
+      <canvas id="pq-card" width="600" height="340" aria-label="Your 2000s ID card"></canvas>
+      <div class="pq-actions">
+        <button type="button" class="action" id="pq-dl">Download my ID card</button>
+        <button type="button" class="action secondary" id="pq-retry">Retake</button>
+      </div>
+    </div>
+  </section>
+<section class="playground" id="playground" aria-labelledby="pg-title">
+    <div class="section-heading">
+      <h2 id="pg-title">Time-machine playground</h2>
+      <p id="pg-sub">Remix yourself into the 2000s, then press play on its sounds.</p>
+    </div>
+    <div class="pg-grid">
+      <article class="pg-card">
+        <h3 id="pb-title">2000s photo booth</h3>
+        <p id="pb-sub">Upload a photo (or use your camera) and get it back the 2007 way: pixelated, timestamped, Friendster-framed. Tap the photo to capture from camera.</p>
+        <canvas id="pb-canvas" width="480" height="360" aria-label="Photo booth preview"></canvas>
+        <div class="pg-row">
+          <label class="pg-file"><span id="pb-choose">Choose photo</span><input type="file" id="pb-file" accept="image/*" hidden></label>
+          <button type="button" class="action secondary" id="pb-cam">Use camera</button>
+        </div>
+        <div class="pg-row" role="group" aria-label="Filters">
+          <button type="button" class="chip on" data-f="y2k">Y2K cam</button>
+          <button type="button" class="chip" data-f="friendster">Friendster frame</button>
+          <button type="button" class="chip" data-f="cctv">Mall CCTV</button>
+        </div>
+        <button type="button" class="action" id="pb-dl">Download photo</button>
+        <video id="pb-video" playsinline hidden></video>
+      </article>
+      <article class="pg-card">
+        <h3 id="sb-title">Soundboard</h3>
+        <p id="sb-sub">Every sound synthesized live in your browser — no audio files, just WebAudio.</p>
+        <div class="pg-row">
+          <button type="button" class="action secondary" id="sb-nokia">Nokia tune</button>
+          <button type="button" class="action secondary" id="sb-static">TV static</button>
+          <button type="button" class="action secondary" id="sb-dial">Dial-up</button>
+          <button type="button" class="action secondary" id="sb-sms">Text received</button>
+        </div>
+        <p class="pg-note" id="sb-note" aria-live="polite"></p>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="foot" id="about"><div class="foot-grid">
+  <div>
+    <strong>The 2000s Called: Text, Time Zones &amp; Tambayan</strong>
+    <p>A student virtual museum by Group 9. The sourced examples reflect particular experiences from 2000 to 2010 and do not represent every Filipino's life.</p>
+    <p>Then/now notes, mini-games, and diagrams are interpretations for comparison.</p>
+  </div>
+  <div>
+    <strong>Image credits</strong>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Cell_phones_2005.jpg">Cell phones 2005</a> © Larry D. Moore, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:SMCyberZone_-_SM_MoA.jpg">SM CyberZone (2007)</a> by Exec8, public domain; <a href="https://commons.wikimedia.org/wiki/File:Ricoh_Caplio_R6.jpg">Ricoh Caplio R6</a> by Amagase, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>; <a href="https://commons.wikimedia.org/wiki/File:Internet_caf%C3%A9_in_Brgy._San_Jose,_Luzon.jpg">Internet café in Cavite (2010)</a> by Pfc. Nathaniel J. Henry / U.S. Marine Corps, U.S. public domain; <a href="https://commons.wikimedia.org/wiki/File:Student_with_computer.JPG">Student with computer</a> by Courtcourtwest, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Nokia_3310_blue.jpg">Nokia 3310</a> by Michael Brandtner, public domain; <a href="https://commons.wikimedia.org/wiki/File:Callcentre.jpg">Call centre (2006)</a> by Petiatil, public domain; <a href="https://commons.wikimedia.org/wiki/File:1990s_Television_Set.jpg">CRT television</a> by ProtoKiwi, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Manny_Pacman_Pacquiao_1.jpg">Manny Pacquiao</a> by SCRyan, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
+  </div>
+</div></footer>
+<button type="button" id="to-top" aria-label="Back to top" title="Back to top">↑</button>
+<div class="celebrate" id="celebrate" role="dialog" aria-modal="true" aria-labelledby="celebrate-title" hidden>
+  <div class="celebrate-card">
+    <div class="celebrate-stamp" aria-hidden="true">★</div>
+    <h2 id="celebrate-title">Certified 2000s kid!</h2>
+    <p>You collected all <strong>9 museum stamps</strong>.<br>Texts, TV &amp; tambayan — fully explored.</p>
+    <button type="button" class="action" id="celebrate-close">Keep exploring</button>
+  </div>
+</div>
+<script src="museum.js"></script>
+</body>
+</html>

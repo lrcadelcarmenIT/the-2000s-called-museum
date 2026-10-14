@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guestbook — The 2000s Called</title>
+<meta name="description" content="A Philippine pop culture virtual museum, 2000–2010. Nine exhibits, thirteen games, one decade.">
+<link rel="stylesheet" href="museum.css">
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<canvas id="confetti-canvas" aria-hidden="true"></canvas>
+<a class="skip" href="#top">Skip to content</a>
+<div class="marquee" aria-hidden="true"><div class="marquee-inner">
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+<span>★ ADMIT ONE ★ THE 2000s CALLED ★ TEXTS, TV &amp; TAMBAYAN ★ 9 EXHIBITS · 13 GAMES ★ COLLECT ALL 9 STAMPS ★</span>
+</div>
+<header class="mast"><div class="shell mast-row">
+  <a class="mark" href="index.html">THE 2000s <b>CALLED.</b></a>
+  <nav aria-label="Main navigation">
+    <a href="index.html" id="nav-home">Lobby</a>
+    <a href="exhibits.html" id="nav-archive">Exhibit Halls</a>
+    <a href="play.html" id="nav-play">Arcade &amp; Playground</a>
+    <a href="guestbook.html" id="nav-gb">Guestbook</a>
+    <button type="button" class="badge off" id="lcd-toggle" aria-pressed="false" title="Turn the whole museum into a Nokia screen">NOKIA MODE</button>
+    <button type="button" class="badge off" id="lang-toggle" aria-pressed="false" title="Filipino / English">TAGLISH</button>
+    <span class="badge off" id="stamp-badge" aria-live="polite"><span class="dot"></span>STAMPS <b id="stamp-count">0/9</b></span>
+  </nav>
+</div></header>
+
+<main id="top">
+<section class="guestbook" id="guestbook" aria-labelledby="gb-title">
+    <div class="guestbook-inner">
+      <h2 id="gb-title">Sign the guestbook</h2>
+      <p class="presence" id="presence" hidden><span class="dot"></span><b id="presence-count">1</b> <span id="presence-txt">visiting right now</span></p>
+      <span class="gb-badge" id="gb-badge" hidden>● Live · shared with all visitors</span>
+      <p class="gb-intro" id="gb-intro">Leave a note about your favourite 2000s memory.</p>
+      <p class="gb-note" id="gb-note" hidden></p>
+      <form class="gb-form" id="gb-form" autocomplete="off">
+        <input type="text" id="gb-name" maxlength="32" placeholder="Your name or handle" required>
+        <input type="text" id="gb-where" maxlength="40" placeholder="Where are you visiting from? (optional)">
+        <textarea id="gb-msg" maxlength="240" placeholder="What do you remember from the 2000s?" required></textarea>
+        <button type="submit" id="gb-submit">Sign the guestbook →</button>
+      </form>
+      <div class="gb-entries" id="gb-entries"></div>
+      <div class="memwall">
+        <h3 id="mem-title">Community memory wall</h3>
+        <p id="mem-sub">Pin your own 2000s memory for every visitor to read.</p>
+        <form class="gb-form" id="mem-form" autocomplete="off">
+          <input type="text" id="mem-name" maxlength="40" placeholder="Your name" aria-label="Your name">
+          <input type="text" id="mem-when" maxlength="12" placeholder="Year (e.g. 2007)" aria-label="Year">
+          <textarea id="mem-msg" maxlength="280" placeholder="Your 2000s memory…" required aria-label="Your 2000s memory"></textarea>
+          <button type="submit" id="mem-submit">Pin my memory →</button>
+        </form>
+        <div class="gb-entries" id="mem-entries"></div>
+        <p class="gb-note" id="mem-note" hidden></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot" id="about"><div class="foot-grid">
+  <div>
+    <strong>The 2000s Called: Text, Time Zones &amp; Tambayan</strong>
+    <p>A student virtual museum by Group 9. The sourced examples reflect particular experiences from 2000 to 2010 and do not represent every Filipino's life.</p>
+    <p>Then/now notes, mini-games, and diagrams are interpretations for comparison.</p>
+  </div>
+  <div>
+    <strong>Image credits</strong>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Cell_phones_2005.jpg">Cell phones 2005</a> © Larry D. Moore, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:SMCyberZone_-_SM_MoA.jpg">SM CyberZone (2007)</a> by Exec8, public domain; <a href="https://commons.wikimedia.org/wiki/File:Ricoh_Caplio_R6.jpg">Ricoh Caplio R6</a> by Amagase, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>; <a href="https://commons.wikimedia.org/wiki/File:Internet_caf%C3%A9_in_Brgy._San_Jose,_Luzon.jpg">Internet café in Cavite (2010)</a> by Pfc. Nathaniel J. Henry / U.S. Marine Corps, U.S. public domain; <a href="https://commons.wikimedia.org/wiki/File:Student_with_computer.JPG">Student with computer</a> by Courtcourtwest, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Nokia_3310_blue.jpg">Nokia 3310</a> by Michael Brandtner, public domain; <a href="https://commons.wikimedia.org/wiki/File:Callcentre.jpg">Call centre (2006)</a> by Petiatil, public domain; <a href="https://commons.wikimedia.org/wiki/File:1990s_Television_Set.jpg">CRT television</a> by ProtoKiwi, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Manny_Pacman_Pacquiao_1.jpg">Manny Pacquiao</a> by SCRyan, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
+  </div>
+</div></footer>
+<button type="button" id="to-top" aria-label="Back to top" title="Back to top">↑</button>
+<div class="celebrate" id="celebrate" role="dialog" aria-modal="true" aria-labelledby="celebrate-title" hidden>
+  <div class="celebrate-card">
+    <div class="celebrate-stamp" aria-hidden="true">★</div>
+    <h2 id="celebrate-title">Certified 2000s kid!</h2>
+    <p>You collected all <strong>9 museum stamps</strong>.<br>Texts, TV &amp; tambayan — fully explored.</p>
+    <button type="button" class="action" id="celebrate-close">Keep exploring</button>
+  </div>
+</div>
+<script src="museum.js"></script>
+</body>
+</html>
