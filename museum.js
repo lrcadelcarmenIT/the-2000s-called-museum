@@ -930,18 +930,24 @@ const PQQ=[
   ['An hour of uninterrupted piso net','Isang oras ng tuloy-tuloy na piso net','cafe'],
   ['The Meteor Garden finale on CD','Ang finale ng Meteor Garden sa CD','meteor']]}
 ];
-let pqStep=0,pqScore={};
+let pqStep=0,pqScore={},pqDots=null;
+function pqTone(f,d,type,g){try{const c=ac();if(c.state==='suspended')c.resume();tone(f,c.currentTime+.02,d||.07,type||'square',g||.07);}catch(e){}}
+function pqFanfare(){[523.25,659.25,783.99,1046.5].forEach((f,i)=>{try{const c=ac();if(c.state==='suspended')c.resume();tone(f,c.currentTime+.02+i*.11,.16,'triangle',.09);}catch(e){}})}
 function pqRender(){
   if(!document.getElementById('pq-q'))return;
   const box=$('#pquiz'),res=$('#pq-result');
-  if(pqStep>=PQQ.length){box.hidden=true;res.hidden=false;pqDraw();return;}
+  if(!pqDots){pqDots=document.createElement('div');pqDots.className='pq-dots';pqDots.setAttribute('aria-hidden','true');box.insertBefore(pqDots,box.firstChild);}
+  if(pqStep>=PQQ.length){box.hidden=true;res.hidden=false;pqDraw();
+    const card=$('#pq-card');card.classList.remove('deal');void card.offsetWidth;card.classList.add('deal');
+    launchConfetti({count:90});pqFanfare();return;}
   box.hidden=false;res.hidden=true;
+  pqDots.innerHTML=[0,1,2,3,4].map(i=>'<span class="'+(i<pqStep?'done':i===pqStep?'on':'')+'"></span>').join('');
   const q=PQQ[pqStep],li=LANG==='tl'?1:0;
   $('#pq-q').textContent=(pqStep+1)+'. '+q.q[li];
   $('#pq-opts').innerHTML=q.o.map((o,i)=>'<button type="button" class="pq-opt" data-a="'+o[2]+'">'+esc2(o[li])+'</button>').join('');
   $('#pq-progress').textContent=(li?'Tanong ':'Question ')+(pqStep+1)+' / '+PQQ.length;
   $('#pq-opts').querySelectorAll('.pq-opt').forEach(b=>b.addEventListener('click',()=>{
-    pqScore[b.dataset.a]=(pqScore[b.dataset.a]||0)+1;pqStep++;pqRender();
+    pqTone(740);setTimeout(()=>pqTone(1108),55);pqScore[b.dataset.a]=(pqScore[b.dataset.a]||0)+1;pqStep++;pqRender();
   }));
 }
 function pqWinner(){
@@ -978,12 +984,12 @@ function pqDraw(){
   x.fillText('Issued '+(d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear()+' \u00b7 the-2000s-called-museum',28,316);
 }
 const pqDl=$('#pq-dl');
-if(pqDl)pqDl.addEventListener('click',()=>{
+if(pqDl)pqDl.addEventListener('click',()=>{pqTone(1320,.05);
   const a=document.createElement('a');
   a.download='2000s-id-card.png';a.href=$('#pq-card').toDataURL('image/png');a.click();
 });
 const pqRt=$('#pq-retry');
-if(pqRt)pqRt.addEventListener('click',()=>{pqStep=0;pqScore={};pqRender();});
+if(pqRt)pqRt.addEventListener('click',()=>{pqTone(520);setTimeout(()=>pqTone(340),70);pqStep=0;pqScore={};pqRender();});
 
 /* ---------------- Photo booth ---------------- */
 const pbC=$('#pb-canvas');
