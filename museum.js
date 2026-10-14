@@ -7,12 +7,17 @@ const exhibits = {
   meteor:{room:1,year:'2003',title:'Meteor Garden reached local TV in Tagalog',body:'ABS-CBN aired a Tagalog-dubbed version of the Taiwanese drama Meteor Garden in May 2003. A foreign story reached Filipino viewers through a local broadcast and language.',then:'Watching meant being near a television when the scheduled episode aired.',now:'Streaming may let viewers choose a time and device, while availability still varies by service and connection.',question:'How did a story from Taiwan reach a Filipino living room?',flow:[{label:'Taiwanese drama',detail:'The original series had already been a hit across East and Southeast Asia.'},{label:'Tagalog dub',detail:'Local dubbing brought the story closer to Filipino viewers.'},{label:'Local TV',detail:'A fixed broadcast schedule meant being home when it aired.'}],sources:[['Philstar retrospective, 3 Sep 2021','https://www.philstar.com/entertainment/2021/09/03/2124416/fans-mark-meteor-garden-18th-anniversary-vic-chou-comeback-series-premieres-today/amp/']],game:'meteor'},
   boxing:{room:2,year:'2008',title:'Malaybalay announced a public boxing screen',body:'On 15 March 2008, MindaNews reported that Malaybalay City had announced a free public screening at Freedom Park for a Pacquiao–Marquez fight. The report documents the plan; it does not establish how many people attended.',then:'The event had a fixed time and a shared location. Being there was part of the experience.',now:'A fight can be watched on a personal screen, yet people still gather for major live events.',question:'What changes when watching becomes a shared public event?',flow:[{label:'Scheduled fight',detail:'A single broadcast time meant everyone tuned in together.'},{label:'Freedom Park',detail:'A public plaza hosted the crowd instead of private living rooms.'},{label:'Public screen',detail:'The city arranged the screen; attendance was free.'}],sources:[['MindaNews, 15 Mar 2008','https://mindanews.com/c3-news/2008/03/malaybalay-sets-up-wide-screen-for-pacquiao-watchers/']],game:'boxing'},
   mall:{room:2,year:'2008',title:'Malls gave friends a place to meet',body:'A Reuters report in 2008 described Philippine malls as places to meet, watch people, eat, see a film, and simply spend time, alongside shopping.',then:'Meeting friends required travel to a particular place; spending money was possible, though not required for every visit.',now:'Friends may arrange plans online, but meeting in person still needs a shared place and time.',question:'Why did a privately owned mall work as a social space?',flow:[{label:'Travel',detail:'Getting there meant jeepney, bus, or car — the trip itself was part of the plan.'},{label:'Meet friends',detail:'A fixed meetup point, like a fountain or cinema lobby, was normal.'},{label:'Spend time',detail:'Air conditioning, food, and browsing made malls a hangout, not just a shop.'}],sources:[['Reuters via Gulf News, 25 Aug 2008','https://gulfnews.com/world/asia/philippines/malling-away-the-hours-1.126407']],game:'mall'},
-  cafe:{room:2,year:'2006',title:'Internet cafés rented computer time',body:'A 2006 industry report described internet cafés as a pay-as-you-use option when owning a computer and connection was expensive. Gaming, browsing, and printing were among their services.',then:'Computer time could be rented, making access possible without buying a PC; the session still had a cost.',now:'A personal phone may handle many of those tasks, but reliable data, a computer, and a place to work are still unevenly available.',question:'What could you do with a rented hour online?',flow:[{label:'Pay for time',detail:'Rates were often per hour, counted from a logbook at the counter.'},{label:'Shared PC',detail:'The same machine might be used for homework, email, and gaming in turn.'},{label:'Games or research',detail:'LAN gaming (Counter-Strike, DOTA) shared the space with schoolwork.'}],sources:[['GMA News / IDC, 14 Jul 2006','https://www.gmanetwork.com/news/money/content/10727/rp-internet-cafe-industry-to-boom-study/story/']],game:'cafe'}
+  cafe:{room:2,year:'2006',title:'Internet cafés rented computer time',body:'A 2006 industry report described internet cafés as a pay-as-you-use option when owning a computer and connection was expensive. Gaming, browsing, and printing were among their services.',then:'Computer time could be rented, making access possible without buying a PC; the session still had a cost.',now:'A personal phone may handle many of those tasks, but reliable data, a computer, and a place to work are still unevenly available.',question:'What could you do with a rented hour online?',flow:[{label:'Pay for time',detail:'Rates were often per hour, counted from a logbook at the counter.'},{label:'Shared PC',detail:'The same machine might be used for homework, email, and gaming in turn.'},{label:'Games or research',detail:'LAN gaming (Counter-Strike, DOTA) shared the space with schoolwork.'}],sources:[['GMA News / IDC, 14 Jul 2006','https://www.gmanetwork.com/news/money/content/10727/rp-internet-cafe-industry-to-boom-study/story/']],game:'cafe'},
+  y2k:{room:0,year:'2000',title:'Y2K: the bug that made the world hold its breath',body:'In the late 1990s, many programs stored years as two digits \u2014 1998 became "98" \u2014 because computer memory was expensive. People feared that when clocks rolled to "00", systems would read 2000 as 1900 and fail. Banks, airlines, and governments spent the decade\u2019s final years checking and rewriting code. When midnight came, few major failures happened \u2014 largely because programmers had patched the bug in advance.',then:'A two-digit shortcut, made when memory was expensive, forced a worldwide code review.',now:'Date bugs still surface \u2014 the "Year 2038 problem" is next \u2014 but four-digit years are the norm.',question:'Was the panic wasted, or did all that fixing prevent the disaster?',flow:[{label:'Two-digit years',detail:'Storing "98" instead of "1998" saved precious memory in old systems.'},{label:'The rollover fear',detail:'"00" could sort before "99" \u2014 or be read as 1900.'},{label:'The patch',detail:'Programmers worldwide checked and rewrote date code before midnight.'}],sources:[['Wikipedia: Year 2000 problem','http://en.wikipedia.org/wiki/Year_2000_problem']],game:'y2k'},
+  cameraphone:{room:0,year:'2004',title:'The camera moved into the phone',body:'Sharp\u2019s J-SH04, released in Japan in November 2000, was the first phone with a back-facing camera that could send photos electronically \u2014 just 110,000 pixels. Nokia\u2019s 7650 followed in 2002 with a 0.3-megapixel camera, and Nokia\u2019s 7610 hit 1 megapixel in 2004. The megapixel race was on: by 2005 the Nokia N90 would reach 2 megapixels with a Carl Zeiss lens.',then:'A 0.3-megapixel photo was exciting \u2014 and worth sending by MMS.',now:'Phone cameras now beat the 2007 digicams that once outclassed them.',question:'When did the phone become "good enough" as a camera?',flow:[{label:'J-SH04 (2000)',detail:'110,000 pixels \u2014 the first phone that could send a photo electronically.'},{label:'Nokia 7650 (2002)',detail:'0.3 megapixels \u2014 Nokia\u2019s first camera phone.'},{label:'Megapixel race',detail:'The Nokia 7610 reached 1 megapixel in 2004; the N90 hit 2 in 2005.'}],sources:[['Wikipedia: J-SH04','http://en.wikipedia.org/wiki/J-SH04'],['Wikipedia: Nokia 7650','http://en.wikipedia.org/wiki/Nokia_7650'],['Wikipedia: Nokia 7610','https://en.wikipedia.org/wiki/Nokia_7610']],game:'cameraphone'},
+  load:{room:2,year:'2005',title:'Load became something you could share',body:'The Philippines ran on prepaid. Load was sold as scratch cards at sari-sari stores, and "pasaload" \u2014 from "pasa", to pass or share \u2014 let one person send load to another: text the 11-digit number and the amount to 808, then reply YES to confirm. A few pesos of load could keep a conversation alive.',then:'No load meant no texts \u2014 and borrowing load from a friend was normal.',now:'E-wallets and apps move load around, but the sari-sari store still sells it.',question:'What did it mean that connection itself could be passed hand to hand?',flow:[{label:'Buy load',detail:'Scratch cards and electronic load at the corner sari-sari store.'},{label:'Text to 808',detail:'Type the 11-digit number, a space, and the amount \u2014 send to 808.'},{label:'Reply YES',detail:'Confirm the transfer; a \u20b11 transaction fee applied.'}],sources:[['TechPinas: How to Pasaload','https://techpilipinas.com/how-to-pasaload-in-smart-and-tnt/']],game:'load'},
+  socialgames:{room:2,year:'2009',title:'Everyone\u2019s tito was farming on Facebook',body:'Zynga\u2019s FarmVille launched on Facebook on 19 June 2009. Players planted, harvested, and visited neighbors\u2019 farms \u2014 and the game spread through friend lists and notifications until it counted tens of millions of players a day. The social feed became a farm report.',then:'A game lived inside your social network \u2014 your neighbors were your actual friends.',now:'Mobile games took over, but the "invite your friends" loop never left.',question:'Was it a game, or just another way to talk to people?',flow:[{label:'Plant',detail:'Plow, plant, and wait \u2014 crops grew in real time.'},{label:'Harvest',detail:'Come back before crops withered; timing mattered.'},{label:'Neighbors',detail:'Friends as neighbors: visit farms, help out, send gifts.'}],sources:[['Wikipedia: FarmVille','https://en.wikipedia.org/wiki/FarmVille']],game:'socialgames'},
+  smartphone:{room:0,year:'2010',title:'The keypad started disappearing',body:'The first iPhone was announced in January 2007 and released that June with a multi-touch screen and almost no buttons; Android phones like the HTC Dream followed in 2008. By 2010, touchscreens, app stores, and mobile internet were converging \u2014 the phone was becoming a pocket computer, and the decade\u2019s gadgets were starting to look like the next decade\u2019s.',then:'Typing on glass felt strange \u2014 where were the buttons?',now:'The keypad never came back.',question:'What did we lose when the buttons disappeared?',flow:[{label:'iPhone (2007)',detail:'A multi-touch phone with almost no buttons \u2014 type on glass.'},{label:'Android (2008)',detail:'The HTC Dream brought a competing touchscreen platform.'},{label:'2010 convergence',detail:'Touchscreens, apps, and mobile data met in one device.'}],sources:[['Wikipedia: iPhone (1st generation)','https://en.wikipedia.org/wiki/IPhone_(1st_generation)']],game:'smartphone'}
 };
 const rooms=[
-  {title:'Technology & Connection',short:'Technology',ids:['sms','camera','friendster']},
+  {title:'Technology & Connection',short:'Technology',ids:['sms','camera','friendster','y2k','cameraphone','smartphone']},
   {title:'Global Links',short:'Global links',ids:['ofw','bpo','meteor']},
-  {title:'Shared Spaces',short:'Shared spaces',ids:['boxing','mall','cafe']}
+  {title:'Shared Spaces',short:'Shared spaces',ids:['boxing','mall','cafe','load','socialgames']}
 ];
 const lenses={
   cost:{name:'Cost',ids:['sms','ofw','cafe'],recap:'Texts, conversations across borders, and rented computer time each needed a phone, service, or shared facility. Those requirements shaped who could take part.',points:['A prepaid message depended on load and a phone.','Families abroad combined messaging with shared communication facilities.','Renting computer time offered access without buying a PC.'],question:'Which costs moved or disappeared with today’s connected phone—and which costs remain?',quiz:{prompt:'Which cost feels most removed from your own everyday life today?',options:[['Prepaid load per text','Sending a single text no longer costs load on most apps.'],['Long-distance calls and videophone centers','Most people now call abroad over Wi-Fi or data.'],['Renting computer time by the hour','Personal phones handle most tasks that once required a rented PC.']]}},
@@ -52,7 +57,12 @@ const media={
   ofw:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Nokia%203310%20blue.jpg?width=480',alt:'Blue Nokia 3310 mobile phone',caption:'Nokia 3310 \u00b7 Michael Brandtner / public domain'},
   bpo:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Callcentre.jpg?width=600',alt:'Call center floor photographed in 2006',caption:'Call center, 2006 \u00b7 Petiatil / public domain'},
   meteor:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/1990s%20Television%20Set.jpg?width=480',alt:'CRT television with a VCR',caption:'CRT television with VCR \u00b7 ProtoKiwi / CC BY 4.0'},
-  boxing:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Manny%20Pacman%20Pacquiao%201.jpg?width=480',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'}
+  boxing:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Manny%20Pacman%20Pacquiao%201.jpg?width=480',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'},
+  y2k:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Apple%20IMac(de).jpg?width=600',alt:'Apple iMac CRT all-in-one computer from 1998',caption:'iMac, 1998 \u00b7 Stahlkocher / CC BY-SA 3.0'},
+  cameraphone:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Nokia%207650%2001.jpg?width=480',alt:'Nokia 7650, Nokia\u2019s first camera phone from 2002',caption:'Nokia 7650 \u00b7 Miguel Dur\u00e1n / CC BY-SA 2.5'},
+  load:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Sari-Sari%20Store%20Cavite.jpg?width=600',alt:'Sari-sari store in Cavite, Philippines',caption:'Sari-sari store, Cavite \u00b7 Glen / CC BY 2.0'},
+  socialgames:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Campus%20Party%20Brasil,%2011%20a%2017%20de%20fevereiro%20de%202008%20em%20S.P.%20-%20panoramio.jpg?width=600',alt:'Crowd of people using desktop computers at a tech event in 2008',caption:'LAN event, 2008 \u00b7 Claudio Oliveira Lima / CC BY-SA 3.0'},
+  smartphone:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Apple-iPhone-002.jpg?width=480',alt:'First-generation iPhone showing its touchscreen',caption:'First iPhone, 2007 \u00b7 Eliya / CC BY'}
 };
 const visualHTML=(id,kind)=>{const m=media[id];return m?`<figure class="${kind} ${m.style||''}"><img src="${m.src}" alt="${m.alt}" loading="lazy"><figcaption>${m.caption}</figcaption></figure>`:`<div class="${kind} type"><span>${exhibits[id].year}</span></div>`};
 
@@ -62,7 +72,7 @@ function awardStamp(id){
   const before=Object.keys(stamps()).length;
   const s=stamps();s[id]=true;lsSet(STAMP_KEY,s);updateStampUI();
   stampPop(id);
-  if(Object.keys(stamps()).length===9&&before<9)showCelebration();
+  if(Object.keys(stamps()).length===14&&before<14)showCelebration();
 }
 function updateStampUI(){
   const s=stamps();const ids=Object.keys(exhibits);const got=ids.filter(id=>s[id]).length;
@@ -327,7 +337,110 @@ const games={
         mdmLater(Math.round((ct-t0+0.6)*1000),()=>{mdmDial.classList.remove('on','blink');mdmLink.classList.add('on');mdmStatus.textContent='Connected at 56 kbps!';mdmPlay.disabled=false;mdmStop.disabled=true;mdmHush()});
       });
     }
+  }},
+
+  y2k(){return{
+    title:'Patch the Y2K bug',
+    intro:'Midnight is coming in 20 seconds. Tap every 2-digit year \u2014 those are the ones that will break. Leave the 4-digit years alone. Three wrong taps and the system crashes.',
+    render(el,{win,lose},setCleanup){
+      const buggy=['97','98','99','00','01','85'],safe=['1997','1998','1999','2000','2001','1985'];
+      const chips=[...buggy.map(y=>({y,bad:true})),...safe.map(y=>({y,bad:false}))].sort(()=>Math.random()-.5);
+      let left=buggy.length,strikes=0,time=20,done=false;
+      const timer=setInterval(()=>{time--;clock.textContent=`\u23f0 ${time}s to midnight`;if(time<=0)end(false)},1000);
+      setCleanup(()=>clearInterval(timer));
+      el.innerHTML=`<p class="y2k-clock" id="y2k-clock">\u23f0 20s to midnight</p>
+        <div class="chip-grid">${chips.map((c,i)=>`<button type="button" class="y2k-chip" data-i="${i}">${c.y}</button>`).join('')}</div>
+        <p class="mini-msg" id="y2k-msg">Patched: 0/${buggy.length} \u00b7 Strikes: 0/3</p>`;
+      const msg=el.querySelector('#y2k-msg'),clock=el.querySelector('#y2k-clock');
+      const end=ok=>{if(done)return;done=true;clearInterval(timer);ok?win('All dates patched before midnight! The world survived \u2014 just like the real 2000.'):lose('The clock struck midnight with bugs still in the system.')};
+      el.querySelectorAll('.y2k-chip').forEach(b=>b.addEventListener('click',()=>{
+        if(done||b.disabled)return;
+        const c=chips[Number(b.dataset.i)];
+        if(c.bad){b.classList.add('correct');b.disabled=true;left--;msg.textContent=`Patched: ${buggy.length-left}/${buggy.length} \u00b7 Strikes: ${strikes}/3`;if(!left)end(true)}
+        else{b.classList.add('wrong');strikes++;msg.textContent=`Patched: ${buggy.length-left}/${buggy.length} \u00b7 Strikes: ${strikes}/3`;setTimeout(()=>b.classList.remove('wrong'),500);if(strikes>=3)end(false)}
+      }));
+    }
+  }},
+  cameraphone(){return{
+    title:'Higher or lower: megapixels',
+    intro:'Camera phones got sharper fast. For each phone, guess whether its camera had HIGHER or LOWER megapixels than the one before. Get at least 4 of 5 right.',
+    render(el,{win,lose}){
+      const seq=[['Sharp J-SH04 (2000)','0.11'],['Nokia 7650 (2002)','0.3'],['Nokia 7610 (2004)','1.0'],['Nokia N90 (2005)','2.0'],['Nokia N95 (2007)','5.0'],['Sharp J-SH04 (2000)','0.11']];
+      let i=0,score=0;
+      const ask=()=>{
+        if(i>=5){score>=4?win(`You got ${score}/5! From 0.11 to 5 megapixels in seven years \u2014 the camera ate the phone.`):lose(`You got ${score}/5. The megapixel race was relentless \u2014 try again!`);return}
+        const [name,mp]=seq[i],[nname,nmp]=seq[i+1];
+        const higher=parseFloat(nmp)>parseFloat(mp);
+        el.innerHTML=`<p class="mini-msg">${name}: <b>${mp} MP</b></p>
+          <p class="mini-msg">Was the <b>${nname}</b> camera\u2026</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="mini-again" data-g="h">\ud83d\udcc8 HIGHER</button><button type="button" class="mini-again" data-g="l">\ud83d\udcc9 LOWER</button></div>
+          <p class="mini-msg">Score: ${score}/${i} \u00b7 need 4/5</p>`;
+        el.querySelectorAll('[data-g]').forEach(b=>b.addEventListener('click',()=>{
+          if((b.dataset.g==='h')===higher)score++;
+          i++;ask();
+        }));
+      };
+      ask();
+    }
+  }},
+  load(){return{
+    title:'Pasaload, please!',
+    intro:'Your friend is out of load. Tap the three steps in the right order to send \u20b120 via Pasaload.',
+    render(el,{win,lose}){
+      const steps=['\ud83d\udcb0 Check balance covers \u20b120 + \u20b11 fee','\u2328\ufe0f Text "09XX XXX XXXX 20" to 808','\u2705 Reply YES to the confirmation'];
+      el.innerHTML=`<div class="transfer-grid">${steps.map((s,i)=>`<button type="button" class="transfer-btn" data-i="${i}">${s}</button>`).join('')}</div>
+        <p style="margin:14px 0 0;font-size:.88rem;opacity:.75">Tap them in order.</p>`;
+      let next=0;
+      el.querySelectorAll('[data-i]').forEach(b=>b.addEventListener('click',()=>{
+        const i=Number(b.dataset.i);
+        if(i===next){b.classList.add('correct');b.disabled=true;next++;if(next===3)setTimeout(()=>win('Load sent! Your friend can text again \u2014 that\u2019s the bayanihan of the 2000s.'),300)}
+        else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),600);lose('Not quite \u2014 check the real Pasaload steps and try again.')}
+      }));
+    }
+  }},
+  socialgames(){return{
+    title:'Harvest rush',
+    intro:'Your FarmVille crops are ripe! Tap 12 ready crops (\ud83c\udf3e) before the 25-second timer runs out. Don\u2019t tap growing ones (\ud83c\udf31) \u2014 3 strikes and the harvest fails.',
+    render(el,{win,lose},setCleanup){
+      const cells=Array.from({length:20},()=>Math.random()<0.6?'\ud83c\udf3e':'\ud83c\udf31');
+      for(let i=0;cells.filter(c=>c==='\ud83c\udf3e').length<14&&i<20;i++)if(cells[i]==='\ud83c\udf31')cells[i]='\ud83c\udf3e';
+      let ripe=0,strikes=0,time=25,done=false;
+      const timer=setInterval(()=>{time--;clock.textContent=`\u23f0 ${time}s`;if(time<=0)end(false)},1000);
+      setCleanup(()=>clearInterval(timer));
+      el.innerHTML=`<p class="y2k-clock" id="hv-clock">\u23f0 25s</p>
+        <div class="chip-grid">${cells.map((c,i)=>`<button type="button" class="y2k-chip farm" data-i="${i}">${c}</button>`).join('')}</div>
+        <p class="mini-msg" id="hv-msg">Harvested: 0/12 \u00b7 Strikes: 0/3</p>`;
+      const msg=el.querySelector('#hv-msg'),clock=el.querySelector('#hv-clock');
+      const end=ok=>{if(done)return;done=true;clearInterval(timer);ok?win('Harvest complete! Your neighbors are impressed.'):lose('The crops withered\u2026 or the strikes piled up. Try again!')};
+      el.querySelectorAll('.farm').forEach(b=>b.addEventListener('click',()=>{
+        if(done||b.disabled)return;
+        if(cells[Number(b.dataset.i)]==='\ud83c\udf3e'){b.classList.add('correct');b.textContent='\u2705';b.disabled=true;ripe++;msg.textContent=`Harvested: ${ripe}/12 \u00b7 Strikes: ${strikes}/3`;if(ripe>=12)end(true)}
+        else{b.classList.add('wrong');strikes++;msg.textContent=`Harvested: ${ripe}/12 \u00b7 Strikes: ${strikes}/3`;setTimeout(()=>b.classList.remove('wrong'),500);if(strikes>=3)end(false)}
+      }));
+    }
+  }},
+  smartphone(){return{
+    title:'Ditch the stylus',
+    intro:'It\u2019s 2010 and screens finally respond to fingers. Tap 10 targets (\ud83d\udcf1) in 20 seconds \u2014 no stylus needed.',
+    render(el,{win,lose},setCleanup){
+      let hits=0,time=20,done=false,cur=-1;
+      const timer=setInterval(()=>{time--;clock.textContent=`\u23f0 ${time}s`;if(time<=0)end(false)},1000);
+      setCleanup(()=>clearInterval(timer));
+      el.innerHTML=`<p class="y2k-clock" id="ts-clock">\u23f0 20s</p>
+        <div class="chip-grid tap-grid">${Array.from({length:9},(_,i)=>`<button type="button" class="y2k-chip tap" data-i="${i}"></button>`).join('')}</div>
+        <p class="mini-msg" id="ts-msg">Tapped: 0/10</p>`;
+      const msg=el.querySelector('#ts-msg'),clock=el.querySelector('#ts-clock'),btns=[...el.querySelectorAll('.tap')];
+      const place=()=>{btns.forEach(b=>{b.textContent='';b.classList.remove('target')});cur=Math.floor(Math.random()*9);btns[cur].textContent='\ud83d\udcf1';btns[cur].classList.add('target')};
+      const end=ok=>{if(done)return;done=true;clearInterval(timer);ok?win('10 taps! Capacitive touch wins \u2014 the stylus era is over.'):lose(`Time! You got ${hits}/10. Those fingers need practice.`)};
+      btns.forEach(b=>b.addEventListener('click',()=>{
+        if(done)return;
+        if(Number(b.dataset.i)===cur){hits++;msg.textContent=`Tapped: ${hits}/10`;if(hits>=10){end(true);return}place()}
+        else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),300)}
+      }));
+      place();
+    }
   }}
+
 };
 
 /* ---------- Game renderer ---------- */
@@ -345,8 +458,9 @@ function renderGamePanel(exhibitId){
     </div>
   </section>`;
 }
-function initGame(exhibitId){
-  const panel=content.querySelector(`.mini-game[data-exhibit="${exhibitId}"]`);
+function initGame(exhibitId,root){
+  const scope=root||content;
+  const panel=scope.querySelector(`.mini-game[data-exhibit="${exhibitId}"]`);
   if(!panel)return;
   const spec=games[exhibits[exhibitId].game]();
   const intro=panel.querySelector('#mg-intro'),stage=panel.querySelector('#mg-stage'),result=panel.querySelector('#mg-result'),startBtn=panel.querySelector('#mg-start');
@@ -387,7 +501,7 @@ function render(){
       </div>
       <p class="recap-question">${spec.question}</p>
       <p class="fine">This comparison draws on three sourced examples. It does not describe one person's experience.</p>
-      <div class="stage-actions"><button class="action" type="button" data-action="restart">Choose another route</button><button class="action secondary" type="button" data-action="back">Return to last exhibit</button><a class="text-link" href="#archive">Browse all nine exhibits</a></div>`;
+      <div class="stage-actions"><button class="action" type="button" data-action="restart">Choose another route</button><button class="action secondary" type="button" data-action="back">Return to last exhibit</button><a class="text-link" href="#archive">Browse all fourteen exhibits</a></div>`;
     finishRender();
     return;
   }
@@ -403,7 +517,7 @@ function render(){
     <p class="ask">Ask: ${ex.question}</p>
     <div class="sources"><span class="source-tag">Sources for this exhibit</span><br>${sourceHTML(ex.sources)}</div>
     ${renderGamePanel(id)}
-    <div class="stage-actions">${step>0?'<button class="action secondary" type="button" data-action="back">← Previous stop</button>':''}<button class="action" type="button" data-action="next">${step===2?'Compare your three stops':'Next stop →'}</button><a class="text-link" href="#archive">Browse all nine exhibits</a><span class="kbd-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate</span></div>`;
+    <div class="stage-actions">${step>0?'<button class="action secondary" type="button" data-action="back">← Previous stop</button>':''}<button class="action" type="button" data-action="next">${step===2?'Compare your three stops':'Next stop →'}</button><a class="text-link" href="#archive">Browse all fourteen exhibits</a><span class="kbd-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate</span></div>`;
   initGame(id);
   lsSet(STATE_KEY,{lens,step});
   finishRender();
@@ -477,15 +591,23 @@ if(document.getElementById('rooms')){const cids=Object.keys(exhibits).sort((a,b)
         <p>${e.body}</p>
         <p class="mini-flow">${e.flow.map(f=>f.label).join(' → ')}</p>
         <div>${sourceHTML(e.sources)}</div>
+        <div><button type="button" class="mini-again card-play" data-play="${id}">\u25b6 Play mini-game</button></div>
+        <div class="card-game" hidden></div>
       </div>
     </article>`}).join('')}</div>
-</section>`).join('');}
+</section>`).join('');
+document.querySelectorAll('#rooms [data-play]').forEach(b=>b.addEventListener('click',()=>{
+  const card=b.closest('.card'),id=b.dataset.play,slot=card.querySelector('.card-game');
+  if(!slot.innerHTML){slot.innerHTML=renderGamePanel(id);initGame(id,card)}
+  slot.hidden=!slot.hidden;
+  b.textContent=slot.hidden?'\u25b6 Play mini-game':'\u2715 Close game';
+}));}
 
 /* ---------- Arcade ---------- */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-function passUI(got,total){const c=$('#pass-card');if(!c)return;const left=total-got;$('#pass-n').textContent=`${got}/${total}`;c.classList.toggle('done',!left);$('#pass-msg').textContent=left?`Museum pass: ${left} more stamp${left>1?'s':''} to collect. Win each exhibit's mini-game to earn one.`:'Certified 2000s kid. All nine exhibits stamped.';$('#pass-copy').hidden=!!left}
+function passUI(got,total){const c=$('#pass-card');if(!c)return;const left=total-got;$('#pass-n').textContent=`${got}/${total}`;c.classList.toggle('done',!left);$('#pass-msg').textContent=left?`Museum pass: ${left} more stamp${left>1?'s':''} to collect. Win each exhibit's mini-game to earn one.`:'Certified 2000s kid. All fourteen exhibits stamped.';$('#pass-copy').hidden=!!left}
 const passCopy=$('#pass-copy');
-if(passCopy)passCopy.addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 9 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
+if(passCopy)passCopy.addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 14 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
 
 (()=>{/* Pasaload Snake */
 if(!document.getElementById('snk'))return;
@@ -722,8 +844,8 @@ const T={
  'nav-archive':['Exhibit Halls','Mga Exhibit'],
  'nav-play':['Arcade & Playground','Arcade at Palaruan'],
  'nav-gb':['Guestbook','Guestbook'],
- 'archive-title':['Browse all nine exhibits','Tingnan ang siyam na exhibit'],
- 'arch-sub':['The full collection in chronological order, 2001 to 2008. Each card links to its source and the exhibit\u2019s mini-game.','Ang buong koleksyon ayon sa taon, 2001 hanggang 2008. Bawat card may link sa source at mini-game.'],
+ 'archive-title':['Browse all fourteen exhibits','Tingnan ang labing-apat na exhibit'],
+ 'arch-sub':['The full collection in chronological order, 2000 to 2010. Each card links to its source and the exhibit\u2019s mini-game.','Ang buong koleksyon ayon sa taon, 2000 hanggang 2010. Bawat card may link sa source at mini-game.'],
  'tl-label':['Drag through the decade:','I-drag ang dekada:'],
  'arc-title':['The Arcade','Ang Arcade'],
  'arc-sub':['Four bonus games from the phone in your pocket. Play any time, no stamp needed.','Apat na bonus game mula sa bulsa mo. Laroin kahit kailan, walang stamp na kailangan.'],
@@ -1074,8 +1196,8 @@ memLoad();
 /* ---------------- Nokia main menu (lobby) ---------------- */
 if(document.getElementById('nokia-screen')){
   const NK=[
-    {t:'Exhibit Halls',d:'9 exhibits \u00b7 3 guided routes',h:'exhibits.html'},
-    {t:'Arcade & Playground',d:'13 games \u00b7 quiz \u00b7 photo booth',h:'play.html'},
+    {t:'Exhibit Halls',d:'14 exhibits \u00b7 3 guided routes',h:'exhibits.html'},
+    {t:'Arcade & Playground',d:'18 games \u00b7 quiz \u00b7 photo booth',h:'play.html'},
     {t:'Guestbook',d:'sign \u00b7 live visitors \u00b7 memories',h:'guestbook.html'}
   ];
   let nkI=0;
