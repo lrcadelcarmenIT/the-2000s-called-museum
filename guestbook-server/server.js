@@ -1,6 +1,7 @@
 /* Shared guestbook backend for "The 2000s Called" museum.
  * Pure node:http — zero npm dependencies. Stores entries in entries.json
  * next to this file. Run with: node server.js  (or: npm start)
+ * v1.0.1 — deployed 2026-10-14
  */
 const http = require('http');
 const fs = require('fs');
