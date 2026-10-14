@@ -249,3 +249,16 @@ body.no-scroll{overflow:hidden}
 .wing-card .go{font-weight:800;color:#191028}
 .lobby-hero .lead{max-width:520px}
 @media(max-width:900px){.nokia-wrap{grid-template-columns:1fr}.nokia-phone{margin:0 auto}.lobby-menu{padding:40px 18px}}
+
+/* ----- Five new exhibit games + archive play buttons ----- */
+.chip-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}
+.y2k-chip{font-weight:700;font-size:1.05rem;padding:14px 6px;border-radius:12px;border:2px solid #2c3a44;background:#22303a;color:#fff;transition:transform .12s}
+.y2k-chip:hover{transform:translateY(-2px)}
+.y2k-chip.correct{border-color:var(--green);background:#1d3a2a;color:#c9f2d8}
+.y2k-chip.wrong{border-color:#e5484d;background:#3a1d1d;color:#ffd7d7}
+.y2k-chip.target{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,47,179,.35)}
+.y2k-clock{font-weight:800;font-size:1.05rem;margin:0 0 4px}
+.card-play{margin-top:12px}
+.card-game{margin-top:4px}
+.card-game .mini-game{margin:12px 0 0}
+@media(max-width:620px){.chip-grid{grid-template-columns:repeat(3,1fr)}}
