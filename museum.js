@@ -1,0 +1,1103 @@
+const exhibits = {
+  sms:{room:0,year:'2001',title:'Prepaid texting and the cost of keeping in touch',body:'By 2001, texting had developed its own language and etiquette in the Philippines. Prepaid service helped make short messages an everyday way to keep in touch.',then:'A phone and enough load could make a short message possible; the cost of each send still mattered.',now:'Messaging apps can send photos, voice, and video, but they still require a working device and connection.',question:'Who could afford to keep a conversation going?',flow:[{label:'Prepaid load',detail:'Buying load at a sari-sari store or via a scratch card was the everyday way to top up.'},{label:'Short message',detail:'A 160-character limit pushed users to invent shorthand — "tx" for text, "u" for you.'}],sources:[['Philstar, 15 May 2001','https://www.philstar.com/lifestyle/business-life/2001/05/15/85823/philippine-text-messaging-phenomenon/amp/'],['ITU, 2002','https://www.itu.int/net/wsis/tunis/newsroom/stats/mobile_internet_2002.pdf']],game:'sms'},
+  camera:{room:0,year:'2007',title:'Sharing a camera photo took several steps',body:'Sony announced new compact digital cameras in the Philippines in 2007. That same year, Friendster promoted easier photo sharing. Together these show the separate steps between taking a picture and sharing it online.',then:'A camera, a way to transfer the image, and internet access could all be part of sharing a photo.',now:'One connected phone can take a photo and post it in the same session.',question:'How many steps stood between a moment and an online album?',flow:[{label:'Take photo',detail:'A separate compact digital camera — not the phone — was the tool of choice.'},{label:'Transfer',detail:'Images moved via USB cable, memory card, or a CD-R to reach a computer.'},{label:'Share online',detail:'Uploading required a PC and an internet connection, often at an internet café.'}],sources:[['Sony Philippines, 8 Mar 2007','https://www.sony.com.ph/pressrelease?prName=thursday-march-8-2007-business-world-sony-posts-double-digit-sales-growth'],['Philstar, 10 Apr 2007','https://www.philstar.com/business/technology/2007/04/10/393746/friendster-frenzy-lives-on']],game:'camera'},
+  friendster:{room:0,year:'2007',title:'Friendster profiles needed internet access',body:'Profiles, testimonials, and photo albums gave users ways to present themselves and keep up with friends. A 2007 report described the platform’s new photo-sharing features in the Philippines.',then:'Keeping a profile meant finding a device and internet connection, at home or elsewhere.',now:'Social profiles travel in a pocket, although connectivity and device costs still shape who participates.',question:'Where would you go to check a friend’s update?',flow:[{label:'Go online',detail:'Home dial-up, a workplace PC, or a rented hour at an internet café.'},{label:'Open profile',detail:'Friendster pages loaded slowly; testimonials and comments were the draw.'},{label:'Share with friends',detail:'Photo albums replaced the earlier "friendster layout" copy-paste culture.'}],sources:[['Philstar, 10 Apr 2007','https://www.philstar.com/business/technology/2007/04/10/393746/friendster-frenzy-lives-on']],game:'friendster'},
+  ofw:{room:1,year:'2002',title:'OFW families kept in touch across borders',body:'A 2002 report described overseas Filipino workers and families using text messages and shared videophone centers to stay connected. Distance shaped when and how they could talk.',then:'A family might have to coordinate across countries, find a shared facility, and pay for communication.',now:'Video calls are more accessible on personal devices, but time zones and data access still shape the conversation.',question:'What would a family need to arrange before talking?',flow:[{label:'Worker abroad',detail:'Working hours and location set the only window for a call home.'},{label:'Time difference',detail:'A quick "kumusta" had to fit both sides of the clock.'},{label:'Family at home',detail:'Videophone centers were shared facilities, not private rooms.'}],sources:[['WIRED, Jun 2002','https://www.wired.com/2002/06/philippines/']],game:'ofw'},
+  bpo:{room:1,year:'2007',title:'US customer hours meant Philippine night shifts',body:'A 2007 report visited a Makati call center at 9 p.m. and described workers’ break schedules. Serving customers in the United States moved part of the local workday into the night.',then:'A shift that began at night also moved meals, commutes, and breaks to unusual hours.',now:'International work can still cross time zones, including from offices and homes.',question:'Whose daytime set the worker’s clock?',flow:[{label:'US daytime',detail:'American customers called during their own working hours.'},{label:'PH night shift',detail:'Agents started around 9 p.m. and worked through Philippine midnight.'},{label:'2 a.m. break',detail:'Meals, sleep, and family time all shifted to unusual hours.'}],sources:[['Philstar, 18 Dec 2007','https://www.philstar.com/lifestyle/health-and-family/2007/12/18/33991/keeping-fit-and-awake-sweet-pleasure/amp/']],game:'bpo'},
+  meteor:{room:1,year:'2003',title:'Meteor Garden reached local TV in Tagalog',body:'ABS-CBN aired a Tagalog-dubbed version of the Taiwanese drama Meteor Garden in May 2003. A foreign story reached Filipino viewers through a local broadcast and language.',then:'Watching meant being near a television when the scheduled episode aired.',now:'Streaming may let viewers choose a time and device, while availability still varies by service and connection.',question:'How did a story from Taiwan reach a Filipino living room?',flow:[{label:'Taiwanese drama',detail:'The original series had already been a hit across East and Southeast Asia.'},{label:'Tagalog dub',detail:'Local dubbing brought the story closer to Filipino viewers.'},{label:'Local TV',detail:'A fixed broadcast schedule meant being home when it aired.'}],sources:[['Philstar retrospective, 3 Sep 2021','https://www.philstar.com/entertainment/2021/09/03/2124416/fans-mark-meteor-garden-18th-anniversary-vic-chou-comeback-series-premieres-today/amp/']],game:'meteor'},
+  boxing:{room:2,year:'2008',title:'Malaybalay announced a public boxing screen',body:'On 15 March 2008, MindaNews reported that Malaybalay City had announced a free public screening at Freedom Park for a Pacquiao–Marquez fight. The report documents the plan; it does not establish how many people attended.',then:'The event had a fixed time and a shared location. Being there was part of the experience.',now:'A fight can be watched on a personal screen, yet people still gather for major live events.',question:'What changes when watching becomes a shared public event?',flow:[{label:'Scheduled fight',detail:'A single broadcast time meant everyone tuned in together.'},{label:'Freedom Park',detail:'A public plaza hosted the crowd instead of private living rooms.'},{label:'Public screen',detail:'The city arranged the screen; attendance was free.'}],sources:[['MindaNews, 15 Mar 2008','https://mindanews.com/c3-news/2008/03/malaybalay-sets-up-wide-screen-for-pacquiao-watchers/']],game:'boxing'},
+  mall:{room:2,year:'2008',title:'Malls gave friends a place to meet',body:'A Reuters report in 2008 described Philippine malls as places to meet, watch people, eat, see a film, and simply spend time, alongside shopping.',then:'Meeting friends required travel to a particular place; spending money was possible, though not required for every visit.',now:'Friends may arrange plans online, but meeting in person still needs a shared place and time.',question:'Why did a privately owned mall work as a social space?',flow:[{label:'Travel',detail:'Getting there meant jeepney, bus, or car — the trip itself was part of the plan.'},{label:'Meet friends',detail:'A fixed meetup point, like a fountain or cinema lobby, was normal.'},{label:'Spend time',detail:'Air conditioning, food, and browsing made malls a hangout, not just a shop.'}],sources:[['Reuters via Gulf News, 25 Aug 2008','https://gulfnews.com/world/asia/philippines/malling-away-the-hours-1.126407']],game:'mall'},
+  cafe:{room:2,year:'2006',title:'Internet cafés rented computer time',body:'A 2006 industry report described internet cafés as a pay-as-you-use option when owning a computer and connection was expensive. Gaming, browsing, and printing were among their services.',then:'Computer time could be rented, making access possible without buying a PC; the session still had a cost.',now:'A personal phone may handle many of those tasks, but reliable data, a computer, and a place to work are still unevenly available.',question:'What could you do with a rented hour online?',flow:[{label:'Pay for time',detail:'Rates were often per hour, counted from a logbook at the counter.'},{label:'Shared PC',detail:'The same machine might be used for homework, email, and gaming in turn.'},{label:'Games or research',detail:'LAN gaming (Counter-Strike, DOTA) shared the space with schoolwork.'}],sources:[['GMA News / IDC, 14 Jul 2006','https://www.gmanetwork.com/news/money/content/10727/rp-internet-cafe-industry-to-boom-study/story/']],game:'cafe'}
+};
+const rooms=[
+  {title:'Technology & Connection',short:'Technology',ids:['sms','camera','friendster']},
+  {title:'Global Links',short:'Global links',ids:['ofw','bpo','meteor']},
+  {title:'Shared Spaces',short:'Shared spaces',ids:['boxing','mall','cafe']}
+];
+const lenses={
+  cost:{name:'Cost',ids:['sms','ofw','cafe'],recap:'Texts, conversations across borders, and rented computer time each needed a phone, service, or shared facility. Those requirements shaped who could take part.',points:['A prepaid message depended on load and a phone.','Families abroad combined messaging with shared communication facilities.','Renting computer time offered access without buying a PC.'],question:'Which costs moved or disappeared with today’s connected phone—and which costs remain?',quiz:{prompt:'Which cost feels most removed from your own everyday life today?',options:[['Prepaid load per text','Sending a single text no longer costs load on most apps.'],['Long-distance calls and videophone centers','Most people now call abroad over Wi-Fi or data.'],['Renting computer time by the hour','Personal phones handle most tasks that once required a rented PC.']]}},
+  time:{name:'Time',ids:['camera','bpo','boxing'],recap:'Sharing a camera photo involved several steps. US customer hours set night shifts. A planned fight screening had a fixed time and place.',points:['A photo could pass through separate camera, transfer, and internet steps.','A US-facing call center moved part of the workday into the Philippine night.','A free public screening was announced for a fixed place and time.'],question:'Which part of your day would you have had to rearrange?',quiz:{prompt:'Which timing constraint would be hardest to accept today?',options:[['Waiting to get photos onto a PC before sharing','Instant posting replaced the multi-step flow.'],['Working a night shift for a US-facing job','Some workers still do this; not fully a thing of the past.'],['Being home when a TV episode airs','Streaming removed most of this constraint for those with access.']]}},
+  place:{name:'Place',ids:['friendster','meteor','mall'],recap:'A Friendster profile needed internet access, a dubbed drama reached local television, and a mall gave people a place to meet.',points:['Checking a profile required internet access somewhere.','A dubbed drama reached homes through local television.','The mall was a social meeting place as well as a retail space.'],question:'Which experiences now happen anywhere, and which still need a shared place?',quiz:{prompt:'Which of these still needs a shared physical place today?',options:[['Checking a friend\'s profile','Now doable anywhere with a phone and a signal.'],['Watching a TV episode','Streaming freed this, though access varies.'],['Meeting friends in person','Still needs a shared place and time.']]}}
+};
+const STATE_KEY='museum-state-v1';
+const VOTE_KEY='museum-votes-v1';
+const STAMP_KEY='museum-stamps-v1';
+const GB_KEY='museum-guestbook-v1';
+// To share guestbook entries across ALL visitors, deploy the backend in
+// guestbook-server/ (see DEPLOY.md) and paste its URL here, e.g.
+// 'https://two-thousands-called-guestbook.onrender.com'.
+// Leave it empty to keep the guestbook on this device only.
+const GUESTBOOK_API_URL='https://two000s-called-guestbook.onrender.com';
+
+const $=s=>document.querySelector(s);
+const routeList=$('#route-list'),stage=$('#stage'),content=$('#stage-content'),lensLabel=$('#lens-label'),stepCount=$('#step-count'),progressFill=$('#progress-fill'),stampBar=$('#stamp-bar'),stampBadge=$('#stamp-badge'),stampCount=$('#stamp-count');
+
+function lsGet(k,def){try{const raw=localStorage.getItem(k);return raw?JSON.parse(raw):def}catch(e){return def}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+
+const stored=lsGet(STATE_KEY,null);
+const query=new URLSearchParams(location.search);
+let lens=Object.hasOwn(lenses,query.get('lens'))?query.get('lens'):(stored&&Object.hasOwn(lenses,stored.lens)?stored.lens:'cost');
+let step=Math.min(3,Math.max(0,parseInt(query.get('step')||(stored?stored.step:0),10)||0));
+let currentGameCleanup=null;
+
+const sourceHTML=s=>s.map(([t,u])=>`<a class="source-link" target="_blank" rel="noopener noreferrer" href="${u}">${t}</a>`).join(' &nbsp;·&nbsp; ');
+const flowHTML=(items,id)=>`<div class="flow">${items.map((p,i)=>`${i?'<span class="arrow" aria-hidden="true">→</span>':''}<button type="button" class="flow-item" data-flow="${id}-${i}" aria-expanded="false">${p.label}</button>`).join('')}</div>`;
+const media={
+  sms:{src:'phones-2005.jpg',alt:'Three mobile phones photographed in 2005',caption:'Cell phones, 2005 · Larry D. Moore / CC BY 4.0'},
+  camera:{src:'camera-2007.jpg',alt:'Red Ricoh Caplio R6 camera, 2007',caption:'Ricoh Caplio R6, 2007 · Amagase / CC BY-SA 2.5',style:'camera'},
+  mall:{src:'mall-cyberzone-2007.jpg',alt:'SM Mall of Asia CyberZone, 2007',caption:'SM Mall of Asia CyberZone, 2007 · Exec8 / public domain'},
+  cafe:{src:'internet-cafe-2010.jpg',alt:'Internet café in Cavite, 2010',caption:'Internet café, Cavite, 2010 · N. J. Henry / U.S. public domain'},
+  friendster:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Student%20with%20computer.JPG?width=600',alt:'Student using a computer',caption:'Student at a computer \u00b7 Courtcourtwest / CC BY-SA 4.0'},
+  ofw:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Nokia%203310%20blue.jpg?width=480',alt:'Blue Nokia 3310 mobile phone',caption:'Nokia 3310 \u00b7 Michael Brandtner / public domain'},
+  bpo:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Callcentre.jpg?width=600',alt:'Call center floor photographed in 2006',caption:'Call center, 2006 \u00b7 Petiatil / public domain'},
+  meteor:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/1990s%20Television%20Set.jpg?width=480',alt:'CRT television with a VCR',caption:'CRT television with VCR \u00b7 ProtoKiwi / CC BY 4.0'},
+  boxing:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Manny%20Pacman%20Pacquiao%201.jpg?width=480',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'}
+};
+const visualHTML=(id,kind)=>{const m=media[id];return m?`<figure class="${kind} ${m.style||''}"><img src="${m.src}" alt="${m.alt}" loading="lazy"><figcaption>${m.caption}</figcaption></figure>`:`<div class="${kind} type"><span>${exhibits[id].year}</span></div>`};
+
+function stamps(){return lsGet(STAMP_KEY,{})}
+function hasStamp(id){return !!stamps()[id]}
+function awardStamp(id){
+  const before=Object.keys(stamps()).length;
+  const s=stamps();s[id]=true;lsSet(STAMP_KEY,s);updateStampUI();
+  stampPop(id);
+  if(Object.keys(stamps()).length===9&&before<9)showCelebration();
+}
+function updateStampUI(){
+  const s=stamps();const ids=Object.keys(exhibits);const got=ids.filter(id=>s[id]).length;
+  stampCount.textContent=`${got}/${ids.length}`;passUI(got,ids.length);
+  stampBadge.classList.toggle('off',got<ids.length);
+  if(stampBar)stampBar.innerHTML=ids.map(id=>`<span class="s ${s[id]?'got':''}" title="${s[id]?'Collected':'Not yet'}">${s[id]?'★':'·'}</span>`).join('');
+}
+function syncURL(push){const url=new URL(location.href);url.searchParams.set('lens',lens);url.searchParams.set('step',String(step));history[push?'pushState':'replaceState']({lens,step},'',url)}
+
+/* ---------- Juice: confetti, stamps, celebration ---------- */
+const confettiCanvas=document.getElementById('confetti-canvas');
+const cctx=confettiCanvas.getContext('2d');
+let confettiParts=[],confettiRAF=null;
+function sizeConfetti(){confettiCanvas.width=window.innerWidth;confettiCanvas.height=window.innerHeight}
+window.addEventListener('resize',sizeConfetti);sizeConfetti();
+function launchConfetti(opts){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const count=(opts&&opts.count)||80;
+  const colors=['#ff7952','#77d8d0','#f4c65b','#405ed2','#3fae6b','#fffefa'];
+  for(let i=0;i<count;i++){
+    confettiParts.push({x:Math.random()*confettiCanvas.width,y:-24-Math.random()*confettiCanvas.height*0.25,w:6+Math.random()*8,h:8+Math.random()*10,c:colors[i%colors.length],vy:2+Math.random()*3.4,vx:-1.6+Math.random()*3.2,r:Math.random()*Math.PI,vr:-.12+Math.random()*.24});
+  }
+  if(!confettiRAF)confettiTick();
+}
+function confettiTick(){
+  cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height);
+  confettiParts=confettiParts.filter(p=>p.y<confettiCanvas.height+30);
+  for(const p of confettiParts){
+    p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;p.vy+=0.05;
+    cctx.save();cctx.translate(p.x,p.y);cctx.rotate(p.r);cctx.fillStyle=p.c;cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cctx.restore();
+  }
+  if(confettiParts.length){confettiRAF=requestAnimationFrame(confettiTick)}else{confettiRAF=null;cctx.clearRect(0,0,confettiCanvas.width,confettiCanvas.height)}
+}
+function stampPop(id){
+  const ids=Object.keys(exhibits);const idx=ids.indexOf(id);
+  const dots=document.querySelectorAll('#stamp-bar .s');
+  if(dots[idx]){dots[idx].classList.add('pop');setTimeout(()=>dots[idx].classList.remove('pop'),700)}
+  const card=document.querySelector('#exhibit-'+id+' .card-stamp');
+  if(card){card.classList.add('pop');setTimeout(()=>card.classList.remove('pop'),700)}
+}
+function showCelebration(){
+  const c=document.getElementById('celebrate');if(!c||!c.hidden)return;
+  c.hidden=false;document.body.classList.add('no-scroll');
+  launchConfetti({count:170});
+  document.getElementById('celebrate-close').focus();
+}
+function closeCelebration(){
+  const c=document.getElementById('celebrate');if(!c||c.hidden)return;
+  c.hidden=true;document.body.classList.remove('no-scroll');
+  stage.focus({preventScroll:true});
+}
+
+/* ---------- Mini-games ---------- */
+const games={
+  sms(){return{
+    title:'Compose under 160',
+    intro:'Type a text message. Stay under 160 characters — that was the SMS limit. Real 2000s shorthand (u, ur, txt, 2, =, :)) saves space.',
+    render(el,{win,lose}){
+      el.innerHTML=`<textarea class="compose-box" id="cg-box" placeholder="hi! r u gng 2 d mall l8r? :)" maxlength="300"></textarea>
+        <div class="compose-count" id="cg-count"><b>0</b> / 160 characters</div>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><button class="mini-again" id="cg-send">Send message</button></div>`;
+      const box=el.querySelector('#cg-box'),ct=el.querySelector('#cg-count'),send=el.querySelector('#cg-send');
+      const upd=()=>{const n=box.value.length;ct.innerHTML=`<b>${n}</b> / 160 characters`;ct.classList.toggle('over',n>160)};
+      box.addEventListener('input',upd);upd();
+      send.addEventListener('click',()=>{const n=box.value.trim().length;if(!n){lose('Write something first — even a short "kumusta?" works.');return}if(n>160){lose(`Too long! ${n} characters. Cut ${n-160} more.`);return}win(`Sent! Your message was ${n} characters — the recipient got it.`) });
+    }
+  }},
+  camera(){return{
+    title:'Transfer the photo',
+    intro:'You took a photo in 2007. Click the three steps in the right order to get it from camera to Friendster.',
+    render(el,{win,lose}){
+      const steps=['📷 Take photo','🔌 Connect via USB / card','💻 Upload to Friendster'];
+      el.innerHTML=`<div class="transfer-grid" id="tr-grid">${steps.map((s,i)=>`<button class="transfer-btn" data-i="${i}">${s}</button>`).join('')}</div>
+        <p style="margin:14px 0 0;color:#b9c8ca;font-size:.88rem" id="tr-hint">Click them in order.</p>`;
+      let next=0;
+      el.querySelectorAll('[data-i]').forEach(b=>b.addEventListener('click',()=>{
+        const i=Number(b.dataset.i);
+        if(i===next){b.classList.add('correct');b.disabled=true;next++;if(next===3){setTimeout(()=>win('Photo uploaded! In 2007 this could take a whole afternoon.'),300)}}
+        else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),600);lose('Not quite — that step comes later.')}
+      }));
+    }
+  }},
+  friendster(){return{
+    title:'Build your Top 8',
+    intro:'Friendster Top 8 was serious business. Bea is your best friend (#1), Paolo is your crush (#2), and Dave still owes you ₱50 (#8). Reorder the list to match.',
+    render(el,{win}){
+      const names=['Marianne','Paolo','Bea','Joshua','Rica','Dave','Anna','Miguel'];
+      el.innerHTML=`<ul class="top8-list" id="t8-list">${names.map((n,i)=>`<li><span class="t8-name">${n}</span><button data-dir="-1" data-i="${i}" ${i===0?'disabled':''}>↑</button><button data-dir="1" data-i="${i}" ${i===names.length-1?'disabled':''}>↓</button></li>`).join('')}</ul>
+        <p style="color:#b9c8ca;font-size:.88rem;margin:0" id="t8-hint">Use the arrows to rearrange. It locks in when all three rules are true.</p>`;
+      let moves=0;
+      el.querySelector('#t8-list').addEventListener('click',e=>{
+        const b=e.target.closest('button[data-dir]');if(!b)return;
+        const i=Number(b.dataset.i),d=Number(b.dataset.dir);
+        const list=el.querySelectorAll('#t8-list li');const j=i+d;
+        const swapA=list[i],swapB=list[j];
+        if(d<0)swapA.parentNode.insertBefore(swapA,swapB);else swapA.parentNode.insertBefore(swapB,swapA);
+        renum();
+        moves++;const o=[...el.querySelectorAll('.t8-name')].map(x=>x.textContent);if(o[0]==='Bea'&&o[1]==='Paolo'&&o[7]==='Dave')win('Top 8 locked in: Bea first, Paolo second, Dave last. Now everyone knows.');
+      });
+      function renum(){
+        const list=el.querySelectorAll('#t8-list li');
+        list.forEach((li,idx)=>{
+          li.querySelector('.t8-name').textContent=li.querySelector('.t8-name').textContent;
+          li.querySelectorAll('button').forEach(b=>{const d=Number(b.dataset.dir);b.dataset.i=idx;b.disabled=(d<0&&idx===0)||(d>0&&idx===list.length-1)});
+        });
+      }
+    }
+  }},
+  ofw(){return{
+    title:'Find the right hour',
+    intro:'A worker is in Dubai (UTC+4). Family is in Manila (UTC+8). It is 10 a.m. in Manila. What time is it in Dubai?',
+    render(el,{win,lose}){
+      const opts=['6 a.m.','8 a.m.','10 a.m.','2 p.m.'];
+      el.innerHTML=`<div class="clock-pick" id="clk">${opts.map(o=>`<button class="clock-btn" data-o="${o}">${o}</button>`).join('')}</div>
+        <p style="color:#b9c8ca;font-size:.88rem;margin:14px 0 0">Manila is 4 hours ahead of Dubai.</p>`;
+      el.querySelectorAll('.clock-btn').forEach(b=>b.addEventListener('click',()=>{
+        if(b.dataset.o==='6 a.m.'){b.classList.add('correct');win('Right! 6 a.m. in Dubai. Now the family has to decide if that\'s too early to call.')}
+        else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),700);lose('Not quite. Manila is ahead of Dubai.')}
+      }));
+    }
+  }},
+  bpo(){return{
+    title:'Survive the night shift',
+    intro:'Your sleepiness rises over 10 seconds. Click the coffee every time it spikes to stay awake.',
+    render(el,{win,lose},setCleanup){
+      el.innerHTML=`<div class="sleepy-wrap"><div class="sleepy-fill" id="sl-fill"></div><div class="sleepy-label" id="sl-label">Sleepy: 0%</div></div>
+        <button class="coffee-btn" id="sl-coffee">☕ Drink coffee</button>
+        <p style="color:#b9c8ca;font-size:.88rem;margin:14px 0 0">Shift runs 9 p.m. – 6 a.m.</p>`;
+      let sleep=0,alive=true;
+      const fill=el.querySelector('#sl-fill'),label=el.querySelector('#sl-label'),coffee=el.querySelector('#sl-coffee');
+      const interval=setInterval(()=>{
+        if(!alive)return;
+        sleep+=4;fill.style.width=Math.min(sleep,100)+'%';
+        label.textContent=`Sleepy: ${Math.min(Math.round(sleep),100)}%`;
+        if(sleep>=100){alive=false;clearInterval(interval);lose('You nodded off at 3 a.m. Try again — click faster.')}
+      },200);
+      const onCoffee=()=>{if(!alive)return;sleep=Math.max(0,sleep-22);fill.style.width=sleep+'%';label.textContent=`Sleepy: ${Math.round(sleep)}%`;if(sleep===0){alive=false;clearInterval(interval);win('Shift over. You survived the 9 p.m. – 6 a.m. call center shift.')}};
+      coffee.addEventListener('click',onCoffee);
+      setCleanup(()=>clearInterval(interval));
+    }
+  }},
+  meteor(){return{
+    title:'Catch the episode',
+    intro:'Meteor Garden aired once, at a fixed time. Pick the slot that matches the show — 8:30 p.m., weekdays.',
+    render(el,{win,lose}){
+      const slots=[
+        ['6:00 p.m. · Weekdays','After the news'],
+        ['8:30 p.m. · Weekdays','Primetime drama slot'],
+        ['10:00 p.m. · Weekends','Late night rerun'],
+        ['4:00 p.m. · Sundays','Afternoon special']
+      ];
+      el.innerHTML=`<div class="tv-slots" id="tv">${slots.map((s,i)=>`<button class="tv-slot" data-i="${i}">${s[0]}<small>${s[1]}</small></button>`).join('')}</div>`;
+      el.querySelectorAll('.tv-slot').forEach(b=>b.addEventListener('click',()=>{
+        if(b.dataset.i==='1'){b.classList.add('correct');win('Primetime it is. In 2003 you had to be home — no streaming yet.')}
+        else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),700);lose('Wrong slot — try the primetime drama block.')}
+      }));
+    }
+  }},
+  boxing(){return{
+    title:'Pack the park',
+    intro:'It is 7 p.m. — the fight starts at 8. Click empty seats to fill the park before time runs out.',
+    render(el,{win,lose},setCleanup){
+      const total=25;
+      el.innerHTML=`<div class="mini-hud"><span id="pk-t">Time: 20s</span><span id="pk-p">Filled: 0 / 25</span></div>
+        <div class="park-grid" id="pk-grid">${Array.from({length:total},(_,i)=>`<button class="park-seat" data-i="${i}">·</button>`).join('')}</div>`;
+      let filled=0,t=20,alive=true;
+      const grid=el.querySelector('#pk-grid'),tEl=el.querySelector('#pk-t'),pEl=el.querySelector('#pk-p');
+      const interval=setInterval(()=>{if(!alive)return;t--;tEl.textContent=`Time: ${t}s`;if(t<=0){alive=false;clearInterval(interval);lose(`Time's up! You filled ${filled} of 25 seats.`)}},1000);
+      grid.addEventListener('click',e=>{const b=e.target.closest('.park-seat');if(!b||!alive||b.classList.contains('filled'))return;b.classList.add('filled');b.textContent='👤';filled++;pEl.textContent=`Filled: ${filled} / 25`;if(filled===total){alive=false;clearInterval(interval);win('Freedom Park is packed! Nothing like a shared screen.')}});
+      setCleanup(()=>clearInterval(interval));
+    }
+  }},
+  mall(){return{
+    title:'Meet at the fountain',
+    intro:'Three friends are texting you where to meet. Match each friend to the right mall landmark.',
+    render(el,{win,lose}){
+      const pairs=[
+        {friend:'"Dito sa sinehan!" (I\'m at the cinema!)',where:'Cinema lobby'},
+        {friend:'"Sa may fountain, tabi ng bench."',where:'Fountain'},
+        {friend:'"Food court tayo, gutom na ako."',where:'Food court'}
+      ];
+      el.innerHTML=`<div class="fountain-match">
+        <div class="fountain-friends" id="fm-friends">${pairs.map((p,i)=>`<button class="friend-chip" data-i="${i}">${p.friend}</button>`).join('')}</div>
+        <div class="landmarks" id="fm-where">${['Cinema lobby','Fountain','Food court','Department store'].map(w=>`<button class="landmark-btn" data-w="${w}">${w}</button>`).join('')}</div>
+      </div>
+      <p style="margin:12px 0 0;color:#b9c8ca;font-size:.85rem" id="fm-hint">Click a friend, then their landmark.</p>`;
+      let active=-1,solved=0;
+      el.querySelectorAll('.friend-chip').forEach(b=>b.addEventListener('click',()=>{if(b.classList.contains('done'))return;el.querySelectorAll('.friend-chip').forEach(x=>x.classList.remove('active'));b.classList.add('active');active=Number(b.dataset.i)}));
+      el.querySelectorAll('.landmark-btn').forEach(b=>b.addEventListener('click',()=>{
+        if(active<0){lose('Pick a friend first.');return}
+        if(pairs[active].where===b.dataset.w){const chip=el.querySelector(`.friend-chip[data-i="${active}"]`);chip.classList.remove('active');chip.classList.add('done');solved++;active=-1;if(solved===3)win('Everyone found each other. Malls were the tambayan.')}
+        else lose('Not that landmark — read the message again.')
+      }));
+    }
+  }},
+  cafe(){return{
+    title:'Rent an hour for ₱60',
+    intro:'You have ₱60 for one hour at the internet café. Pick which tasks to fit in. Complete three tasks.',
+    render(el,{win,lose}){
+      const tasks=[
+        {name:'Check email',cost:15},
+        {name:'Print one page',cost:10},
+        {name:'Play DOTA (30 min)',cost:25},
+        {name:'Research for homework',cost:20},
+        {name:'Friendster upload',cost:15}
+      ];
+      el.innerHTML=`<div class="mini-hud"><span id="rc-budget">₱60 left</span><span id="rc-done">0 / 3 tasks</span></div>
+        <div class="rent-tasks" id="rc-tasks">${tasks.map((t,i)=>`<div class="rent-task" data-i="${i}"><span class="rt-name">${t.name}</span><span class="rt-cost">₱${t.cost}</span><button class="rt-btn">Do it</button></div>`).join('')}</div>`;
+      let budget=60,done=0;
+      const bEl=el.querySelector('#rc-budget'),dEl=el.querySelector('#rc-done');
+      el.querySelectorAll('.rent-task').forEach(row=>row.querySelector('button').addEventListener('click',()=>{
+        if(row.classList.contains('done'))return;
+        const cost=Number(row.querySelector('.rt-cost').textContent.replace('₱',''));
+        if(cost>budget){lose(`Not enough budget — that costs ₱${cost}, you have ₱${budget} left.`);return}
+        budget-=cost;done++;
+        bEl.textContent=`₱${budget} left`;dEl.textContent=`${done} / 3 tasks`;
+        row.classList.add('done');row.querySelector('.rt-btn').textContent='✓';
+        if(done>=3)win(`Hour well spent. ₱${budget} left over for a merienda.`);
+      }));
+      /* --- Dial-up modem experience: synthesized 56k handshake, no audio files --- */
+      el.insertAdjacentHTML('beforeend',`<div class="modem-box">
+        <h4>📞 The dial-up ritual</h4>
+        <p>No broadband yet — the café's backup line is dial-up. Press play to hear a 56k modem connect, synthesized live in your browser.</p>
+        <div class="modem-lights" aria-hidden="true"><span class="ml on">PWR</span><span class="ml" id="mdm-dial">DIAL</span><span class="ml" id="mdm-link">LINK</span></div>
+        <p class="modem-status" id="mdm-status" aria-live="polite">Modem idle.</p>
+        <div class="t9-ctl"><button type="button" id="mdm-play">▶ Hear 56k connect</button><button type="button" id="mdm-stop" disabled>■ Stop</button></div>
+      </div>`);
+      const mdmPlay=el.querySelector('#mdm-play'),mdmStop=el.querySelector('#mdm-stop'),mdmStatus=el.querySelector('#mdm-status'),mdmDial=el.querySelector('#mdm-dial'),mdmLink=el.querySelector('#mdm-link');
+      let AC=null,mdmTimers=[];
+      const mdmLater=(ms,fn)=>mdmTimers.push(setTimeout(fn,ms));
+      function mdmHush(){if(AC){try{AC.close()}catch(e){}AC=null}}
+      function mdmStopAll(silent){
+        mdmTimers.forEach(clearTimeout);mdmTimers=[];mdmHush();
+        mdmPlay.disabled=false;mdmStop.disabled=true;
+        mdmDial.classList.remove('on','blink');mdmLink.classList.remove('on');
+        if(!silent)mdmStatus.textContent='Modem idle.';
+      }
+      setCleanup(()=>mdmStopAll(true));
+      mdmStop.addEventListener('click',()=>mdmStopAll(false));
+      mdmPlay.addEventListener('click',()=>{
+        if(AC)return;
+        const Ctx=window.AudioContext||window.webkitAudioContext;
+        if(!Ctx){mdmStatus.textContent='Audio is not supported in this browser.';return}
+        AC=new Ctx();mdmPlay.disabled=true;mdmStop.disabled=false;
+        const t0=AC.currentTime+0.05;
+        const master=AC.createGain();master.gain.value=0.12;master.connect(AC.destination);
+        const tone=(f,at,dur,type)=>{const o=AC.createOscillator(),g=AC.createGain();o.type=type||'sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,at);g.gain.exponentialRampToValueAtTime(0.9,at+0.02);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);o.connect(g);g.connect(master);o.start(at);o.stop(at+dur+0.05)};
+        const noiseBurst=(at,dur)=>{const len=Math.floor(AC.sampleRate*dur),buf=AC.createBuffer(1,len,AC.sampleRate),d=buf.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;const s=AC.createBufferSource();s.buffer=buf;const f=AC.createBiquadFilter();f.type='bandpass';f.frequency.value=1800;f.Q.value=0.6;const g=AC.createGain();g.gain.setValueAtTime(0.5,at);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);s.connect(f);f.connect(g);g.connect(master);s.start(at);s.stop(at+dur+0.05)};
+        const sweep=(at,dur,f0,f1)=>{const o=AC.createOscillator(),g=AC.createGain();o.type='sawtooth';o.frequency.setValueAtTime(f0,at);o.frequency.exponentialRampToValueAtTime(f1,at+dur);g.gain.setValueAtTime(0.0001,at);g.gain.exponentialRampToValueAtTime(0.35,at+0.05);g.gain.exponentialRampToValueAtTime(0.0001,at+dur);o.connect(g);g.connect(master);o.start(at);o.stop(at+dur+0.05)};
+        tone(350,t0,1.0);tone(440,t0,1.0);
+        mdmStatus.textContent='Dialing…';mdmDial.classList.add('on','blink');
+        const DTMF={'1':[697,1209],'2':[697,1336],'3':[697,1477],'4':[770,1209],'5':[770,1336],'6':[770,1477],'7':[852,1209],'8':[852,1336],'9':[852,1477],'0':[941,1336]};
+        let dt=t0+1.15;
+        '835'.split('').forEach(dg=>{const pr=DTMF[dg];tone(pr[0],dt,0.12);tone(pr[1],dt,0.12);dt+=0.22});
+        noiseBurst(dt+0.1,0.7);
+        mdmLater(2600,()=>{mdmStatus.textContent='Handshaking…'});
+        let ht=dt+0.9;
+        for(let i=0;i<6;i++){tone(i%2?2250:1200,ht,0.12,'square');ht+=0.13}
+        sweep(ht,1.1,400,2400);
+        const ct=ht+1.25;
+        tone(660,ct,0.16);tone(880,ct+0.18,0.3);
+        mdmLater(Math.round((ct-t0+0.6)*1000),()=>{mdmDial.classList.remove('on','blink');mdmLink.classList.add('on');mdmStatus.textContent='Connected at 56 kbps!';mdmPlay.disabled=false;mdmStop.disabled=true;mdmHush()});
+      });
+    }
+  }}
+};
+
+/* ---------- Game renderer ---------- */
+function renderGamePanel(exhibitId){
+  const gameFactory=games[exhibits[exhibitId].game];
+  if(!gameFactory)return '';
+  const got=hasStamp(exhibitId);
+  return `<section class="mini-game" data-exhibit="${exhibitId}">
+    <div class="mini-head"><h3>🎮 Mini-game · ${got?'Completed':'Not played yet'}</h3><span class="mini-tag">${got?'★ Stamp earned':'Play to earn a stamp'}</span></div>
+    <div class="mini-body">
+      <div class="mini-intro" id="mg-intro"></div>
+      <div class="mini-stage" id="mg-stage"></div>
+      <div class="mini-result" id="mg-result"></div>
+      <button class="mini-start" id="mg-start">▶ Start game</button>
+    </div>
+  </section>`;
+}
+function initGame(exhibitId){
+  const panel=content.querySelector(`.mini-game[data-exhibit="${exhibitId}"]`);
+  if(!panel)return;
+  const spec=games[exhibits[exhibitId].game]();
+  const intro=panel.querySelector('#mg-intro'),stage=panel.querySelector('#mg-stage'),result=panel.querySelector('#mg-result'),startBtn=panel.querySelector('#mg-start');
+  intro.textContent=spec.intro;
+  function play(){
+    startBtn.style.display='none';stage.classList.add('active');stage.innerHTML='';result.classList.remove('active');result.innerHTML='';
+    let cleaned=false;const cleanupFn=()=>{cleaned=true;if(typeof currentCleanup==='function')currentCleanup()};let currentCleanup=null;
+    const setCleanup=fn=>{currentCleanup=fn};
+    spec.render(stage,{
+      win(msg){if(cleaned)return;cleaned=true;if(currentCleanup)currentCleanup();awardStamp(exhibitId);launchConfetti({count:70});panel.classList.add('won');setTimeout(()=>panel.classList.remove('won'),850);stage.classList.remove('active');result.classList.add('active');result.innerHTML=`<div class="stamp-earned">★ STAMP EARNED</div><p class="mini-msg">${msg}</p><button class="mini-again">↻ Play again</button>`;result.querySelector('.mini-again').addEventListener('click',play)},
+      lose(msg){if(cleaned)return;stage.classList.remove('active');result.classList.add('active');result.innerHTML=`<p class="mini-msg bad">✗ ${msg}</p><button class="mini-again">↻ Try again</button>`;result.querySelector('.mini-again').addEventListener('click',play);panel.classList.add('shake');setTimeout(()=>panel.classList.remove('shake'),500);if(currentCleanup){currentCleanup();currentCleanup=null}}
+    },setCleanup);
+  }
+  startBtn.addEventListener('click',play);
+  if(hasStamp(exhibitId)){panel.querySelector('.mini-head h3').textContent='🎮 Mini-game · Completed';panel.querySelector('.mini-tag').textContent='★ Stamp earned'}
+}
+
+/* ---------- Render stage ---------- */
+function render(){
+  if(!document.getElementById('stage'))return;
+  const spec=lenses[lens];
+  document.querySelectorAll('.lens-button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lens===lens)));
+  lensLabel.textContent=`${spec.name.toUpperCase()} LENS`;
+  stepCount.textContent=step===3?'RECAP':`${String(step+1).padStart(2,'0')} / 03`;
+  progressFill.style.width=`${(step/3)*100}%`;
+  routeList.innerHTML=spec.ids.map((id,i)=>`<li><button type="button" data-step="${i}" ${step===i?'aria-current="step"':''}><span>0${i+1} / ${rooms[i].short.toUpperCase()}</span>${exhibits[id].title}</button></li>`).join('');
+
+  if(step===3){
+    const q=lenses[lens].quiz;const votes=lsGet(VOTE_KEY,{});const myVote=votes[lens];
+    const seed=[...lens].reduce((a,c)=>a+c.charCodeAt(0),0);const base=q.options.map((_,i)=>18+((seed*(i+3))%37));const total=base.reduce((a,b)=>a+b,0)+(myVote!==undefined?1:0);
+    content.innerHTML=`<p class="room-kicker">THREE ROOMS / ONE QUESTION</p>
+      <h2>${spec.name} shaped these three experiences</h2>
+      <p class="recap-intro">${spec.recap}</p>
+      <div class="recap-list">${spec.points.map((p,i)=>`<div><strong>0${i+1} / ${rooms[i].short}</strong><p>${p}</p></div>`).join('')}</div>
+      <div class="quiz"><h3>Quick poll</h3><p class="q-intro">${q.prompt}</p>
+      <div class="quiz-options">${q.options.map(([label,note],i)=>{const c=base[i]+(myVote===i?1:0);const pct=Math.round((c/total)*100);return `<button type="button" class="quiz-option ${myVote!==undefined?'answered':''}" data-quiz="${lens}" data-opt="${i}" ${myVote!==undefined?'disabled':''} aria-pressed="${myVote===i}"><span class="vote-bar" style="width:${myVote!==undefined?pct:0}%"></span><span class="opt-label">${label}<small style="display:block;font-weight:400;font-size:.78rem;color:#a7b6c4;margin-top:3px">${note}</small></span><span class="opt-pct">${myVote!==undefined?pct+'%':''}</span></button>`}).join('')}</div>
+      ${myVote!==undefined?`<p class="quiz-result">You picked "${q.options[myVote][0]}". Stored on your device only.</p><button type="button" class="quiz-reset" data-quiz-reset="${lens}">Reset my answer</button>`:`<p class="quiz-result">Pick one to see an illustrative split. Stored on your device only.</p>`}
+      </div>
+      <p class="recap-question">${spec.question}</p>
+      <p class="fine">This comparison draws on three sourced examples. It does not describe one person's experience.</p>
+      <div class="stage-actions"><button class="action" type="button" data-action="restart">Choose another route</button><button class="action secondary" type="button" data-action="back">Return to last exhibit</button><a class="text-link" href="#archive">Browse all nine exhibits</a></div>`;
+    finishRender();
+    return;
+  }
+  const id=spec.ids[step],ex=exhibits[id];
+  content.innerHTML=`<p class="room-kicker">ROOM 0${step+1} / ${rooms[step].title.toUpperCase()} / ${ex.year}</p>
+    <h2>${ex.title}</h2>
+    <div class="stage-hero">${visualHTML(id,'stage-visual')}<p class="context">${ex.body}</p></div>
+    ${flowHTML(ex.flow,id)}
+    <div class="compare">
+      <button type="button" class="flip-card" aria-expanded="false" data-flip aria-label="Then, 2000s. Activate to reveal."><span class="flip-inner"><span class="flip-face flip-front"><span class="label">Then · 2000s</span><span class="flip-hint">Click to reveal</span></span><span class="flip-face flip-back"><span class="label">Then · 2000s</span><p class="flip-body">${ex.then}</p></span></span></button>
+      <button type="button" class="flip-card" aria-expanded="false" data-flip aria-label="Now, comparison. Activate to reveal."><span class="flip-inner"><span class="flip-face flip-front"><span class="label">Now · comparison</span><span class="flip-hint">Click to reveal</span></span><span class="flip-face flip-back"><span class="label">Now · comparison</span><p class="flip-body">${ex.now}</p></span></span></button>
+    </div>
+    <p class="ask">Ask: ${ex.question}</p>
+    <div class="sources"><span class="source-tag">Sources for this exhibit</span><br>${sourceHTML(ex.sources)}</div>
+    ${renderGamePanel(id)}
+    <div class="stage-actions">${step>0?'<button class="action secondary" type="button" data-action="back">← Previous stop</button>':''}<button class="action" type="button" data-action="next">${step===2?'Compare your three stops':'Next stop →'}</button><a class="text-link" href="#archive">Browse all nine exhibits</a><span class="kbd-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate</span></div>`;
+  initGame(id);
+  lsSet(STATE_KEY,{lens,step});
+  finishRender();
+}
+
+function updateStepDots(){
+  const d=document.getElementById('step-dots');if(!d)return;
+  d.innerHTML=[0,1,2,3].map(i=>'<span class="sdot'+(i===step?' on':'')+'"></span>').join('');
+}
+function finishRender(){
+  updateStepDots();
+  content.classList.remove('stage-enter');void content.offsetWidth;content.classList.add('stage-enter');
+}
+function move(n,push=true){if(!stage)return;step=Math.min(3,Math.max(0,n));syncURL(push);render();stage.focus({preventScroll:true});stage.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
+
+/* ---------- Events ---------- */
+const lensOpts=document.querySelector('.lens-options');
+if(lensOpts)lensOpts.addEventListener('click',e=>{const b=e.target.closest('[data-lens]');if(!b)return;lens=b.dataset.lens;move(0)});
+if(routeList)routeList.addEventListener('click',e=>{const b=e.target.closest('[data-step]');if(b)move(Number(b.dataset.step))});
+
+if(content)content.addEventListener('click',e=>{
+  const flowBtn=e.target.closest('[data-flow]');
+  if(flowBtn){
+    const open=flowBtn.getAttribute('aria-expanded')==='true';
+    flowBtn.parentElement.querySelectorAll('[data-flow]').forEach(b=>{if(b!==flowBtn)b.setAttribute('aria-expanded','false')});
+    flowBtn.setAttribute('aria-expanded',String(!open));
+    const ex=flowBtn.parentElement.querySelector('.flow-detail');if(ex)ex.remove();
+    if(!open){const [exId,idx]=flowBtn.dataset.flow.split('-');const detail=exhibits[exId].flow[Number(idx)].detail;const div=document.createElement('div');div.className='flow-detail';div.innerHTML=`<b>Step ${Number(idx)+1}</b>${detail}`;flowBtn.parentElement.appendChild(div)}
+    return;
+  }
+  const flip=e.target.closest('[data-flip]');
+  if(flip){const open=flip.getAttribute('aria-expanded')==='true';flip.setAttribute('aria-expanded',String(!open));return}
+  const qr=e.target.closest('[data-quiz-reset]');
+  if(qr){const v=lsGet(VOTE_KEY,{});delete v[qr.dataset.quizReset];lsSet(VOTE_KEY,v);render();return}
+  const qopt=e.target.closest('[data-quiz]');
+  if(qopt){const qkey=qopt.dataset.quiz;const opt=Number(qopt.dataset.opt);const votes=lsGet(VOTE_KEY,{});if(votes[qkey]!==undefined)return;votes[qkey]=opt;lsSet(VOTE_KEY,votes);render();return}
+  const b=e.target.closest('[data-action]');if(!b)return;
+  if(b.dataset.action==='next')move(step+1);
+  if(b.dataset.action==='back')move(step-1);
+  if(b.dataset.action==='restart'){document.getElementById('choose').scrollIntoView({behavior:'smooth'});document.querySelector('.lens-button').focus()}
+});
+
+if(stage)document.addEventListener('keydown',e=>{
+  const cel=document.getElementById('celebrate');
+  if(cel&&!cel.hidden){if(e.key==='Escape'){e.preventDefault();closeCelebration()}return}
+  if(e.target.closest('input, textarea, select'))return;
+  if(e.key==='ArrowRight'&&!e.target.closest('a[href]')){e.preventDefault();move(step+1)}
+  else if(e.key==='ArrowLeft'&&!e.target.closest('a[href]')){e.preventDefault();move(step-1)}
+  else if(e.key==='Escape'){document.getElementById('choose').scrollIntoView({behavior:'smooth'})}
+});
+
+let tx=null,ty=null;
+if(stage)stage.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+if(stage)stage.addEventListener('touchend',e=>{
+  if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.4)move(step+(dx<0?1:-1));
+  tx=null;ty=null
+},{passive:true});
+
+if(stage)window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);lens=Object.hasOwn(lenses,p.get('lens'))?p.get('lens'):'cost';step=Math.min(3,Math.max(0,parseInt(p.get('step')||'0',10)||0));render()});
+
+/* ---------- Archive ---------- */
+if(document.getElementById('rooms'))document.getElementById('rooms').innerHTML=rooms.map((room,i)=>`<section class="room" aria-labelledby="room-${i}">
+  <div class="room-head"><span>ROOM 0${i+1}</span><h3 id="room-${i}">${room.title}</h3></div>
+  <div class="cards">${room.ids.map(id=>{const e=exhibits[id];const got=hasStamp(id);
+    return `<article class="card" id="exhibit-${id}" data-year="${e.year}">
+      <div style="position:relative">${visualHTML(id,'card-media')}<div class="card-stamp ${got?'got':''}">★</div></div>
+      <div class="card-body">
+        <p class="source-tag">${e.year} / ${room.short}</p>
+        <h4>${e.title}</h4>
+        <p>${e.body}</p>
+        <p class="mini-flow">${e.flow.map(f=>f.label).join(' → ')}</p>
+        <div>${sourceHTML(e.sources)}</div>
+      </div>
+    </article>`}).join('')}</div>
+</section>`).join('');
+
+/* ---------- Arcade ---------- */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function passUI(got,total){const c=$('#pass-card');if(!c)return;const left=total-got;$('#pass-n').textContent=`${got}/${total}`;c.classList.toggle('done',!left);$('#pass-msg').textContent=left?`Museum pass: ${left} more stamp${left>1?'s':''} to collect. Win each exhibit's mini-game to earn one.`:'Certified 2000s kid. All nine exhibits stamped.';$('#pass-copy').hidden=!!left}
+$('#pass-copy').addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 9 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
+
+(()=>{/* Pasaload Snake */
+if(!document.getElementById('snk'))return;
+const cv=$('#snk'),g=cv.getContext('2d'),N=16,M=12,S=20,scEl=$('#snk-score'),bEl=$('#snk-best'),msg=$('#snk-msg'),go=$('#snk-go');
+const D={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};
+let sn,d,q,f,sc=0,tm=null,paused=false,best=lsGet('museum-snake',0);bEl.textContent=best;
+const put=()=>{do f=[Math.random()*N|0,Math.random()*M|0];while(sn.some(p=>p[0]===f[0]&&p[1]===f[1]))};
+function draw(){g.fillStyle='#b5cc7a';g.fillRect(0,0,320,240);g.fillStyle='#1e2b12';sn.forEach(p=>g.fillRect(p[0]*S+1,p[1]*S+1,S-2,S-2));g.font='bold 16px "Space Mono",monospace';g.textBaseline='top';g.fillText('₱',f[0]*S+3,f[1]*S+2)}
+function end(){cv.classList.add('dead');setTimeout(()=>cv.classList.remove('dead'),700);clearInterval(tm);tm=null;if(sc>best){best=sc;lsSet('museum-snake',best);bEl.textContent=best}msg.textContent=`Line cut at ₱${sc} load. Press Redial to try again.`;go.textContent='↻ Redial'}
+function tick(){d=q;const h=[(sn[0][0]+d[0]+N)%N,(sn[0][1]+d[1]+M)%M];if(sn.some(p=>p[0]===h[0]&&p[1]===h[1])){end();return}sn.unshift(h);if(h[0]===f[0]&&h[1]===f[1]){sc+=5;scEl.textContent=sc;const sp=scEl.parentElement;sp.classList.add('bump');setTimeout(()=>sp.classList.remove('bump'),320);put()}else sn.pop();draw()}
+function start(){cv.classList.remove('dead');sn=[[5,6],[4,6],[3,6]];d=q=[1,0];sc=0;scEl.textContent=0;put();msg.textContent='Eat the ₱ to top up. Don’t bite your own line.';clearInterval(tm);tm=setInterval(tick,115);paused=false;draw();cv.focus({preventScroll:true})}
+const steer=v=>{if(!tm||!v)return;if(v[0]!==-d[0]||v[1]!==-d[1])q=v};
+go.addEventListener('click',start);
+cv.addEventListener('keydown',e=>{const v=D[e.key.length>1?e.key:e.key.toLowerCase()];if(v){e.preventDefault();e.stopPropagation();steer(v)}});
+cv.addEventListener('blur',()=>{if(tm){clearInterval(tm);tm=null;paused=true;msg.textContent='Paused. Click the screen to resume.'}});
+cv.addEventListener('focus',()=>{if(paused){paused=false;tm=setInterval(tick,115);msg.textContent='Back on the line.'}});
+cv.addEventListener('click',()=>cv.focus());
+document.querySelector('.dpad').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b){if(!tm&&!paused)start();steer(D[b.dataset.k])}});
+let sx,sy;cv.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+cv.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;steer(Math.abs(dx)>Math.abs(dy)?D[dx>0?'ArrowRight':'ArrowLeft']:D[dy>0?'ArrowDown':'ArrowUp'])},{passive:true});
+sn=[[5,6],[4,6],[3,6]];f=[10,6];draw();
+})();
+
+(()=>{/* T9 Texter */
+if(!document.getElementById('t9-pad'))return;
+const K={2:'abc',3:'def',4:'ghi',5:'jkl',6:'mno',7:'pqrs',8:'tuv',9:'wxyz',0:' '},P=['kumusta','tara na','miss u'],pad=$('#t9-pad');
+let r,txt,lk,lt,t0,pr,fin;
+pad.innerHTML=[2,3,4,5,6,7,8,9,0].map(k=>`<button type="button" data-k="${k}"><b>${k||'␣'}</b><small>${K[k].trim()||'space'}</small></button>`).join('');
+function show(){$('#t9-target').textContent=P[Math.min(r,2)];$('#t9-out').textContent=txt+'▮';if(!fin)$('#t9-info').textContent=`Message ${r+1}/3 · ${pr} presses`}
+function reset(){r=0;txt='';lk=null;lt=0;t0=0;pr=0;fin=false;show()}
+pad.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b||fin)return;b.classList.add('tap');setTimeout(()=>b.classList.remove('tap'),170);const k=b.dataset.k,L=K[k],now=Date.now();if(!t0)t0=now;pr++;
+  if(k===lk&&now-lt<900&&L.length>1)txt=txt.slice(0,-1)+L[(L.indexOf(txt.slice(-1))+1)%L.length];else txt+=L[0];
+  lk=k;lt=now;
+  if(txt===P[r]){r++;txt='';lk=null;if(r===3){fin=true;const s=((now-t0)/1000).toFixed(1),old=lsGet('museum-t9',null);if(old===null||+s<old)lsSet('museum-t9',+s);$('#t9-info').textContent=`Sent all 3 in ${s}s with ${pr} presses. Best: ${lsGet('museum-t9',s)}s`;$('#t9-target').textContent='All sent!';$('#t9-out').textContent='✓ Delivered';return}}
+  show()});
+$('#t9-del').addEventListener('click',()=>{if(fin)return;txt=txt.slice(0,-1);lk=null;show()});
+$('#t9-reset').addEventListener('click',reset);reset();
+})();
+
+(()=>{/* Sari-Sari Sukli */
+if(!document.getElementById('suk-pad'))return;
+const pad=$('#suk-pad'),give=$('#suk-give'),clr=$('#suk-clear'),again=$('#suk-again');
+const tEl=$('#suk-total'),pEl=$('#suk-paid'),dEl=$('#suk-due'),rEl=$('#suk-tray'),info=$('#suk-info'),msg=$('#suk-msg');
+const scEl=$('#suk-score'),missEl=$('#suk-miss'),bestEl=$('#suk-best');
+const card=pad.closest('.arc-card');
+let total,paid,due,tray,cust,score,miss,over,best=lsGet('museum-sukli',0);
+if(best)bestEl.textContent=best;
+function update(){
+  tEl.textContent='₱'+total;pEl.textContent='₱'+paid;dEl.textContent='₱'+due;rEl.textContent='₱'+tray;
+  info.textContent=`Customer ${cust+1}/10`;scEl.textContent=score;missEl.textContent=miss;
+}
+function newCustomer(){
+  total=5+Math.floor(Math.random()*91);
+  paid=[20,50,100].find(b=>b>total);
+  due=paid-total;tray=0;update();
+}
+function reset(){
+  cust=0;score=0;miss=0;over=false;again.hidden=true;
+  msg.textContent='Give the EXACT change. Tap coins and bills, then hit “Give change”.';
+  newCustomer();
+}
+function finish(won){
+  over=true;
+  if(score>best){best=score;lsSet('museum-sukli',best);bestEl.textContent=best}
+  msg.textContent=won
+    ?`🎉 Shift complete! You served all 10 customers. Best shift: ${best}.`
+    :`Shift over — 3 mistakes. You served ${score} customer${score===1?'':'s'}. Best: ${best}.`;
+  again.hidden=false;
+}
+pad.addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b||over)return;tray+=Number(b.dataset.v);update()});
+clr.addEventListener('click',()=>{if(over)return;tray=0;update()});
+give.addEventListener('click',()=>{
+  if(over)return;
+  if(tray===due){
+    score++;cust++;update();
+    if(cust>=10){finish(true);return}
+    msg.textContent=`Sakto! Customer ${cust} served — next customer, please.`;
+    setTimeout(()=>{if(!over)newCustomer()},650);
+  }else{
+    miss++;update();
+    card.classList.add('shake');setTimeout(()=>card.classList.remove('shake'),500);
+    if(miss>=3){finish(false);return}
+    msg.textContent=tray>due
+      ?`Too much — take back ₱${tray-due} and try again.`
+      :`Kulang pa — short by ₱${due-tray}. Add more.`;
+  }
+});
+again.addEventListener('click',reset);
+reset();
+})();
+
+(()=>{/* Y2K Pairs */
+if(!document.getElementById('mem-grid'))return;
+const I=[['📟','Pager: beeped you a number to call back.'],['💾','Floppy disk: 1.44 MB of homework.'],['📼','VHS: rewind before returning it.'],['💿','CD-R: burned mix, handwritten in marker.'],['🎮','Handheld game: batteries not included.'],['☎️','Payphone: coins or a prepaid card.'],['📷','Digicam: photos waited for a USB cable.'],['💳','Load card: scratch, text the code, wait.']];
+const grid=$('#mem-grid'),mv=$('#mem-moves'),note=$('#mem-note'),bst=$('#mem-best');let deck,up,moves,ok,lock;
+const best=lsGet('museum-pairs',null);if(best)bst.textContent=best;
+function deal(){deck=[...I,...I].map((x,i)=>x).sort(()=>Math.random()-.5);up=[];moves=0;ok=0;lock=false;mv.textContent=0;note.textContent='Flip any card to begin.';grid.innerHTML=deck.map((c,i)=>`<button type="button" class="mem" data-i="${i}" aria-label="Card ${i+1}, face down">${c[0]}</button>`).join('')}
+grid.addEventListener('click',e=>{const b=e.target.closest('.mem');if(!b||lock||b.classList.contains('up')||b.classList.contains('ok'))return;b.classList.add('up');b.setAttribute('aria-label','Card '+(+b.dataset.i+1)+', '+deck[b.dataset.i][1].split(':')[0]);up.push(b);if(up.length<2)return;moves++;mv.textContent=moves;
+  const[a,c]=up;if(deck[a.dataset.i][0]===deck[c.dataset.i][0]){a.className=c.className='mem ok';a.disabled=c.disabled=true;note.textContent=deck[a.dataset.i][1];up=[];if(++ok===8){const old=lsGet('museum-pairs',null);if(old===null||moves<old){lsSet('museum-pairs',moves);bst.textContent=moves}note.textContent=`All pairs found in ${moves} moves. Press Shuffle to beat it.`}}
+  else{lock=true;note.textContent='Not a match \u2014 try again.';setTimeout(()=>{a.classList.remove('up');c.classList.remove('up');up=[];lock=false},1200)}});
+$('#mem-reset').addEventListener('click',deal);deal();
+})();
+
+(()=>{/* Nokia mode */
+const t=$('#lcd-toggle'),set=on=>{document.documentElement.classList.toggle('nokia',on);t.setAttribute('aria-pressed',String(on));lsSet('museum-nokia',on)};
+t.addEventListener('click',()=>set(t.getAttribute('aria-pressed')!=='true'));if(lsGet('museum-nokia',false))set(true);
+})();
+
+/* ---------- Guestbook: shared backend with localStorage fallback ---------- */
+if(document.getElementById('gb-form')){
+const gbForm=document.getElementById('gb-form'),gbEntries=document.getElementById('gb-entries'),gbBadge=document.getElementById('gb-badge'),gbNote=document.getElementById('gb-note');
+let gbLive=false;
+const gbBase=()=>GUESTBOOK_API_URL.replace(/\/$/,'');
+function gbShowNote(msg){gbNote.textContent=msg;gbNote.hidden=!msg}
+function gbEntryHTML(e){
+  let ts='';try{ts=e.ts?new Date(e.ts).toLocaleString('en-PH',{day:'numeric',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'}):''}catch(_){ts=''}
+  return `<div class="gb-entry"><div class="gb-who">${esc(e.who)}${e.where?' · '+esc(e.where):''}${ts?'<span class="gb-ts">'+esc(ts)+'</span>':''}</div><p class="gb-msg">${esc(e.msg)}</p></div>`;
+}
+function renderGB(list){
+  if(!list.length){gbEntries.innerHTML='<p class="gb-empty">📼 The tape is blank.<br>Be the first to sign the guestbook.</p>';return}
+  gbEntries.innerHTML=list.slice().reverse().map(gbEntryHTML).join('');
+}
+function gbGoLocal(){
+  gbLive=false;gbBadge.hidden=true;
+  gbShowNote('Couldn\'t reach the shared guestbook — showing entries from this device.');
+  renderGB(lsGet(GB_KEY,[]));
+}
+async function gbLoad(){
+  if(!GUESTBOOK_API_URL){gbGoLocal();return}
+  gbShowNote('Waking up the shared guestbook\u2026');
+  try{
+    const r=await fetch(gbBase()+'/api/entries');
+    if(!r.ok)throw new Error('bad status');
+    const list=await r.json();
+    gbLive=true;gbBadge.hidden=false;gbShowNote('');
+    const server=Array.isArray(list)?list:[];
+    const gk=e=>[e.who||'',e.where||'',e.msg||''].join('\u00a6');
+    const seen=new Set(server.map(gk));
+    const onlyLocal=lsGet(GB_KEY,[]).filter(e=>!seen.has(gk(e)));
+    renderGB(server.concat(onlyLocal));
+    if(onlyLocal.length){
+      try{
+        for(const e of onlyLocal){
+          const pr=await fetch(gbBase()+'/api/entries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who:e.who,where:e.where,msg:e.msg})});
+          if(!pr.ok)throw new Error('sync failed');
+        }
+        lsSet(GB_KEY,[]);
+        const r2=await fetch(gbBase()+'/api/entries');
+        if(r2.ok){const l2=await r2.json();renderGB(Array.isArray(l2)?l2:[]);}
+      }catch(_){}
+    }
+  }catch(e){gbGoLocal()}
+}
+gbForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const who=document.getElementById('gb-name').value.trim();
+  const where=document.getElementById('gb-where').value.trim();
+  const msg=document.getElementById('gb-msg').value.trim();
+  if(!who||!msg)return;
+  const btn=gbForm.querySelector('button[type="submit"]'),oldLabel=btn.textContent;
+  btn.disabled=true;btn.textContent='Signing…';
+  try{
+    if(gbLive){
+      const r=await fetch(gbBase()+'/api/entries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who,where,msg})});
+      if(!r.ok)throw new Error('post failed');
+      await r.json();
+      await gbLoad();
+    }else{
+      const list=lsGet(GB_KEY,[]);
+      list.push({who,where,msg,ts:Date.now()});
+      lsSet(GB_KEY,list);
+      renderGB(list);
+    }
+    gbForm.reset();
+  }catch(err){
+    const list=lsGet(GB_KEY,[]);
+    list.push({who,where,msg,ts:Date.now()});
+    lsSet(GB_KEY,list);
+    gbGoLocal();
+    gbForm.reset();
+  }finally{
+    btn.disabled=false;btn.textContent=oldLabel;
+  }
+});
+gbLoad();
+}
+
+/* ---------- Init ---------- */
+updateStampUI();
+if(document.getElementById('stage')){syncURL(false);render();}
+
+/* ---------- Enhancement init ---------- */
+(function(){
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.room,.card,.arc-card,.section-heading,.guestbook-inner').forEach(el=>el.classList.add('reveal'));
+  const revealEls=document.querySelectorAll('.reveal');
+  if(!reduceMotion&&'IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('revealed');io.unobserve(en.target)}}),{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+    revealEls.forEach(el=>io.observe(el));
+  }else{revealEls.forEach(el=>el.classList.add('revealed'))}
+  const toTop=document.getElementById('to-top');
+  window.addEventListener('scroll',()=>{toTop.classList.toggle('show',window.scrollY>700)},{passive:true});
+  toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'}));
+  document.getElementById('celebrate-close').addEventListener('click',closeCelebration);
+  document.getElementById('celebrate').addEventListener('click',e=>{if(e.target.id==='celebrate')closeCelebration()});
+  const coverArt=document.querySelector('.cover-art');
+  if(coverArt&&!reduceMotion){
+    let ticking=false;
+    window.addEventListener('scroll',()=>{
+      if(ticking)return;ticking=true;
+      requestAnimationFrame(()=>{
+        const r=coverArt.getBoundingClientRect();
+        if(r.bottom>0&&r.top<window.innerHeight){
+          const off=Math.max(-36,Math.min(36,(r.top+r.height/2-window.innerHeight/2)*-0.05));
+          coverArt.style.transform='translateY('+off.toFixed(1)+'px)';
+        }
+        ticking=false;
+      });
+    },{passive:true});
+  }
+})();
+
+/* ============ PASS 3: quiz, photo booth, soundboard, timeline, i18n, presence, memory wall ============ */
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s);
+const esc2=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------------- Taglish toggle ---------------- */
+let LANG='en';
+try{LANG=localStorage.getItem('museum-lang')||'en'}catch(e){}
+const T={
+ 'nav-home':['Lobby','Lobby'],
+ 'nav-archive':['Exhibit Halls','Mga Exhibit'],
+ 'nav-play':['Arcade & Playground','Arcade at Palaruan'],
+ 'nav-gb':['Guestbook','Guestbook'],
+ 'archive-title':['Browse all nine exhibits','Tingnan ang siyam na exhibit'],
+ 'arch-sub':['Read the full collection by room. Each card links to its source and the exhibit\u2019s mini-game.','Basahin ang buong koleksyon ayon sa kuwarto. Bawat card may link sa source at mini-game.'],
+ 'tl-label':['Drag through the decade:','I-drag ang dekada:'],
+ 'arc-title':['The Arcade','Ang Arcade'],
+ 'arc-sub':['Four bonus games from the phone in your pocket. Play any time, no stamp needed.','Apat na bonus game mula sa bulsa mo. Laroin kahit kailan, walang stamp na kailangan.'],
+ 'quiz-title':['Which 2000s icon are you?','Anong 2000s icon ka?'],
+ 'quiz-sub':['Answer 5 quick questions. We will match you to the exhibit that raised you \u2014 then generate a shareable ID card.','Sagutin ang 5 mabilis na tanong. Itutugma ka namin sa exhibit na nagpalaki sa iyo \u2014 at gagawa kami ng ID card na puwede mong i-share.'],
+ 'pg-title':['Time-machine playground','Palaruan ng time machine'],
+ 'pg-sub':['Remix yourself into the 2000s, then press play on its sounds.','I-remix ang sarili mo pabalik sa 2000s, tapos i-play ang mga tunog nito.'],
+ 'pb-title':['\ud83d\udcf8 2000s photo booth','\ud83d\udcf8 Photo booth ng 2000s'],
+ 'pb-sub':['Upload a photo (or use your camera) and get it back the 2007 way: pixelated, timestamped, Friendster-framed. Tap the photo to capture from camera.','Mag-upload ng litrato (o gamitin ang camera) at ibabalik namin itong 2007-style: pixelated, may timestamp, may Friendster frame. I-tap ang litrato para kumuha mula sa camera.'],
+ 'pb-choose':['Choose photo','Pumili ng litrato'],
+ 'pb-cam':['Use camera','Gamitin ang camera'],
+ 'pb-dl':['Download photo','I-download ang litrato'],
+ 'sb-title':['\ud83d\udd0a Soundboard','\ud83d\udd0a Soundboard'],
+ 'sb-sub':['Every sound synthesized live in your browser \u2014 no audio files, just WebAudio.','Bawat tunog gawa mismo sa browser mo \u2014 walang audio file, WebAudio lang.'],
+ 'sb-nokia':['Nokia tune','Nokia tune'],
+ 'sb-static':['TV static','TV static'],
+ 'sb-dial':['Dial-up','Dial-up'],
+ 'sb-sms':['Text received','May text'],
+ 'gb-title':['Sign the guestbook','Lumagda sa guestbook'],
+ 'gb-intro':['Leave a note about your favourite 2000s memory.','Mag-iwan ng mensahe tungkol sa paborito mong alaala noong 2000s.'],
+ 'gb-submit':['Sign the guestbook \u2192','Lumagda sa guestbook \u2192'],
+ 'presence-txt':['visiting right now','bumibisita ngayon'],
+ 'mem-title':['Community memory wall','Pader ng mga alaala'],
+ 'mem-sub':['Pin your own 2000s memory for every visitor to read.','I-pin ang sarili mong alaala noong 2000s para mabasa ng lahat.'],
+ 'mem-submit':['Pin my memory \u2192','I-pin ang alaala ko \u2192']
+};
+const TPH={
+ 'gb-name':['Your name or handle','Pangalan o handle'],
+ 'gb-where':['Where are you visiting from? (optional)','Taga-saan ka? (opsyonal)'],
+ 'gb-msg':['What do you remember from the 2000s?','Anong naaalala mo noong 2000s?'],
+ 'mem-name':['Your name','Pangalan mo'],
+ 'mem-when':['Year (e.g. 2007)','Taon (hal. 2007)'],
+ 'mem-msg':['Your 2000s memory\u2026','Ang alaala mo noong 2000s\u2026']
+};
+function applyLang(){
+  for(const id in T){const el=document.getElementById(id);if(el)el.textContent=T[id][LANG==='tl'?1:0];}
+  for(const id in TPH){const el=document.getElementById(id);if(el)el.placeholder=TPH[id][LANG==='tl'?1:0];}
+  const b=document.getElementById('lang-toggle');
+  if(b){b.classList.toggle('on',LANG==='tl');b.setAttribute('aria-pressed',LANG==='tl');}
+  try{localStorage.setItem('museum-lang',LANG)}catch(e){}
+  pqRender(); tlApply();
+}
+document.getElementById('lang-toggle').addEventListener('click',()=>{LANG=LANG==='tl'?'en':'tl';applyLang();});
+
+/* ---------------- Quiz: which 2000s icon are you? ---------------- */
+const ARCH={
+ sms:{n:['The Texter','Ang Texter'],ex:'sms'},
+ camera:{n:['The Documenter','Ang Documenter'],ex:'camera'},
+ friendster:{n:['The Profile Curator','Ang Curator ng Profile'],ex:'friendster'},
+ ofw:{n:['The Bridge','Ang Tulay'],ex:'ofw'},
+ bpo:{n:['The Night Owl','Ang Night Owl'],ex:'bpo'},
+ meteor:{n:['The Teleserye Devotee','Ang Teleserye Fan'],ex:'meteor'},
+ boxing:{n:['The Fight Night Fan','Ang Fight Night Fan'],ex:'boxing'},
+ mall:{n:['The Tambay','Ang Tambay'],ex:'mall'},
+ cafe:{n:['The Piso Net Regular','Ang Suki ng Piso Net'],ex:'cafe'}
+};
+const PQQ=[
+ {q:['It\u2019s Friday night in 2007. Where are you?','Biyernes ng gabi, 2007. Nasaan ka?'],o:[
+  ['At the mall with the barkada','Sa mall kasama ang barkada','mall'],
+  ['Racking up hours at the internet caf\u00e9','Nagpapalipas ng oras sa internet caf\u00e9','cafe'],
+  ['Glued to the TV at home','Nakatutok sa TV sa bahay','meteor'],
+  ['Texting everyone I know','Tine-text ang lahat ng kakilala','sms']]},
+ {q:['Pick a sound:','Pumili ng tunog:'],o:[
+  ['The Nokia tune','Ang Nokia tune','sms'],
+  ['The dial-up handshake','Ang dial-up handshake','cafe'],
+  ['TV static before your show','TV static bago ang palabas','meteor'],
+  ['The office hum at 2AM','Ang ugong ng opisina nang 2AM','bpo']]},
+ {q:['Your last \u20b120 of load goes to\u2026','Ang huling \u20b120 ng load mo ay para sa\u2026'],o:[
+  ['Texting your crush','Pag-text sa crush','sms'],
+  ['Updating your Friendster profile','Pag-update ng Friendster profile','friendster'],
+  ['Calling family abroad','Pagtawag sa pamilya sa abroad','ofw'],
+  ['MMS-ing a photo to a friend','Pag-MMS ng litrato sa kaibigan','camera']]},
+ {q:['Choose a 2000s superpower:','Pumili ng 2000s superpower:'],o:[
+  ['Teleporting to a Pacquiao fight','Teleport papunta sa laban ni Pacquiao','boxing'],
+  ['Thriving on the night shift','Kayang-kaya ang night shift','bpo'],
+  ['Finding your friends in any crowded mall','Mahanap ang barkada sa siksikang mall','mall'],
+  ['A text that crosses oceans instantly','Text na tumatawid ng karagatan','ofw']]},
+ {q:['Your ideal pasalubong from 2007:','Ang ideal mong pasalubong mula 2007:'],o:[
+  ['A camera full of memories','Kamerang puno ng alaala','camera'],
+  ['A perfectly curated profile','Perpektong profile','friendster'],
+  ['An hour of uninterrupted piso net','Isang oras ng tuloy-tuloy na piso net','cafe'],
+  ['The Meteor Garden finale on CD','Ang finale ng Meteor Garden sa CD','meteor']]}
+];
+let pqStep=0,pqScore={};
+function pqRender(){
+  if(!document.getElementById('pq-q'))return;
+  const box=$('#pquiz'),res=$('#pq-result');
+  if(pqStep>=PQQ.length){box.hidden=true;res.hidden=false;pqDraw();return;}
+  box.hidden=false;res.hidden=true;
+  const q=PQQ[pqStep],li=LANG==='tl'?1:0;
+  $('#pq-q').textContent=(pqStep+1)+'. '+q.q[li];
+  $('#pq-opts').innerHTML=q.o.map((o,i)=>'<button type="button" class="pq-opt" data-a="'+o[2]+'">'+esc2(o[li])+'</button>').join('');
+  $('#pq-progress').textContent=(li?'Tanong ':'Question ')+(pqStep+1)+' / '+PQQ.length;
+  $('#pq-opts').querySelectorAll('.pq-opt').forEach(b=>b.addEventListener('click',()=>{
+    pqScore[b.dataset.a]=(pqScore[b.dataset.a]||0)+1;pqStep++;pqRender();
+  }));
+}
+function pqWinner(){
+  let best='sms',bs=-1;
+  for(const k in ARCH){const v=pqScore[k]||0;if(v>bs){bs=v;best=k;}}
+  return best;
+}
+function pqDraw(){
+  const c=$('#pq-card'),x=c.getContext('2d'),li=LANG==='tl'?1:0;
+  const w=pqWinner(),a=ARCH[w];
+  let exTitle='',exYear='';
+  try{exTitle=exhibits[a.ex].title;exYear=exhibits[a.ex].year;}catch(e){}
+  x.fillStyle='#fffefa';x.fillRect(0,0,600,340);
+  x.strokeStyle='#101927';x.lineWidth=6;x.strokeRect(8,8,584,324);
+  x.fillStyle='#101927';x.fillRect(8,8,584,64);
+  x.fillStyle='#fffefa';x.font='900 26px Archivo Black, Impact, sans-serif';x.textAlign='center';
+  x.fillText('THE 2000s CALLED.',300,52);
+  x.fillStyle='#ff835d';x.font='900 44px Archivo Black, Impact, sans-serif';
+  const nm=a.n[li];x.fillText(nm.length>22?nm.slice(0,22):nm,300,140);
+  x.fillStyle='#4a5a6a';x.font='16px "DM Sans", sans-serif';
+  const wrap=exTitle;let line='';
+  const words=String(wrap).split(' ');
+  let yy=180;
+  words.forEach(wd=>{if((line+' '+wd).length>44){x.fillText(line.trim(),300,yy);yy+=22;line='';}line+=' '+wd;});
+  x.fillText(line.trim(),300,yy);yy+=26;
+  x.fillStyle='#101927';x.font='bold 15px "Space Mono", monospace';
+  x.fillText('MATCHED EXHIBIT \u00b7 '+exYear,300,yy+8);
+  x.save();x.translate(480,250);x.rotate(-0.22);
+  x.strokeStyle='#d33f2e';x.lineWidth=3;x.strokeRect(-110,-34,220,68);
+  x.fillStyle='#d33f2e';x.font='900 20px Archivo Black, Impact, sans-serif';
+  x.fillText(li?'CERTIFIED':'CERTIFIED',0,8);x.restore();
+  x.fillStyle='#6b7d90';x.font='13px "Space Mono", monospace';x.textAlign='left';
+  const d=new Date();
+  x.fillText('Issued '+(d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear()+' \u00b7 the-2000s-called-museum',28,316);
+}
+const pqDl=$('#pq-dl');
+if(pqDl)pqDl.addEventListener('click',()=>{
+  const a=document.createElement('a');
+  a.download='2000s-id-card.png';a.href=$('#pq-card').toDataURL('image/png');a.click();
+});
+const pqRt=$('#pq-retry');
+if(pqRt)pqRt.addEventListener('click',()=>{pqStep=0;pqScore={};pqRender();});
+
+/* ---------------- Photo booth ---------------- */
+const pbC=$('#pb-canvas');
+if(pbC){
+const pbX=pbC.getContext('2d');
+let pbImg=null,pbFilter='y2k',pbStream=null;
+function pbDraw(){
+  const W=480,H=360;pbX.fillStyle='#101927';pbX.fillRect(0,0,W,H);
+  if(!pbImg){pbX.fillStyle='#6b7d90';pbX.font='15px "DM Sans",sans-serif';pbX.textAlign='center';pbX.fillText(LANG==='tl'?'Pumili ng litrato o gamitin ang camera':'Choose a photo or use your camera',W/2,H/2);return;}
+  const ir=pbImg.width/pbImg.height,cr=W/H;
+  let sw,sh,sx,sy;
+  if(ir>cr){sh=pbImg.height;sw=sh*cr;sx=(pbImg.width-sw)/2;sy=0;}else{sw=pbImg.width;sh=sw/cr;sx=0;sy=(pbImg.height-sh)/2;}
+  if(pbFilter==='y2k'){
+    const tw=96,th=Math.round(96*H/W);
+    const off=document.createElement('canvas');off.width=tw;off.height=th;
+    const ox=off.getContext('2d');ox.drawImage(pbImg,sx,sy,sw,sh,0,0,tw,th);
+    pbX.imageSmoothingEnabled=false;pbX.drawImage(off,0,0,tw,th,0,0,W,H);pbX.imageSmoothingEnabled=true;
+    pbX.fillStyle='rgba(255,255,255,.92)';pbX.font='bold 17px "Space Mono",monospace';pbX.textAlign='right';
+    pbX.fillText('07\u00b714\u00b72007',W-14,H-14);
+  }else if(pbFilter==='friendster'){
+    pbX.fillStyle='#fff';pbX.fillRect(0,0,W,H);
+    pbX.drawImage(pbImg,sx,sy,sw,sh,24,20,W-48,H-110);
+    pbX.fillStyle='#101927';pbX.font='bold 19px "DM Sans",sans-serif';pbX.textAlign='center';
+    pbX.fillText('\u2665 my profile pic \u2665',W/2,H-52);
+    pbX.fillStyle='#8fa4b5';pbX.font='13px "Space Mono",monospace';
+    pbX.fillText('friendster.com \u00b7 2007',W/2,H-28);
+  }else{ /* cctv */
+    pbX.drawImage(pbImg,sx,sy,sw,sh,0,0,W,H);
+    const id=pbX.getImageData(0,0,W,H),d=id.data;
+    for(let i=0;i<d.length;i+=4){const g=d[i]*.3+d[i+1]*.59+d[i+2]*.11;d[i]=d[i+1]=d[i+2]=g;}
+    pbX.putImageData(id,0,0);
+    pbX.fillStyle='rgba(0,0,0,.16)';
+    for(let y=0;y<H;y+=4)pbX.fillRect(0,y,W,2);
+    pbX.fillStyle='#ff3b30';pbX.beginPath();pbX.arc(28,28,7,0,7);pbX.fill();
+    pbX.fillStyle='#fff';pbX.font='bold 16px "Space Mono",monospace';pbX.textAlign='left';
+    pbX.fillText('CAM 04',44,34);pbX.textAlign='right';pbX.fillText('2007-07-14 21:37',W-14,34);
+  }
+}
+$('#pb-file').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const img=new Image();
+  img.onload=()=>{pbImg=img;pbStopCam();pbDraw();URL.revokeObjectURL(img.src);};
+  img.src=URL.createObjectURL(f);
+});
+function pbStopCam(){if(pbStream){pbStream.getTracks().forEach(t=>t.stop());pbStream=null;$('#pb-video').hidden=true;}}
+function pbCamFail(){
+  pbX.fillStyle='#101927';pbX.fillRect(0,0,480,360);
+  pbX.fillStyle='#d33f2e';pbX.font='bold 15px "DM Sans",sans-serif';pbX.textAlign='center';
+  pbX.fillText(LANG==='tl'?'Hindi ma-access ang camera':'Camera unavailable',240,150);
+  pbX.fillStyle='#8fa4b5';pbX.font='13px "DM Sans",sans-serif';
+  const l1=LANG==='tl'?'Kung nasa loob ka ng FB/Messenger app,':'If you are inside the FB/Messenger app,';
+  const l2=LANG==='tl'?'buksan ang page sa Safari/Chrome. O':'open this page in Safari/Chrome. Or';
+  const l3=LANG==='tl'?'gamitin ang \'Choose photo\'.':'use \'Choose photo\' instead.';
+  pbX.fillText(l1,240,178);pbX.fillText(l2,240,198);pbX.fillText(l3,240,218);
+}
+$('#pb-cam').addEventListener('click',async()=>{
+  if(pbStream){pbStopCam();return;}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){pbCamFail();return;}
+  try{
+    pbStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});
+    const v=$('#pb-video');v.hidden=false;v.srcObject=pbStream;await v.play();
+    pbX.fillStyle='#101927';pbX.fillRect(0,0,480,360);
+    pbX.fillStyle='#6b7d90';pbX.font='15px "DM Sans",sans-serif';pbX.textAlign='center';
+    pbX.fillText(LANG==='tl'?'I-tap ang litrato para kumuha':'Tap the photo to capture',240,180);
+  }catch(err){pbCamFail();}
+});
+pbC.addEventListener('click',()=>{
+  const v=$('#pb-video');
+  if(pbStream&&!v.hidden&&v.videoWidth){pbImg=v;pbStopCam();pbDraw();}
+});
+document.querySelectorAll('.chip[data-f]').forEach(ch=>ch.addEventListener('click',()=>{
+  document.querySelectorAll('.chip[data-f]').forEach(c=>c.classList.remove('on'));
+  ch.classList.add('on');pbFilter=ch.dataset.f;pbDraw();
+}));
+$('#pb-dl').addEventListener('click',()=>{
+  if(!pbImg)return;
+  const a=document.createElement('a');a.download='2000s-photo.png';a.href=pbC.toDataURL('image/png');a.click();
+});
+pbDraw();
+}
+
+/* ---------------- Soundboard (WebAudio, synthesized) ---------------- */
+let AC=null;
+const ac=()=>AC||(AC=new (window.AudioContext||window.webkitAudioContext)());
+function tone(f,t,d,type,g){
+  const c=ac(),o=c.createOscillator(),v=c.createGain();
+  o.type=type||'sine';o.frequency.value=f;
+  v.gain.setValueAtTime(0.0001,t);v.gain.exponentialRampToValueAtTime(g||.18,t+.015);
+  v.gain.exponentialRampToValueAtTime(0.0001,t+d);
+  o.connect(v);v.connect(c.destination);o.start(t);o.stop(t+d+.05);
+}
+function sbNote(m){$('#sb-note').textContent=m;}
+if(document.getElementById('sb-nokia'))document.getElementById('sb-nokia').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const N=[[659.25,.16],[587.33,.16],[369.99,.32],[415.30,.32],[554.37,.16],[987.77,.16],[587.33,.32],[659.25,.32],[493.88,.16],[440,.16],[277.18,.32],[329.63,.32],[440,.8]];
+  let t=c.currentTime+.05;
+  N.forEach(n=>{tone(n[0],t,n[1],'square',.07);t+=n[1]+.02;});
+  sbNote(LANG==='tl'?'Gran Vals \u2014 ang Nokia tune':'Gran Vals \u2014 the Nokia tune');
+});
+if(document.getElementById('sb-static'))document.getElementById('sb-static').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const len=c.sampleRate*1.4,buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+  const src=c.createBufferSource();src.buffer=buf;
+  const f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=1800;f.Q.value=.6;
+  const g=c.createGain();g.gain.setValueAtTime(.22,c.currentTime);
+  g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+1.4);
+  src.connect(f);f.connect(g);g.connect(c.destination);src.start();
+  sbNote(LANG==='tl'?'TV static \u2014 hintay ng palabas':'TV static \u2014 waiting for the show');
+});
+if(document.getElementById('sb-dial'))document.getElementById('sb-dial').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  let t=c.currentTime+.05;
+  tone(350,t,.35,'sine',.12);tone(440,t,.35,'sine',.12);t+=.45;
+  [[1200,.07],[2200,.07],[1200,.07],[2400,.12],[1400,.07],[2400,.07],[1400,.12]].forEach(n=>{tone(n[0],t,n[1],'sine',.1);t+=n[1]+.03;});
+  sbNote('56k handshake');
+});
+if(document.getElementById('sb-sms'))document.getElementById('sb-sms').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t=c.currentTime+.05;
+  tone(880,t,.1,'sine',.16);tone(880,t+.16,.14,'sine',.16);
+  sbNote(LANG==='tl'?'May text ka!':'You\u2019ve got text!');
+});
+
+/* ---------------- Timeline scrubber ---------------- */
+function tlApply(){
+  const r=$('#tl-range');if(!r)return;
+  const y=r.value;$('#tl-year').textContent=y;
+  let n=0;
+  document.querySelectorAll('#archive .card').forEach(cd=>{
+    const match=cd.dataset.year===y;n+=match?1:0;cd.classList.toggle('dim',!match);
+  });
+  const li=LANG==='tl'?1:0;
+  $('#tl-hint').textContent=n?
+    (li?n+' exhibit mula '+y+' \u2014 ang iba ay naka-dim.':n+' exhibit'+(n>1?'s':'')+' from '+y+' \u2014 the rest are dimmed.'):
+    (li?'Walang exhibit mula '+y+' \u2014 subukan ang ibang taon.':'No exhibits from '+y+' \u2014 try another year.');
+}
+if(document.getElementById('tl-range'))document.getElementById('tl-range').addEventListener('input',tlApply);
+
+/* ---------------- Live presence ---------------- */
+const GB_URL=(typeof GUESTBOOK_API_URL!=='undefined'&&GUESTBOOK_API_URL)?GUESTBOOK_API_URL.replace(/\/$/,''): '';
+let PID='';try{PID=sessionStorage.getItem('museum-pid')||''}catch(e){}
+if(!PID){PID=Math.random().toString(36).slice(2)+Date.now().toString(36);try{sessionStorage.setItem('museum-pid',PID)}catch(e){}}
+async function heartbeat(){
+  if(!GB_URL)return;
+  try{
+    await fetch(GB_URL+'/api/presence',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:PID})});
+    const r=await fetch(GB_URL+'/api/presence');
+    if(r.ok){const d=await r.json();const el=$('#presence');if(el){el.hidden=false;$('#presence-count').textContent=d.count||1;}}
+  }catch(e){}
+}
+if(GB_URL){heartbeat();setInterval(heartbeat,30000);}
+
+/* ---------------- Community memory wall ---------------- */
+const MEM_KEY='museum-memories-v1';
+const memForm=$('#mem-form'),memEntries=$('#mem-entries'),memNote=$('#mem-note');
+let memLive=false;
+function memGet(k,d){try{const r=localStorage.getItem(k);return r?JSON.parse(r):d}catch(e){return d}}
+function memSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function memRender(list){
+  if(!list.length){memEntries.innerHTML='<p class="gb-empty">'+(LANG==='tl'?'\ud83d\udcfc Walang alaala pa. Ikaw ang mauna.':'\ud83d\udcfc The wall is blank. Pin the first memory.')+'</p>';return;}
+  memEntries.innerHTML=list.slice().reverse().map(e=>
+    '<div class="gb-entry"><div class="gb-who">'+esc2(e.who)+(e.when?' \u00b7 '+esc2(e.when):'')+'</div><p class="gb-msg">'+esc2(e.msg)+'</p></div>'
+  ).join('');
+}
+function memLocal(){$('#mem-note').hidden=false;$('#mem-note').textContent=LANG==='tl'?'Hindi maabot ang server \u2014 mga alaala mula sa device na ito.':'Server unreachable \u2014 showing memories from this device.';memRender(memGet(MEM_KEY,[]));}
+async function memLoad(){
+  if(!document.getElementById('mem-entries'))return;
+  if(!GB_URL){memLocal();return;}
+  try{
+    const r=await fetch(GB_URL+'/api/memories');if(!r.ok)throw 0;
+    const list=await r.json();memLive=true;$('#mem-note').hidden=true;
+    const server=Array.isArray(list)?list:[];
+    const gk=e=>[e.who||'',e.when||'',e.msg||''].join('¦');
+    const seen=new Set(server.map(gk));
+    const onlyLocal=memGet(MEM_KEY,[]).filter(e=>!seen.has(gk(e)));
+    memRender(server.concat(onlyLocal));
+    if(onlyLocal.length){
+      try{
+        for(const e of onlyLocal){
+          const pr=await fetch(GB_URL+'/api/memories',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who:e.who,when:e.when,msg:e.msg})});
+          if(!pr.ok)throw 0;
+        }
+        memSet(MEM_KEY,[]);
+        const r2=await fetch(GB_URL+'/api/memories');
+        if(r2.ok){const l2=await r2.json();memRender(Array.isArray(l2)?l2:[]);}
+      }catch(_){}
+    }
+  }catch(e){memLocal();}
+}
+if(memForm)memForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const who=$('#mem-name').value.trim(),when=$('#mem-when').value.trim(),msg=$('#mem-msg').value.trim();
+  if(!who||!msg)return;
+  const btn=memForm.querySelector('button[type="submit"]');
+  btn.disabled=true;
+  try{
+    if(memLive){
+      const r=await fetch(GB_URL+'/api/memories',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who,when,msg})});
+      if(!r.ok)throw 0;await r.json();await memLoad();
+    }else{const l=memGet(MEM_KEY,[]);l.push({who,when,msg,ts:Date.now()});memSet(MEM_KEY,l);memLocal();}
+    memForm.reset();
+  }catch(err){const l=memGet(MEM_KEY,[]);l.push({who,when,msg,ts:Date.now()});memSet(MEM_KEY,l);memLocal();memForm.reset();}
+  finally{btn.disabled=false;}
+});
+
+/* ---------------- init ---------------- */
+applyLang();
+memLoad();
+
+/* ---------------- Nokia main menu (lobby) ---------------- */
+if(document.getElementById('nokia-screen')){
+  const NK=[
+    {t:'Exhibit Halls',d:'9 exhibits \u00b7 3 guided routes',h:'exhibits.html'},
+    {t:'Arcade & Playground',d:'13 games \u00b7 quiz \u00b7 photo booth',h:'play.html'},
+    {t:'Guestbook',d:'sign \u00b7 live visitors \u00b7 memories',h:'guestbook.html'}
+  ];
+  let nkI=0;
+  const nkMenu=document.getElementById('nk-menu'),nkScr=document.getElementById('nokia-screen');
+  function nkBlip(f){try{const c=ac(),t=c.currentTime+.02;tone(f,t,.07,'square',.05);}catch(e){}}
+  function nkRender(){nkMenu.innerHTML=NK.map((m,i)=>'<li role="menuitem" class="'+(i===nkI?'sel':'')+'"><b>'+m.t+'</b><small>'+m.d+'</small></li>').join('');}
+  function nkMove(d){nkI=(nkI+d+NK.length)%NK.length;nkRender();nkBlip(d>0?520:440);}
+  function nkGo(){nkBlip(880);setTimeout(()=>{location.href=NK[nkI].h;},120);}
+  nkRender();
+  document.getElementById('nk-up').addEventListener('click',()=>nkMove(-1));
+  document.getElementById('nk-down').addEventListener('click',()=>nkMove(1));
+  document.getElementById('nk-back').addEventListener('click',()=>nkMove(-1));
+  document.getElementById('nk-fwd').addEventListener('click',()=>nkMove(1));
+  document.getElementById('nk-ok').addEventListener('click',nkGo);
+  nkMenu.addEventListener('click',e=>{const li=e.target.closest('li');if(!li)return;nkI=Array.prototype.indexOf.call(nkMenu.children,li);nkGo();});
+  nkScr.addEventListener('keydown',e=>{
+    if(e.key==='ArrowUp'){e.preventDefault();nkMove(-1);}
+    else if(e.key==='ArrowDown'){e.preventDefault();nkMove(1);}
+    else if(e.key==='Enter'){e.preventDefault();nkGo();}
+  });
+  const nkClock=document.getElementById('nk-clock');
+  function nkTick(){const d=new Date();nkClock.textContent=String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');}
+  nkTick();setInterval(nkTick,20000);
+}
+
+})();
