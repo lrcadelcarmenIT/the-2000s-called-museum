@@ -971,12 +971,28 @@ function gbGoLocal(){
 }
 async function gbLoad(){
   if(!GUESTBOOK_API_URL){gbGoLocal();return}
+  gbShowNote('Waking up the shared guestbook\u2026');
   try{
     const r=await fetch(gbBase()+'/api/entries');
     if(!r.ok)throw new Error('bad status');
     const list=await r.json();
     gbLive=true;gbBadge.hidden=false;gbShowNote('');
-    renderGB(Array.isArray(list)?list:[]);
+    const server=Array.isArray(list)?list:[];
+    const gk=e=>[e.who||'',e.where||'',e.msg||''].join('\u00a6');
+    const seen=new Set(server.map(gk));
+    const onlyLocal=lsGet(GB_KEY,[]).filter(e=>!seen.has(gk(e)));
+    renderGB(server.concat(onlyLocal));
+    if(onlyLocal.length){
+      try{
+        for(const e of onlyLocal){
+          const pr=await fetch(gbBase()+'/api/entries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({who:e.who,where:e.where,msg:e.msg})});
+          if(!pr.ok)throw new Error('sync failed');
+        }
+        lsSet(GB_KEY,[]);
+        const r2=await fetch(gbBase()+'/api/entries');
+        if(r2.ok){const l2=await r2.json();renderGB(Array.isArray(l2)?l2:[]);}
+      }catch(_){}
+    }
   }catch(e){gbGoLocal()}
 }
 gbForm.addEventListener('submit',async e=>{
