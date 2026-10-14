@@ -412,11 +412,11 @@ const media={
   camera:{src:'camera-2007.jpg',alt:'Red Ricoh Caplio R6 camera, 2007',caption:'Ricoh Caplio R6, 2007 · Amagase / CC BY-SA 2.5',style:'camera'},
   mall:{src:'mall-cyberzone-2007.jpg',alt:'SM Mall of Asia CyberZone, 2007',caption:'SM Mall of Asia CyberZone, 2007 · Exec8 / public domain'},
   cafe:{src:'internet-cafe-2010.jpg',alt:'Internet café in Cavite, 2010',caption:'Internet café, Cavite, 2010 · N. J. Henry / U.S. public domain'},
-  friendster:{src:'friendster-2007.jpg',alt:'Student using a computer',caption:'Student at a computer \u00b7 Courtcourtwest / CC BY-SA 4.0'},
-  ofw:{src:'nokia-3310-2002.jpg',alt:'Blue Nokia 3310 mobile phone',caption:'Nokia 3310 \u00b7 Michael Brandtner / public domain'},
-  bpo:{src:'callcenter-2006.jpg',alt:'Call center floor photographed in 2006',caption:'Call center, 2006 \u00b7 Petiatil / public domain'},
-  meteor:{src:'crt-tv-2003.jpg',alt:'CRT television with a VCR',caption:'CRT television with VCR \u00b7 ProtoKiwi / CC BY 4.0'},
-  boxing:{src:'pacquiao-2008.jpg',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'}
+  friendster:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Student%20with%20computer.JPG?width=600',alt:'Student using a computer',caption:'Student at a computer \u00b7 Courtcourtwest / CC BY-SA 4.0'},
+  ofw:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Nokia%203310%20blue.jpg?width=480',alt:'Blue Nokia 3310 mobile phone',caption:'Nokia 3310 \u00b7 Michael Brandtner / public domain'},
+  bpo:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Callcentre.jpg?width=600',alt:'Call center floor photographed in 2006',caption:'Call center, 2006 \u00b7 Petiatil / public domain'},
+  meteor:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/1990s%20Television%20Set.jpg?width=480',alt:'CRT television with a VCR',caption:'CRT television with VCR \u00b7 ProtoKiwi / CC BY 4.0'},
+  boxing:{src:'https://commons.wikimedia.org/wiki/Special:FilePath/Manny%20Pacman%20Pacquiao%201.jpg?width=480',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'}
 };
 const visualHTML=(id,kind)=>{const m=media[id];return m?`<figure class="${kind} ${m.style||''}"><img src="${m.src}" alt="${m.alt}" loading="lazy"><figcaption>${m.caption}</figcaption></figure>`:`<div class="${kind} type"><span>${exhibits[id].year}</span></div>`};
 
