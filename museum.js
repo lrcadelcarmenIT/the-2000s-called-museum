@@ -484,7 +484,8 @@ if(document.getElementById('rooms'))document.getElementById('rooms').innerHTML=r
 /* ---------- Arcade ---------- */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function passUI(got,total){const c=$('#pass-card');if(!c)return;const left=total-got;$('#pass-n').textContent=`${got}/${total}`;c.classList.toggle('done',!left);$('#pass-msg').textContent=left?`Museum pass: ${left} more stamp${left>1?'s':''} to collect. Win each exhibit's mini-game to earn one.`:'Certified 2000s kid. All nine exhibits stamped.';$('#pass-copy').hidden=!!left}
-$('#pass-copy').addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 9 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
+const passCopy=$('#pass-copy');
+if(passCopy)passCopy.addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 9 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
 
 (()=>{/* Pasaload Snake */
 if(!document.getElementById('snk'))return;
