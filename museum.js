@@ -465,21 +465,21 @@ if(stage)stage.addEventListener('touchend',e=>{
 
 if(stage)window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);lens=Object.hasOwn(lenses,p.get('lens'))?p.get('lens'):'cost';step=Math.min(3,Math.max(0,parseInt(p.get('step')||'0',10)||0));render()});
 
-/* ---------- Archive ---------- */
-if(document.getElementById('rooms'))document.getElementById('rooms').innerHTML=rooms.map((room,i)=>`<section class="room" aria-labelledby="room-${i}">
-  <div class="room-head"><span>ROOM 0${i+1}</span><h3 id="room-${i}">${room.title}</h3></div>
-  <div class="cards">${room.ids.map(id=>{const e=exhibits[id];const got=hasStamp(id);
+/* ---------- Archive (chronological) ---------- */
+if(document.getElementById('rooms')){const cids=Object.keys(exhibits).sort((a,b)=>exhibits[a].year<exhibits[b].year?-1:exhibits[a].year>exhibits[b].year?1:exhibits[a].title<exhibits[b].title?-1:1);const byYear={};cids.forEach(id=>{(byYear[exhibits[id].year]=byYear[exhibits[id].year]||[]).push(id)});const roomName=id=>rooms[exhibits[id].room].short;document.getElementById('rooms').innerHTML=Object.keys(byYear).sort().map(y=>`<section class="room" aria-labelledby="room-${y}">
+  <div class="room-head"><span>YEAR</span><h3 id="room-${y}">${y}</h3></div>
+  <div class="cards">${byYear[y].map(id=>{const e=exhibits[id];const got=hasStamp(id);
     return `<article class="card" id="exhibit-${id}" data-year="${e.year}">
       <div style="position:relative">${visualHTML(id,'card-media')}<div class="card-stamp ${got?'got':''}">★</div></div>
       <div class="card-body">
-        <p class="source-tag">${e.year} / ${room.short}</p>
+        <p class="source-tag">${e.year} / ${roomName(id)}</p>
         <h4>${e.title}</h4>
         <p>${e.body}</p>
         <p class="mini-flow">${e.flow.map(f=>f.label).join(' → ')}</p>
         <div>${sourceHTML(e.sources)}</div>
       </div>
     </article>`}).join('')}</div>
-</section>`).join('');
+</section>`).join('');}
 
 /* ---------- Arcade ---------- */
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -723,7 +723,7 @@ const T={
  'nav-play':['Arcade & Playground','Arcade at Palaruan'],
  'nav-gb':['Guestbook','Guestbook'],
  'archive-title':['Browse all nine exhibits','Tingnan ang siyam na exhibit'],
- 'arch-sub':['Read the full collection by room. Each card links to its source and the exhibit\u2019s mini-game.','Basahin ang buong koleksyon ayon sa kuwarto. Bawat card may link sa source at mini-game.'],
+ 'arch-sub':['The full collection in chronological order, 2001 to 2008. Each card links to its source and the exhibit\u2019s mini-game.','Ang buong koleksyon ayon sa taon, 2001 hanggang 2008. Bawat card may link sa source at mini-game.'],
  'tl-label':['Drag through the decade:','I-drag ang dekada:'],
  'arc-title':['The Arcade','Ang Arcade'],
  'arc-sub':['Four bonus games from the phone in your pocket. Play any time, no stamp needed.','Apat na bonus game mula sa bulsa mo. Laroin kahit kailan, walang stamp na kailangan.'],
