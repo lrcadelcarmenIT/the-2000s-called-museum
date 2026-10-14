@@ -1022,7 +1022,7 @@ const best=lsGet('museum-pairs',null);if(best)bst.textContent=best;
 function deal(){deck=[...I,...I].map((x,i)=>x).sort(()=>Math.random()-.5);up=[];moves=0;ok=0;lock=false;mv.textContent=0;note.textContent='Flip any card to begin.';grid.innerHTML=deck.map((c,i)=>`<button type="button" class="mem" data-i="${i}" aria-label="Card ${i+1}, face down">${c[0]}</button>`).join('')}
 grid.addEventListener('click',e=>{const b=e.target.closest('.mem');if(!b||lock||b.classList.contains('up')||b.classList.contains('ok'))return;b.classList.add('up');b.setAttribute('aria-label','Card '+(+b.dataset.i+1)+', '+deck[b.dataset.i][1].split(':')[0]);up.push(b);if(up.length<2)return;moves++;mv.textContent=moves;
   const[a,c]=up;if(deck[a.dataset.i][0]===deck[c.dataset.i][0]){a.className=c.className='mem ok';a.disabled=c.disabled=true;note.textContent=deck[a.dataset.i][1];up=[];if(++ok===8){const old=lsGet('museum-pairs',null);if(old===null||moves<old){lsSet('museum-pairs',moves);bst.textContent=moves}note.textContent=`All pairs found in ${moves} moves. Press Shuffle to beat it.`}}
-  else{lock=true;setTimeout(()=>{a.classList.remove('up');c.classList.remove('up');up=[];lock=false},750)}});
+  else{lock=true;note.textContent='Not a match \u2014 try again.';setTimeout(()=>{a.classList.remove('up');c.classList.remove('up');up=[];lock=false},1200)}});
 $('#mem-reset').addEventListener('click',deal);deal();
 })();
 
