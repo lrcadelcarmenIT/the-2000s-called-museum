@@ -194,15 +194,26 @@ $('#pb-file').addEventListener('change',e=>{
   img.src=URL.createObjectURL(f);
 });
 function pbStopCam(){if(pbStream){pbStream.getTracks().forEach(t=>t.stop());pbStream=null;$('#pb-video').hidden=true;}}
+function pbCamFail(){
+  pbX.fillStyle='#101927';pbX.fillRect(0,0,480,360);
+  pbX.fillStyle='#d33f2e';pbX.font='bold 15px "DM Sans",sans-serif';pbX.textAlign='center';
+  pbX.fillText(LANG==='tl'?'Hindi ma-access ang camera':'Camera unavailable',240,150);
+  pbX.fillStyle='#8fa4b5';pbX.font='13px "DM Sans",sans-serif';
+  const l1=LANG==='tl'?'Kung nasa loob ka ng FB/Messenger app,':'If you are inside the FB/Messenger app,';
+  const l2=LANG==='tl'?'buksan ang page sa Safari/Chrome. O':'open this page in Safari/Chrome. Or';
+  const l3=LANG==='tl'?'gamitin ang \'Choose photo\'.':'use \'Choose photo\' instead.';
+  pbX.fillText(l1,240,178);pbX.fillText(l2,240,198);pbX.fillText(l3,240,218);
+}
 $('#pb-cam').addEventListener('click',async()=>{
   if(pbStream){pbStopCam();return;}
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){pbCamFail();return;}
   try{
     pbStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});
     const v=$('#pb-video');v.hidden=false;v.srcObject=pbStream;await v.play();
     pbX.fillStyle='#101927';pbX.fillRect(0,0,480,360);
     pbX.fillStyle='#6b7d90';pbX.font='15px "DM Sans",sans-serif';pbX.textAlign='center';
     pbX.fillText(LANG==='tl'?'I-tap ang litrato para kumuha':'Tap the photo to capture',240,180);
-  }catch(err){pbX.fillStyle='#101927';pbX.fillRect(0,0,480,360);pbX.fillStyle='#d33f2e';pbX.font='15px "DM Sans",sans-serif';pbX.textAlign='center';pbX.fillText('Camera unavailable',240,180);}
+  }catch(err){pbCamFail();}
 });
 pbC.addEventListener('click',()=>{
   const v=$('#pb-video');
