@@ -20,9 +20,9 @@ const rooms=[
   {title:'Shared Spaces',short:'Shared spaces',ids:['boxing','mall','cafe','load','socialgames']}
 ];
 const lenses={
-  cost:{name:'Cost',ids:['sms','ofw','cafe'],recap:'Texts, conversations across borders, and rented computer time each needed a phone, service, or shared facility. Those requirements shaped who could take part.',points:['A prepaid message depended on load and a phone.','Families abroad combined messaging with shared communication facilities.','Renting computer time offered access without buying a PC.'],question:'Which costs moved or disappeared with today’s connected phone—and which costs remain?',quiz:{prompt:'Which cost feels most removed from your own everyday life today?',options:[['Prepaid load per text','Sending a single text no longer costs load on most apps.'],['Long-distance calls and videophone centers','Most people now call abroad over Wi-Fi or data.'],['Renting computer time by the hour','Personal phones handle most tasks that once required a rented PC.']]}},
-  time:{name:'Time',ids:['camera','bpo','boxing'],recap:'Sharing a camera photo involved several steps. US customer hours set night shifts. A planned fight screening had a fixed time and place.',points:['A photo could pass through separate camera, transfer, and internet steps.','A US-facing call center moved part of the workday into the Philippine night.','A free public screening was announced for a fixed place and time.'],question:'Which part of your day would you have had to rearrange?',quiz:{prompt:'Which timing constraint would be hardest to accept today?',options:[['Waiting to get photos onto a PC before sharing','Instant posting replaced the multi-step flow.'],['Working a night shift for a US-facing job','Some workers still do this; not fully a thing of the past.'],['Being home when a TV episode airs','Streaming removed most of this constraint for those with access.']]}},
-  place:{name:'Place',ids:['friendster','meteor','mall'],recap:'A Friendster profile needed internet access, a dubbed drama reached local television, and a mall gave people a place to meet.',points:['Checking a profile required internet access somewhere.','A dubbed drama reached homes through local television.','The mall was a social meeting place as well as a retail space.'],question:'Which experiences now happen anywhere, and which still need a shared place?',quiz:{prompt:'Which of these still needs a shared physical place today?',options:[['Checking a friend\'s profile','Now doable anywhere with a phone and a signal.'],['Watching a TV episode','Streaming freed this, though access varies.'],['Meeting friends in person','Still needs a shared place and time.']]}}
+  cost:{name:'Cost',ids:['sms','ofw','cafe','load','cameraphone'],recap:'Texts, calls home, rented computer time, shared load, and sharper cameras each came with a price. Those costs decided who got to join in.',points:['A prepaid text cost load \u2014 every character had a price.','Calling family abroad meant pricey calls or shared videophone centers.','An hour online meant renting a PC by the hour.','Pasaload let friends pass connection hand to hand \u2014 a few pesos of load kept a conversation alive.','Each sharper camera was a reason to buy the next, pricier phone.'],question:'Which costs moved or disappeared with today\u2019s connected phone\u2014and which costs remain?',quiz:{prompt:'Which cost feels most removed from your own everyday life today?',options:[['Prepaid load per text','Sending a single text no longer costs load on most apps.'],['Long-distance calls and videophone centers','Most people now call abroad over Wi-Fi or data.'],['Renting computer time by the hour','Personal phones handle most tasks that once required a rented PC.'],['Passing load to a friend via pasaload','E-wallets moved load around, but sharing connection is still normal.'],['Paying extra for a sharper phone camera','Good cameras are now standard even on cheaper phones.']]}},
+  time:{name:'Time',ids:['camera','bpo','boxing','y2k','smartphone'],recap:'A photo took days to share, call centers ran on US hours, a fight aired once, the world raced a midnight deadline, and then the keypad vanished \u2014 time set the terms.',points:['A photo passed through camera, cable, and PC before anyone saw it.','US customer hours moved the workday into the Philippine night.','A free public screening happened once, at a fixed time and place.','The whole world worked against one deadline: midnight, 31 December 1999.','By 2010 the keypad was disappearing \u2014 the decade\u2019s gadgets started looking like the next decade\u2019s.'],question:'Which part of your day would you have had to rearrange?',quiz:{prompt:'Which timing constraint would be hardest to accept today?',options:[['Waiting to get photos onto a PC before sharing','Instant posting replaced the multi-step flow.'],['Working a night shift for a US-facing job','Some workers still do this; not fully a thing of the past.'],['Being home when a TV episode airs','Streaming removed most of this constraint for those with access.'],['Racing the Y2K midnight deadline','The worldwide fix mostly held \u2014 midnight came and went quietly.'],['Waiting years for touchscreens to replace keypads','Typing on glass is now the default.']]}},
+  place:{name:'Place',ids:['friendster','meteor','mall','socialgames'],recap:'A profile needed internet somewhere, a drama reached the living-room TV, friends met at the mall \u2014 and then the farm moved onto Facebook.',points:['Checking a profile meant finding internet access first.','A dubbed drama reached Filipino homes through local television.','The mall was a social meeting place as much as a retail space.','By 2009 the tambayan had a virtual address: everyone\u2019s tito was farming on Facebook.'],question:'Which experiences now happen anywhere, and which still need a shared place?',quiz:{prompt:'Which of these still needs a shared physical place today?',options:[['Checking a friend\u2019s profile','Now doable anywhere with a phone and a signal.'],['Watching a TV episode','Streaming freed this, though access varies.'],['Meeting friends in person','Still needs a shared place and time.'],['Visiting a neighbor\u2019s Facebook farm','The farm games faded, but the feed stayed.']]}}
 };
 const STATE_KEY='museum-state-v1';
 const VOTE_KEY='museum-votes-v1';
@@ -483,31 +483,32 @@ function initGame(exhibitId,root){
 function render(){
   if(!document.getElementById('stage'))return;
   const spec=lenses[lens];
+  const N=spec.ids.length;
   document.querySelectorAll('.lens-button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lens===lens)));
   lensLabel.textContent=`${spec.name.toUpperCase()} LENS`;
-  stepCount.textContent=step===3?'RECAP':`${String(step+1).padStart(2,'0')} / 03`;
-  progressFill.style.width=`${(step/3)*100}%`;
-  routeList.innerHTML=spec.ids.map((id,i)=>`<li><button type="button" data-step="${i}" ${step===i?'aria-current="step"':''}><span>0${i+1} / ${rooms[i].short.toUpperCase()}</span>${exhibits[id].title}</button></li>`).join('');
+  stepCount.textContent=step===N?'RECAP':`${String(step+1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
+  progressFill.style.width=`${(step/N)*100}%`;
+  routeList.innerHTML=spec.ids.map((id,i)=>`<li><button type="button" data-step="${i}" ${step===i?'aria-current="step"':''}><span>0${i+1} / ${rooms[exhibits[id].room].short.toUpperCase()}</span>${exhibits[id].title}</button></li>`).join('');
 
-  if(step===3){
+  if(step===N){
     const q=lenses[lens].quiz;const votes=lsGet(VOTE_KEY,{});const myVote=votes[lens];
     const seed=[...lens].reduce((a,c)=>a+c.charCodeAt(0),0);const base=q.options.map((_,i)=>18+((seed*(i+3))%37));const total=base.reduce((a,b)=>a+b,0)+(myVote!==undefined?1:0);
-    content.innerHTML=`<p class="room-kicker">THREE ROOMS / ONE QUESTION</p>
-      <h2>${spec.name} shaped these three experiences</h2>
+    content.innerHTML=`<p class="room-kicker">${N} STOPS / ONE QUESTION</p>
+      <h2>${spec.name} shaped these experiences</h2>
       <p class="recap-intro">${spec.recap}</p>
-      <div class="recap-list">${spec.points.map((p,i)=>`<div><strong>0${i+1} / ${rooms[i].short}</strong><p>${p}</p></div>`).join('')}</div>
+      <div class="recap-list">${spec.ids.map((id,i)=>`<div><strong>0${i+1} / ${rooms[exhibits[id].room].short}</strong><p>${spec.points[i]}</p></div>`).join('')}</div>
       <div class="quiz"><h3>Quick poll</h3><p class="q-intro">${q.prompt}</p>
       <div class="quiz-options">${q.options.map(([label,note],i)=>{const c=base[i]+(myVote===i?1:0);const pct=Math.round((c/total)*100);return `<button type="button" class="quiz-option ${myVote!==undefined?'answered':''}" data-quiz="${lens}" data-opt="${i}" ${myVote!==undefined?'disabled':''} aria-pressed="${myVote===i}"><span class="vote-bar" style="width:${myVote!==undefined?pct:0}%"></span><span class="opt-label">${label}<small style="display:block;font-weight:400;font-size:.78rem;color:#a7b6c4;margin-top:3px">${note}</small></span><span class="opt-pct">${myVote!==undefined?pct+'%':''}</span></button>`}).join('')}</div>
       ${myVote!==undefined?`<p class="quiz-result">You picked "${q.options[myVote][0]}". Stored on your device only.</p><button type="button" class="quiz-reset" data-quiz-reset="${lens}">Reset my answer</button>`:`<p class="quiz-result">Pick one to see an illustrative split. Stored on your device only.</p>`}
       </div>
       <p class="recap-question">${spec.question}</p>
-      <p class="fine">This comparison draws on three sourced examples. It does not describe one person's experience.</p>
+      <p class="fine">This comparison draws on sourced examples. It does not describe one person's experience.</p>
       <div class="stage-actions"><button class="action" type="button" data-action="restart">Choose another route</button><button class="action secondary" type="button" data-action="back">Return to last exhibit</button><a class="text-link" href="#archive">Browse all fourteen exhibits</a></div>`;
     finishRender();
     return;
   }
   const id=spec.ids[step],ex=exhibits[id];
-  content.innerHTML=`<p class="room-kicker">ROOM 0${step+1} / ${rooms[step].title.toUpperCase()} / ${ex.year}</p>
+  content.innerHTML=`<p class="room-kicker">STOP 0${step+1} / ${rooms[ex.room].title.toUpperCase()} / ${ex.year}</p>
     <h2>${ex.title}</h2>
     <div class="stage-hero">${visualHTML(id,'stage-visual')}<p class="context">${ex.body}</p></div>
     ${flowHTML(ex.flow,id)}
@@ -518,7 +519,7 @@ function render(){
     <p class="ask">Ask: ${ex.question}</p>
     <div class="sources"><span class="source-tag">Sources for this exhibit</span><br>${sourceHTML(ex.sources)}</div>
     ${renderGamePanel(id)}
-    <div class="stage-actions">${step>0?'<button class="action secondary" type="button" data-action="back">← Previous stop</button>':''}<button class="action" type="button" data-action="next">${step===2?'Compare your three stops':'Next stop →'}</button><a class="text-link" href="#archive">Browse all fourteen exhibits</a><span class="kbd-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate</span></div>`;
+    <div class="stage-actions">${step>0?'<button class="action secondary" type="button" data-action="back">← Previous stop</button>':''}<button class="action" type="button" data-action="next">${step===N-1?`Compare your ${N} stops`:'Next stop →'}</button><a class="text-link" href="#archive">Browse all fourteen exhibits</a><span class="kbd-hint"><kbd>←</kbd> <kbd>→</kbd> to navigate</span></div>`;
   initGame(id);
   lsSet(STATE_KEY,{lens,step});
   finishRender();
@@ -526,13 +527,13 @@ function render(){
 
 function updateStepDots(){
   const d=document.getElementById('step-dots');if(!d)return;
-  d.innerHTML=[0,1,2,3].map(i=>'<span class="sdot'+(i===step?' on':'')+'"></span>').join('');
+  const n=lenses[lens].ids.length+1;d.innerHTML=Array.from({length:n},(_,i)=>'<span class="sdot'+(i===step?' on':'')+'"></span>').join('');
 }
 function finishRender(){
   updateStepDots();
   content.classList.remove('stage-enter');void content.offsetWidth;content.classList.add('stage-enter');
 }
-function move(n,push=true){if(!stage)return;step=Math.min(3,Math.max(0,n));syncURL(push);render();stage.focus({preventScroll:true});stage.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
+function move(n,push=true){if(!stage)return;const N=lenses[lens].ids.length;step=Math.min(N,Math.max(0,n));syncURL(push);render();stage.focus({preventScroll:true});stage.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
 
 /* ---------- Events ---------- */
 const lensOpts=document.querySelector('.lens-options');
@@ -578,7 +579,7 @@ if(stage)stage.addEventListener('touchend',e=>{
   tx=null;ty=null
 },{passive:true});
 
-if(stage)window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);lens=Object.hasOwn(lenses,p.get('lens'))?p.get('lens'):'cost';step=Math.min(3,Math.max(0,parseInt(p.get('step')||'0',10)||0));render()});
+if(stage)window.addEventListener('popstate',()=>{const p=new URLSearchParams(location.search);lens=Object.hasOwn(lenses,p.get('lens'))?p.get('lens'):'cost';step=Math.min(lenses[lens].ids.length,Math.max(0,parseInt(p.get('step')||'0',10)||0));render()});
 
 /* ---------- Archive (chronological) ---------- */
 if(document.getElementById('rooms')){const cids=Object.keys(exhibits).sort((a,b)=>exhibits[a].year<exhibits[b].year?-1:exhibits[a].year>exhibits[b].year?1:exhibits[a].title<exhibits[b].title?-1:1);const byYear={};cids.forEach(id=>{(byYear[exhibits[id].year]=byYear[exhibits[id].year]||[]).push(id)});const roomName=id=>rooms[exhibits[id].room].short;document.getElementById('rooms').innerHTML=Object.keys(byYear).sort().map(y=>`<section class="room" aria-labelledby="room-${y}">
