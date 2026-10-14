@@ -196,6 +196,46 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // DELETE /api/memories — remove entries matching who+when+msg exactly.
+  // Same open-write model as POST (this is a small public wall); rate-limited.
+  if (url.pathname === '/api/memories' && req.method === 'DELETE') {
+    const dip = (req.socket && req.socket.remoteAddress) || 'unknown';
+    if (!rateOk(dip)) {
+      json(res, 429, { error: 'Too many requests — slow down a little.' });
+      return;
+    }
+    let dbody = '';
+    req.on('data', (chunk) => {
+      dbody += chunk;
+      if (dbody.length > 1e6) req.destroy();
+    });
+    req.on('end', () => {
+      let ddata;
+      try {
+        ddata = JSON.parse(dbody);
+      } catch (e) {
+        json(res, 400, { error: 'Bad JSON.' });
+        return;
+      }
+      const dwho = clean(ddata.who, 40);
+      const dwhen = clean(ddata.when, 12);
+      const dmsg = clean(ddata.msg, 280);
+      if (!dwho || !dmsg) {
+        json(res, 400, { error: 'who and msg are required to identify the entry.' });
+        return;
+      }
+      const dlist = loadMem();
+      const kept = dlist.filter((e) => !(e.who === dwho && e.when === dwhen && e.msg === dmsg));
+      if (kept.length === dlist.length) {
+        json(res, 404, { error: 'No matching entry.' });
+        return;
+      }
+      saveMem(kept);
+      json(res, 200, { deleted: dlist.length - kept.length });
+    });
+    return;
+  }
+
   json(res, 404, { error: 'Not found.' });
 });
 
