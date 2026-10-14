@@ -349,7 +349,7 @@ body.no-scroll{overflow:hidden}
   </div>
   <div>
     <strong>Image credits</strong>
-    <p><a href="https://commons.wikimedia.org/wiki/File:Cell_phones_2005.jpg">Cell phones 2005</a> © Larry D. Moore, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:SMCyberZone_-_SM_MoA.jpg">SM CyberZone (2007)</a> by Exec8, public domain; <a href="https://commons.wikimedia.org/wiki/File:Ricoh_Caplio_R6.jpg">Ricoh Caplio R6</a> by Amagase, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>; <a href="https://commons.wikimedia.org/wiki/File:Internet_caf%C3%A9_in_Brgy._San_Jose,_Luzon.jpg">Internet café in Cavite (2010)</a> by Pfc. Nathaniel J. Henry / U.S. Marine Corps, U.S. public domain.</p>
+    <p><a href="https://commons.wikimedia.org/wiki/File:Cell_phones_2005.jpg">Cell phones 2005</a> © Larry D. Moore, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:SMCyberZone_-_SM_MoA.jpg">SM CyberZone (2007)</a> by Exec8, public domain; <a href="https://commons.wikimedia.org/wiki/File:Ricoh_Caplio_R6.jpg">Ricoh Caplio R6</a> by Amagase, <a href="https://creativecommons.org/licenses/by-sa/2.5/">CC BY-SA 2.5</a>; <a href="https://commons.wikimedia.org/wiki/File:Internet_caf%C3%A9_in_Brgy._San_Jose,_Luzon.jpg">Internet café in Cavite (2010)</a> by Pfc. Nathaniel J. Henry / U.S. Marine Corps, U.S. public domain; <a href="https://commons.wikimedia.org/wiki/File:Student_with_computer.JPG">Student with computer</a> by Courtcourtwest, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Nokia_3310_blue.jpg">Nokia 3310</a> by Michael Brandtner, public domain; <a href="https://commons.wikimedia.org/wiki/File:Callcentre.jpg">Call centre (2006)</a> by Petiatil, public domain; <a href="https://commons.wikimedia.org/wiki/File:1990s_Television_Set.jpg">CRT television</a> by ProtoKiwi, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; <a href="https://commons.wikimedia.org/wiki/File:Manny_Pacman_Pacquiao_1.jpg">Manny Pacquiao</a> by SCRyan, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>.</p>
   </div>
 </div></footer>
 <button type="button" id="to-top" aria-label="Back to top" title="Back to top">↑</button>
@@ -411,7 +411,12 @@ const media={
   sms:{src:'phones-2005.jpg',alt:'Three mobile phones photographed in 2005',caption:'Cell phones, 2005 · Larry D. Moore / CC BY 4.0'},
   camera:{src:'camera-2007.jpg',alt:'Red Ricoh Caplio R6 camera, 2007',caption:'Ricoh Caplio R6, 2007 · Amagase / CC BY-SA 2.5',style:'camera'},
   mall:{src:'mall-cyberzone-2007.jpg',alt:'SM Mall of Asia CyberZone, 2007',caption:'SM Mall of Asia CyberZone, 2007 · Exec8 / public domain'},
-  cafe:{src:'internet-cafe-2010.jpg',alt:'Internet café in Cavite, 2010',caption:'Internet café, Cavite, 2010 · N. J. Henry / U.S. public domain'}
+  cafe:{src:'internet-cafe-2010.jpg',alt:'Internet café in Cavite, 2010',caption:'Internet café, Cavite, 2010 · N. J. Henry / U.S. public domain'},
+  friendster:{src:'friendster-2007.jpg',alt:'Student using a computer',caption:'Student at a computer \u00b7 Courtcourtwest / CC BY-SA 4.0'},
+  ofw:{src:'nokia-3310-2002.jpg',alt:'Blue Nokia 3310 mobile phone',caption:'Nokia 3310 \u00b7 Michael Brandtner / public domain'},
+  bpo:{src:'callcenter-2006.jpg',alt:'Call center floor photographed in 2006',caption:'Call center, 2006 \u00b7 Petiatil / public domain'},
+  meteor:{src:'crt-tv-2003.jpg',alt:'CRT television with a VCR',caption:'CRT television with VCR \u00b7 ProtoKiwi / CC BY 4.0'},
+  boxing:{src:'pacquiao-2008.jpg',alt:'Manny Pacquiao before a fight',caption:'Manny Pacquiao \u00b7 SCRyan / CC BY-SA 3.0'}
 };
 const visualHTML=(id,kind)=>{const m=media[id];return m?`<figure class="${kind} ${m.style||''}"><img src="${m.src}" alt="${m.alt}" loading="lazy"><figcaption>${m.caption}</figcaption></figure>`:`<div class="${kind} type"><span>${exhibits[id].year}</span></div>`};
 
