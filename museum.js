@@ -609,7 +609,7 @@ document.querySelectorAll('#rooms [data-play]').forEach(b=>b.addEventListener('c
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function passUI(got,total){const c=$('#pass-card');if(!c)return;const left=total-got;$('#pass-n').textContent=`${got}/${total}`;c.classList.toggle('done',!left);$('#pass-msg').textContent=left?`Museum pass: ${left} more stamp${left>1?'s':''} to collect. Win each exhibit's mini-game to earn one.`:'Certified 2000s kid. All fourteen exhibits stamped.';$('#pass-copy').hidden=!!left}
 const passCopy=$('#pass-copy');
-if(passCopy)passCopy.addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 14 stamps at The 2000s Called, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
+if(passCopy)passCopy.addEventListener('click',e=>{const b=e.currentTarget;const t='I collected all 14 stamps at y2kcalled.ppc, a Philippine pop culture museum.';try{navigator.clipboard.writeText(t).then(()=>b.textContent='Copied!')}catch(x){b.textContent='Copy failed'}});
 
 (()=>{/* Pasaload Snake */
 if(!document.getElementById('snk'))return;
@@ -965,7 +965,7 @@ function pqDraw(){
   x.strokeStyle='#101927';x.lineWidth=6;x.strokeRect(8,8,584,324);
   x.fillStyle='#101927';x.fillRect(8,8,584,64);
   x.fillStyle='#fffefa';x.font='900 26px Archivo Black, Impact, sans-serif';x.textAlign='center';
-  x.fillText('THE 2000s CALLED.',300,52);
+  x.fillText('y2kcalled.ppc',300,52);
   x.fillStyle='#ff835d';x.font='900 44px Archivo Black, Impact, sans-serif';
   const nm=a.n[li];x.fillText(nm.length>22?nm.slice(0,22):nm,300,140);
   x.fillStyle='#4a5a6a';x.font='16px "DM Sans", sans-serif';
