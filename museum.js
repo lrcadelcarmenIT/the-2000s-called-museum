@@ -1147,9 +1147,10 @@ if(document.getElementById('sb-windows'))document.getElementById('sb-windows').a
     o.connect(g);g.connect(c.destination);g.connect(dl);
     o.start(at);o.stop(at+dur+.1);
   };
-  pluck(659.25,t0+1.1,1.1,.16);
-  pluck(739.99,t0+1.9,.9,.14);
-  pluck(880,t0+2.5,1.4,.16);
+  pluck(659.25,t0+1.05,.35,.13);
+  pluck(739.99,t0+1.35,.35,.13);
+  pluck(880,t0+1.65,.4,.14);
+  pluck(987.77,t0+2.0,1.8,.16);
   sbNote('Windows startup');
 });
 if(document.getElementById('sb-videoke'))document.getElementById('sb-videoke').addEventListener('click',()=>{
