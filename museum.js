@@ -836,7 +836,6 @@ const T={
  'nav-gb':['Guestbook','Guestbook'],
  'archive-title':['Browse all fourteen exhibits','Tingnan ang labing-apat na exhibit'],
  'arch-sub':['The full collection in chronological order, 2000 to 2010. Each card links to its source and the exhibit\u2019s mini-game.','Ang buong koleksyon ayon sa taon, 2000 hanggang 2010. Bawat card may link sa source at mini-game.'],
- 'tl-label':['Drag through the decade:','I-drag ang dekada:'],
  'arc-title':['The Arcade','Ang Arcade'],
  'arc-sub':['Three bonus games from the phone in your pocket. Play any time, no stamp needed.','Tatlong bonus game mula sa bulsa mo. Laroin kahit kailan, walang stamp na kailangan.'],
  'quiz-title':['Which 2000s icon are you?','Anong 2000s icon ka?'],
@@ -853,6 +852,12 @@ const T={
  'sb-static':['TV static','TV static'],
  'sb-dial':['Dial-up','Dial-up'],
  'sb-sms':['Text received','May text'],
+ 'sb-ring':['Landline ring','Landline ring'],
+ 'sb-busy':['Busy signal','Busy signal'],
+ 'sb-shutter':['Digicam shutter','Digicam shutter'],
+ 'sb-pager':['Pager beep','Pager beep'],
+ 'sb-boot':['PC startup','PC startup'],
+ 'sb-videoke':['Videoke countdown','Videoke countdown'],
  'gb-title':['Sign the guestbook','Lumagda sa guestbook'],
  'gb-intro':['Leave a note about your favourite 2000s memory.','Mag-iwan ng mensahe tungkol sa paborito mong alaala noong 2000s.'],
  'gb-submit':['Sign the guestbook \u2192','Lumagda sa guestbook \u2192'],
@@ -875,7 +880,7 @@ function applyLang(){
   const b=document.getElementById('lang-toggle');
   if(b){b.classList.toggle('on',LANG==='tl');b.setAttribute('aria-pressed',LANG==='tl');}
   try{localStorage.setItem('museum-lang',LANG)}catch(e){}
-  pqRender(); tlApply();
+  pqRender();
 }
 document.getElementById('lang-toggle').addEventListener('click',()=>{LANG=LANG==='tl'?'en':'tl';applyLang();});
 
@@ -1077,20 +1082,52 @@ if(document.getElementById('sb-sms'))document.getElementById('sb-sms').addEventL
   sbNote(LANG==='tl'?'May text ka!':'You\u2019ve got text!');
 });
 
-/* ---------------- Timeline scrubber ---------------- */
-function tlApply(){
-  const r=$('#tl-range');if(!r)return;
-  const y=r.value;$('#tl-year').textContent=y;
-  let n=0;
-  document.querySelectorAll('#archive .card').forEach(cd=>{
-    const match=cd.dataset.year===y;n+=match?1:0;cd.classList.toggle('dim',!match);
-  });
-  const li=LANG==='tl'?1:0;
-  $('#tl-hint').textContent=n?
-    (li?n+' exhibit mula '+y+'. Ang iba ay naka-dim.':n+' exhibit'+(n>1?'s':'')+' from '+y+'. The rest are dimmed.'):
-    (li?'Walang exhibit mula '+y+'. Subukan ang ibang taon.':'No exhibits from '+y+'. Try another year.');
-}
-if(document.getElementById('tl-range'))document.getElementById('tl-range').addEventListener('input',tlApply);
+if(document.getElementById('sb-ring'))document.getElementById('sb-ring').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t0=c.currentTime+.05;
+  const o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),lfo=c.createOscillator(),lg=c.createGain();
+  o.frequency.value=440;o2.frequency.value=480;lfo.frequency.value=20;lg.gain.value=.09;g.gain.value=.14;
+  lfo.connect(lg.gain);o.connect(g);o2.connect(g);lg.connect(g.gain);g.connect(c.destination);
+  o.start(t0);o2.start(t0);lfo.start(t0);
+  const stop=t0+1.6;o.stop(stop);o2.stop(stop);lfo.stop(stop);
+  sbNote(LANG==='tl'?'May tumatawag sa landline!':'Landline ringing!');
+});
+if(document.getElementById('sb-busy'))document.getElementById('sb-busy').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t=c.currentTime+.05;
+  for(let i=0;i<4;i++){tone(480,t+i*.5,.25,'sine',.13);tone(620,t+i*.5,.25,'sine',.13);}
+  sbNote(LANG==='tl'?'Busy. Ibaba mo muna.':'Busy signal. Try again later.');
+});
+if(document.getElementById('sb-shutter'))document.getElementById('sb-shutter').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t=c.currentTime+.05;
+  const click=(at,dur,vol,ff)=>{const len=Math.floor(c.sampleRate*dur),buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*(1-i/len);
+    const src=c.createBufferSource();src.buffer=buf;
+    const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=ff;
+    const g=c.createGain();g.gain.value=vol;
+    src.connect(f);f.connect(g);g.connect(c.destination);src.start(at);};
+  click(t,.05,.5,2200);click(t+.13,.08,.55,1100);
+  sbNote(LANG==='tl'?'Kunan!':'Digicam shutter.');
+});
+if(document.getElementById('sb-pager'))document.getElementById('sb-pager').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t=c.currentTime+.05;
+  for(let i=0;i<4;i++)tone(1568,t+i*.19,.09,'square',.07);
+  sbNote(LANG==='tl'?'May beep ang pager mo!':'Pager beeping!');
+});
+if(document.getElementById('sb-boot'))document.getElementById('sb-boot').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  let t=c.currentTime+.05;
+  [[523.25,.22],[659.25,.22],[783.99,.22],[1046.5,.45]].forEach(n=>{tone(n[0],t,n[1],'sine',.12);t+=n[1]+.04;});
+  sbNote(LANG==='tl'?'Bukas na ang PC!':'PC starting up!');
+});
+if(document.getElementById('sb-videoke'))document.getElementById('sb-videoke').addEventListener('click',()=>{
+  const c=ac();if(c.state==='suspended')c.resume();
+  const t=c.currentTime+.05;
+  tone(660,t,.12,'square',.09);tone(660,t+.2,.12,'square',.09);tone(660,t+.4,.12,'square',.09);tone(880,t+.6,.32,'square',.09);
+  sbNote(LANG==='tl'?'Kanta na!':'Videoke countdown. Sing!');
+});
 
 /* ---------------- Live presence ---------------- */
 const GB_URL=(typeof GUESTBOOK_API_URL!=='undefined'&&GUESTBOOK_API_URL)?GUESTBOOK_API_URL.replace(/\/$/,''): '';
