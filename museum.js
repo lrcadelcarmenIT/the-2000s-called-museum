@@ -856,7 +856,7 @@ const T={
  'sb-busy':['Busy signal','Busy signal'],
  'sb-shutter':['Digicam shutter','Digicam shutter'],
  'sb-pager':['Pager beep','Pager beep'],
- 'sb-boot':['PC startup','PC startup'],
+ 'sb-windows':['Windows startup','Windows startup'],
  'sb-videoke':['Videoke countdown','Videoke countdown'],
  'gb-title':['Sign the guestbook','Lumagda sa guestbook'],
  'gb-intro':['Leave a note about your favourite 2000s memory.','Mag-iwan ng mensahe tungkol sa paborito mong alaala noong 2000s.'],
@@ -1052,7 +1052,7 @@ function tone(f,t,d,type,g){
 function sbNote(m){$('#sb-note').textContent=m;}
 if(document.getElementById('sb-nokia'))document.getElementById('sb-nokia').addEventListener('click',()=>{
   const c=ac();if(c.state==='suspended')c.resume();
-  const N=[[659.25,.16],[587.33,.16],[369.99,.32],[415.30,.32],[554.37,.16],[987.77,.16],[587.33,.32],[659.25,.32],[493.88,.16],[440,.16],[277.18,.32],[329.63,.32],[440,.8]];
+  const N=[[659.25,.16],[587.33,.16],[369.99,.32],[415.30,.32],[554.37,.16],[493.88,.16],[293.66,.32],[329.63,.32],[493.88,.16],[440,.16],[277.18,.32],[329.63,.32],[440,.8]];
   let t=c.currentTime+.05;
   N.forEach(n=>{tone(n[0],t,n[1],'square',.07);t+=n[1]+.02;});
   sbNote(LANG==='tl'?'Gran Vals, ang Nokia tune':'Gran Vals, the Nokia tune');
@@ -1101,13 +1101,14 @@ if(document.getElementById('sb-busy'))document.getElementById('sb-busy').addEven
 if(document.getElementById('sb-shutter'))document.getElementById('sb-shutter').addEventListener('click',()=>{
   const c=ac();if(c.state==='suspended')c.resume();
   const t=c.currentTime+.05;
-  const click=(at,dur,vol,ff)=>{const len=Math.floor(c.sampleRate*dur),buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);
-    for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*(1-i/len);
+  const burst=(at,dur,vol,type,ff)=>{const len=Math.floor(c.sampleRate*dur),buf=c.createBuffer(1,len,c.sampleRate),d=buf.getChannelData(0);
+    for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2);
     const src=c.createBufferSource();src.buffer=buf;
-    const f=c.createBiquadFilter();f.type='highpass';f.frequency.value=ff;
+    const f=c.createBiquadFilter();f.type=type;f.frequency.value=ff;
     const g=c.createGain();g.gain.value=vol;
     src.connect(f);f.connect(g);g.connect(c.destination);src.start(at);};
-  click(t,.05,.5,2200);click(t+.13,.08,.55,1100);
+  burst(t,.03,.6,'highpass',3200);
+  burst(t+.14,.09,.7,'lowpass',700);tone(140,t+.14,.09,'sine',.25);
   sbNote(LANG==='tl'?'Kunan!':'Digicam shutter.');
 });
 if(document.getElementById('sb-pager'))document.getElementById('sb-pager').addEventListener('click',()=>{
@@ -1116,11 +1117,21 @@ if(document.getElementById('sb-pager'))document.getElementById('sb-pager').addEv
   for(let i=0;i<4;i++)tone(1568,t+i*.19,.09,'square',.07);
   sbNote(LANG==='tl'?'May beep ang pager mo!':'Pager beeping!');
 });
-if(document.getElementById('sb-boot'))document.getElementById('sb-boot').addEventListener('click',()=>{
+if(document.getElementById('sb-windows'))document.getElementById('sb-windows').addEventListener('click',()=>{
   const c=ac();if(c.state==='suspended')c.resume();
-  let t=c.currentTime+.05;
-  [[523.25,.22],[659.25,.22],[783.99,.22],[1046.5,.45]].forEach(n=>{tone(n[0],t,n[1],'sine',.12);t+=n[1]+.04;});
-  sbNote(LANG==='tl'?'Bukas na ang PC!':'PC starting up!');
+  const t0=c.currentTime+.05;
+  [146.83,220,293.66,369.99].forEach((f,i)=>{
+    const o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain();
+    o.type='triangle';o2.type='sine';o.frequency.value=f;o2.frequency.value=f*1.003;
+    g.gain.setValueAtTime(.0001,t0);
+    g.gain.linearRampToValueAtTime(.05,t0+.7+i*.08);
+    g.gain.exponentialRampToValueAtTime(.0001,t0+2.6);
+    o.connect(g);o2.connect(g);g.connect(c.destination);
+    o.start(t0);o2.start(t0);o.stop(t0+2.7);o2.stop(t0+2.7);
+  });
+  let t=t0+.75;
+  [[587.33,.28],[659.25,.28],[739.99,.28],[880,.5]].forEach(n=>{tone(n[0],t,n[1],'triangle',.1);t+=n[1]+.06;});
+  sbNote('Windows startup');
 });
 if(document.getElementById('sb-videoke'))document.getElementById('sb-videoke').addEventListener('click',()=>{
   const c=ac();if(c.state==='suspended')c.resume();
