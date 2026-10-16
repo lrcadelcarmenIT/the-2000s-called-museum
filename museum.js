@@ -1120,17 +1120,36 @@ if(document.getElementById('sb-pager'))document.getElementById('sb-pager').addEv
 if(document.getElementById('sb-windows'))document.getElementById('sb-windows').addEventListener('click',()=>{
   const c=ac();if(c.state==='suspended')c.resume();
   const t0=c.currentTime+.05;
-  [146.83,220,293.66,369.99].forEach((f,i)=>{
-    const o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain();
-    o.type='triangle';o2.type='sine';o.frequency.value=f;o2.frequency.value=f*1.003;
-    g.gain.setValueAtTime(.0001,t0);
-    g.gain.linearRampToValueAtTime(.05,t0+.7+i*.08);
-    g.gain.exponentialRampToValueAtTime(.0001,t0+2.6);
-    o.connect(g);o2.connect(g);g.connect(c.destination);
-    o.start(t0);o2.start(t0);o.stop(t0+2.7);o2.stop(t0+2.7);
+  const dl=c.createDelay(1);dl.delayTime.value=.32;
+  const fb=c.createGain();fb.gain.value=.38;
+  const wet=c.createGain();wet.gain.value=.35;
+  dl.connect(fb);fb.connect(dl);dl.connect(wet);wet.connect(c.destination);
+  const nlen=Math.floor(c.sampleRate*1.2),nbuf=c.createBuffer(1,nlen,c.sampleRate),nd=nbuf.getChannelData(0);
+  for(let i=0;i<nlen;i++)nd[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/nlen);
+  const nsrc=c.createBufferSource();nsrc.buffer=nbuf;
+  const bp=c.createBiquadFilter();bp.type='bandpass';bp.frequency.value=2800;bp.Q.value=.8;
+  const ng=c.createGain();ng.gain.value=.12;
+  nsrc.connect(bp);bp.connect(ng);ng.connect(c.destination);ng.connect(dl);nsrc.start(t0);
+  [146.83,220,293.66,369.99,440].forEach((f,i)=>{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type='sine';o.frequency.value=f*1.002;
+    g.gain.setValueAtTime(.0001,t0+.3);
+    g.gain.linearRampToValueAtTime(.045,t0+1.2+i*.1);
+    g.gain.exponentialRampToValueAtTime(.0001,t0+3.8);
+    o.connect(g);g.connect(c.destination);o.start(t0+.3);o.stop(t0+4);
   });
-  let t=t0+.75;
-  [[587.33,.28],[659.25,.28],[739.99,.28],[880,.5]].forEach(n=>{tone(n[0],t,n[1],'triangle',.1);t+=n[1]+.06;});
+  const pluck=(f,at,dur,vol)=>{
+    const o=c.createOscillator(),g=c.createGain();
+    o.type='triangle';o.frequency.value=f;
+    g.gain.setValueAtTime(.0001,at);
+    g.gain.linearRampToValueAtTime(vol,at+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,at+dur);
+    o.connect(g);g.connect(c.destination);g.connect(dl);
+    o.start(at);o.stop(at+dur+.1);
+  };
+  pluck(659.25,t0+1.1,1.1,.16);
+  pluck(739.99,t0+1.9,.9,.14);
+  pluck(880,t0+2.5,1.4,.16);
   sbNote('Windows startup');
 });
 if(document.getElementById('sb-videoke'))document.getElementById('sb-videoke').addEventListener('click',()=>{
